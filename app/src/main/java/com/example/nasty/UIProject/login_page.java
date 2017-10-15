@@ -103,13 +103,17 @@ public class login_page extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                                if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
                                     Intent login_intent = new Intent(login_page.this, table_handle.class);
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
+                                }
+                                if(task.isSuccessful() && !mAuth.getCurrentUser().isEmailVerified())
+                                {
+                                    Toast.makeText(getApplicationContext(), "PLEASE VERIFY EMAIL...", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -243,10 +247,11 @@ public class login_page extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful())
                         {
+                            Toast.makeText(getApplicationContext(), "PLEASE CHECK YOUR EMAIL'S FOR VERIFICATION", Toast.LENGTH_LONG).show();
                         }
                         else
                         {
-
+                            Toast.makeText(getApplicationContext(),"ERROR SENTING VERIFICATION",Toast.LENGTH_LONG).show();
                         }
                     }
                 });
