@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class login_page extends AppCompatActivity {
@@ -215,6 +216,7 @@ public class login_page extends AppCompatActivity {
                                 if (task.isSuccessful())
                                 {
                                     Toast.makeText(getApplicationContext(),"REGISTER DONE",Toast.LENGTH_SHORT).show();
+                                    sendVerificationEmail();
                                 }
                                 else
                                 {
@@ -230,6 +232,25 @@ public class login_page extends AppCompatActivity {
 
 
     }//....ON CREATE....//
+
+    private void sendVerificationEmail()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                        {
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                });
+    }
 
     private void fadeOutAndHideImage(final View img) {
         Animation fadeOut = new AlphaAnimation(1, 0);
