@@ -2,6 +2,7 @@ package com.example.nasty.UIProject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -39,6 +40,7 @@ public class login_page extends AppCompatActivity {
     ImageView RememberTxt;
     ImageView PasswordTxt;
     ImageView DownTxtBox;
+    ImageView ForgotBigButton;
 
     private FirebaseAuth mAuth;
 
@@ -56,6 +58,7 @@ public class login_page extends AppCompatActivity {
         CreateButt = (ImageButton) findViewById(R.id.CreateButt);
         ForgotButt = (ImageButton) findViewById(R.id.ForgotButt);
         RegisterButt = (ImageButton) findViewById(R.id.RegisterButton);
+        ForgotBigButton = (ImageButton) findViewById(R.id.ForgotBigButton);
 
         DownTxtBox= (ImageView) findViewById(R.id.DownTxtBox);
         PasswordTxt = (ImageView) findViewById(R.id.PasswordTxt);
@@ -124,6 +127,9 @@ public class login_page extends AppCompatActivity {
                 fadeOutAndHideImage(PasswordTxt);
                 fadeOutAndHideImage(DownTxtBox);
                 fadeOutAndHideImage(passTxtBox);
+                fadeOutAndHideImage(RegisterButt);
+                fadeIn(ForgotBigButton);
+                fadeIn(CreateButt);
             }
         });
 
@@ -135,14 +141,15 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fadeOutAndHideImage(CreateButt);
-                fadeOutAndHideImage(ForgotButt);
                 fadeOutAndHideImage(LoginButt);
                 fadeOutAndHideImage(RememberCheckBox);
                 fadeOutAndHideImage(RememberTxt);
                 fadeIn(RegisterButt);
+                fadeIn(ForgotButt);
                 fadeIn(PasswordTxt);
                 fadeIn(DownTxtBox);
                 fadeIn(passTxtBox);
+                fadeOutAndHideImage(ForgotBigButton);
 
             }
         });
@@ -182,7 +189,7 @@ public class login_page extends AppCompatActivity {
     private void fadeOutAndHideImage(final View img) {
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setDuration(500);
+        fadeOut.setDuration(200);
 
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
@@ -202,7 +209,7 @@ public class login_page extends AppCompatActivity {
     private void fadeIn(final View img) {
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeIn.setDuration(500);
+        fadeIn.setDuration(200);
 
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
