@@ -13,6 +13,9 @@ public class order_main_menu extends AppCompatActivity {
     ImageButton chickButt;
     ImageButton carrotButt;
     ImageButton cupButt;
+    ImageButton fishButt;
+    ImageButton pizzaButt;
+    ImageButton wineButt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class order_main_menu extends AppCompatActivity {
         chickButt = (ImageButton) findViewById(R.id.chickenButton);
         carrotButt = (ImageButton) findViewById(R.id.carrotButton);
         cupButt = (ImageButton) findViewById(R.id.cupButton);
+        fishButt = (ImageButton) findViewById(R.id.fishButton);
+        pizzaButt = (ImageButton) findViewById(R.id.pizzaButton);
+        wineButt = (ImageButton) findViewById(R.id.wineButton);
 
         OrderMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +59,30 @@ public class order_main_menu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentCup = new Intent(order_main_menu.this, login_page.class);
                 startActivity(intentCup);
+            }
+        });
+
+        fishButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentFish = new Intent(order_main_menu.this, login_page.class);
+                startActivity(intentFish);
+            }
+        });
+
+        pizzaButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPizza = new Intent(order_main_menu.this, login_page.class);
+                startActivity(intentPizza);
+            }
+        });
+
+        wineButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentWine = new Intent(order_main_menu.this, login_page.class);
+                startActivity(intentWine);
             }
         });
     }
