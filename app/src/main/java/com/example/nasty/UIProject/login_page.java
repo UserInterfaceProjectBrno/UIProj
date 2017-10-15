@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ public class login_page extends AppCompatActivity {
     ImageView PasswordTxt;
     ImageView DownTxtBox;
     ImageView ForgotBigButton;
+    ImageButton BackToLoginButton;
 
     private FirebaseAuth mAuth;
 
@@ -59,6 +61,7 @@ public class login_page extends AppCompatActivity {
         ForgotButt = (ImageButton) findViewById(R.id.ForgotButt);
         RegisterButt = (ImageButton) findViewById(R.id.RegisterButton);
         ForgotBigButton = (ImageButton) findViewById(R.id.ForgotBigButton);
+        BackToLoginButton = (ImageButton) findViewById(R.id.BackToLoginButton);
 
         DownTxtBox= (ImageView) findViewById(R.id.DownTxtBox);
         PasswordTxt = (ImageView) findViewById(R.id.PasswordTxt);
@@ -130,6 +133,7 @@ public class login_page extends AppCompatActivity {
                 fadeOutAndHideImage(RegisterButt);
                 fadeIn(ForgotBigButton);
                 fadeIn(CreateButt);
+                fadeIn(BackToLoginButton);
             }
         });
 
@@ -149,13 +153,34 @@ public class login_page extends AppCompatActivity {
                 fadeIn(PasswordTxt);
                 fadeIn(DownTxtBox);
                 fadeIn(passTxtBox);
+                fadeIn(BackToLoginButton);
                 fadeOutAndHideImage(ForgotBigButton);
 
             }
         });
         ////////////////////////////////////////END CREATE BUTTON/////////////////////////////////////////////////////////////////
 
-        /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
+///////////////////////////////////////END Back BUTTON///////////////////////////////////////////////////////////////
+        BackToLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fadeIn(CreateButt);
+                fadeIn(LoginButt);
+                fadeIn(RememberCheckBox);
+                fadeIn(RememberTxt);
+                fadeOutAndHideImage(RegisterButt);
+                fadeIn(PasswordTxt);
+                fadeIn(DownTxtBox);
+                fadeIn(passTxtBox);
+                fadeIn(ForgotButt);
+                fadeOutAndHideImage(ForgotBigButton);
+                fadeOutAndHideImage(BackToLoginButton);
+            }
+        });
+
+///////////////////////////////////////END Back BUTTON///////////////////////////////////////////////////////////////
+
+    /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
         RegisterButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,7 +214,7 @@ public class login_page extends AppCompatActivity {
     private void fadeOutAndHideImage(final View img) {
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setDuration(200);
+        fadeOut.setDuration(50);
 
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
@@ -209,7 +234,7 @@ public class login_page extends AppCompatActivity {
     private void fadeIn(final View img) {
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeIn.setDuration(200);
+        fadeIn.setDuration(50);
 
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {

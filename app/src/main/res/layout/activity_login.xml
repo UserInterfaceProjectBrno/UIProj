@@ -170,7 +170,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButt"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.97"
         app:srcCompat="@drawable/forgot"
         tools:layout_editor_absoluteY="506dp" />
 
@@ -262,7 +262,28 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.659"
+        app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/register" />
+
+    <ImageButton
+        android:id="@+id/BackToLoginButton"
+        android:layout_width="221dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="435dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:text="Button"
+        android:tint="@android:color/holo_purple"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/backtologin" />
 
 </android.support.constraint.ConstraintLayout>
