@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "788374070664",
+    "firebase_url": "https://itueproject.firebaseio.com",
+    "project_id": "itueproject",
+    "storage_bucket": "itueproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788374070664:android:4e6b562a47129de4",
+        "android_client_info": {
+          "package_name": "com.example.nasty.UIProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788374070664-2ic9e4nevtpkr013jfurgt3c7ifniasp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nasty.UIProject",
+            "certificate_hash": "64aa24470c3217b65d82a776cc4fc46d63c0356b"
+          }
+        },
+        {
+          "client_id": "788374070664-7lorn82huraknvb0le6ranmt70rrhja5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkQeE_B0bF2qj93AYo3U-tvsNuJjAr3Wc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788374070664-7lorn82huraknvb0le6ranmt70rrhja5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
