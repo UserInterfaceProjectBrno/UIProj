@@ -133,20 +133,32 @@ public class login_page extends AppCompatActivity {
                 fadeIn(CreateButt);
                 fadeIn(BackToLoginButton);
 
-                FirebaseAuth.getInstance().sendPasswordResetEmail(userTxt.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(),"RESET EMAIL SENT,PLEASE CHECK YOUR EMAIL'S",Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+                ForgotBigButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        FirebaseAuth.getInstance().sendPasswordResetEmail(userTxt.getText().toString())
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(getApplicationContext(),"RESET EMAIL SENT,PLEASE CHECK YOUR EMAIL'S",Toast.LENGTH_LONG).show();
+                                            BackToLoginButton.callOnClick();
+                                        }
+                                        if(!task.isSuccessful()){
+                                            Toast.makeText(getApplicationContext(),"ERROR RESETING PASSWORD",Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                });
+                    }
+                });
+
             }
         });
-
-
        /////////////////////////////////////////////END FORGOT /////////////////////////////////////////////
+
+
 
         //////////////////////////////////////// CREATE NEW BUTTON /////////////////////////////////////////////////////////////////
         CreateButt.setOnClickListener(new View.OnClickListener() {
