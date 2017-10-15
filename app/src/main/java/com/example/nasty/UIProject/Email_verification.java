@@ -3,11 +3,11 @@ package com.example.nasty.UIProject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Sms_Verification extends AppCompatActivity {
+public class Email_verification extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sms__verification);
+        setContentView(R.layout.activity_email_verification);
     }
 }
