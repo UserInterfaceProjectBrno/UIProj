@@ -37,7 +37,7 @@ public class login_page extends AppCompatActivity {
     EditText passTxtBox;
     CheckBox RememberCheckBox;
     Button OrderButt;
-    ImageButton CreateButt;
+    ImageButton CreateSmallButt;
     ImageButton ForgotButt;
     ImageButton RegisterButt;
     ImageButton LoginButt;
@@ -70,7 +70,7 @@ public class login_page extends AppCompatActivity {
 
         OrderButt = (Button) findViewById(R.id.OrderButt);
         LoginButt = (ImageButton) findViewById(R.id.LoginButt);
-        CreateButt = (ImageButton) findViewById(R.id.CreateButt);
+        CreateSmallButt = (ImageButton) findViewById(R.id.CreateButt);
         ForgotButt = (ImageButton) findViewById(R.id.ForgotButt);
         RegisterButt = (ImageButton) findViewById(R.id.RegisterButton);
         ForgotBigButton = (ImageButton) findViewById(R.id.ForgotBigButton);
@@ -148,9 +148,9 @@ public class login_page extends AppCompatActivity {
                 fadeOutAndHideImage(PasswordTxt);
                 fadeOutAndHideImage(DownTxtBox);
                 fadeOutAndHideImage(passTxtBox);
-                fadeOutAndHideImage(RegisterButt);
+                RegisterButt.setVisibility(View.GONE);
                 fadeIn(ForgotBigButton);
-                fadeIn(CreateButt);
+                fadeOutAndHideImage(CreateSmallButt);
                 fadeIn(BackToLoginButton);
 
                 ForgotBigButton.setOnClickListener(new View.OnClickListener() {
@@ -181,20 +181,20 @@ public class login_page extends AppCompatActivity {
 
 
         //////////////////////////////////////// CREATE NEW BUTTON /////////////////////////////////////////////////////////////////
-        CreateButt.setOnClickListener(new View.OnClickListener() {
+        CreateSmallButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fadeOutAndHideImage(CreateButt);
+                fadeOutAndHideImage(CreateSmallButt);
                 fadeOutAndHideImage(LoginButt);
                 fadeOutAndHideImage(RememberCheckBox);
                 fadeOutAndHideImage(RememberTxt);
                 fadeIn(RegisterButt);
-                fadeIn(ForgotButt);
                 fadeIn(PasswordTxt);
+                fadeOutAndHideImage(ForgotButt);
                 fadeIn(DownTxtBox);
                 fadeIn(passTxtBox);
                 fadeIn(BackToLoginButton);
-                fadeOutAndHideImage(ForgotBigButton);
+                ForgotBigButton.setVisibility(View.GONE);
 
             }
         });
@@ -204,16 +204,16 @@ public class login_page extends AppCompatActivity {
         BackToLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fadeIn(CreateButt);
+                fadeIn(CreateSmallButt);
                 fadeIn(LoginButt);
                 fadeIn(RememberCheckBox);
                 fadeIn(RememberTxt);
-                fadeOutAndHideImage(RegisterButt);
+                RegisterButt.setVisibility(View.GONE);
                 fadeIn(PasswordTxt);
                 fadeIn(DownTxtBox);
                 fadeIn(passTxtBox);
                 fadeIn(ForgotButt);
-                fadeOutAndHideImage(ForgotBigButton);
+                ForgotBigButton.setVisibility(View.GONE);
                 fadeOutAndHideImage(BackToLoginButton);
             }
         });
@@ -263,7 +263,7 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChild(imei))
-                Toast.makeText(getApplicationContext(), "Connected As: DONE", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Connected As:"+dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -313,7 +313,7 @@ public class login_page extends AppCompatActivity {
     private void fadeOutAndHideImage(final View img) {
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setDuration(50);
+        fadeOut.setDuration(500);
 
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
@@ -333,7 +333,7 @@ public class login_page extends AppCompatActivity {
     private void fadeIn(final View img) {
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeIn.setDuration(50);
+        fadeIn.setDuration(400);
 
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
