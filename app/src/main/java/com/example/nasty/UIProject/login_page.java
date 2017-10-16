@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -20,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class login_page extends AppCompatActivity {
@@ -40,6 +43,7 @@ public class login_page extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    TelephonyManager mngr;
 
 
     @Override
@@ -102,6 +106,7 @@ public class login_page extends AppCompatActivity {
                                     Intent login_intent = new Intent(login_page.this, table_handle.class);
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
+                                    soulboundDevice(userTxt.getText().toString(),passTxtBox.getText().toString());
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -231,6 +236,24 @@ public class login_page extends AppCompatActivity {
 
 
     }//....ON CREATE....//
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private void soulboundDevice(String s,String p)
+    {
+        String UserT = s;
+
+        mngr.getDeviceId();
+
+        FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = soulboundDatabase.getReference("SoulBounded");
+
+        myRef.setValue(UserT+"."+mngr);
+
+
+    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void sendVerificationEmail()
     {
