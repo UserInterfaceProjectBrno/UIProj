@@ -1,8 +1,12 @@
 package com.example.nasty.UIProject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -21,12 +25,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class login_page extends AppCompatActivity {
-
     EditText userTxt;
     EditText passTxtBox;
     CheckBox RememberCheckBox;
@@ -41,17 +47,26 @@ public class login_page extends AppCompatActivity {
     ImageView ForgotBigButton;
     ImageButton BackToLoginButton;
 
-    private FirebaseAuth mAuth;
 
+    private FirebaseAuth mAuth;
     TelephonyManager mngr;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         mAuth = FirebaseAuth.getInstance();
+
+            ActivityCompat.requestPermissions(login_page.this,
+                    new String[]{"android.permission.READ_PHONE_STATE"},
+                    1);
+
+        mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+
+        soulboundVerificationAndLogin();
 
         OrderButt = (Button) findViewById(R.id.OrderButt);
         LoginButt = (ImageButton) findViewById(R.id.LoginButt);
@@ -98,7 +113,7 @@ public class login_page extends AppCompatActivity {
                     userTxt.setText("Empty");
                     passTxtBox.setText("Empty");
                 }
-                mAuth.signInWithEmailAndPassword("nastyrakakis@gmail.com", "112233")/*userTxt.getText().toString(), passTxtBox.getText().toString()*/
+                mAuth.signInWithEmailAndPassword(userTxt.getText().toString(), passTxtBox.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -106,7 +121,7 @@ public class login_page extends AppCompatActivity {
                                     Intent login_intent = new Intent(login_page.this, table_handle.class);
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                    soulboundDevice(userTxt.getText().toString(),passTxtBox.getText().toString());
+                                    soulboundDevice("nastyrakakis@gmail.com");
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -232,23 +247,43 @@ public class login_page extends AppCompatActivity {
             }
         });
 ////////////////////////////////////////////////////////////////////////////////
-
-
-
     }//....ON CREATE....//
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void soulboundVerificationAndLogin()
+    {
+        String key = "null";
+        final String imei = mngr.getDeviceId();
+
+        FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+        final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
+
+        SoulRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChild(imei))
+                Toast.makeText(getApplicationContext(), "Connected As: DONE", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void soulboundDevice(String s,String p)
+    private void soulboundDevice(String s)
     {
-        String UserT = s;
-
-        mngr.getDeviceId();
 
         FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = soulboundDatabase.getReference("SoulBounded");
+        DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
 
-        myRef.setValue(UserT+"."+mngr);
+        SoulRef.setValue(s);
 
 
     }
