@@ -121,7 +121,7 @@ public class login_page extends AppCompatActivity {
                                     Intent login_intent = new Intent(login_page.this, table_handle.class);
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                    soulboundDevice("nastyrakakis@gmail.com");
+                                    soulboundDevice(userTxt.getText().toString());
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -253,7 +253,6 @@ public class login_page extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void soulboundVerificationAndLogin()
     {
-        String key = "null";
         final String imei = mngr.getDeviceId();
 
         FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
@@ -262,8 +261,13 @@ public class login_page extends AppCompatActivity {
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(imei))
-                Toast.makeText(getApplicationContext(), "Connected As:"+dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
+                if (dataSnapshot.hasChild(imei)) {
+                    if (dataSnapshot.child(imei).getValue().toString() == "1") {
+                        Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
+                        Intent SoulIntent = new Intent(login_page.this, table_handle.class);
+                        startActivity(SoulIntent);
+                    }
+                }
             }
 
             @Override
@@ -271,7 +275,6 @@ public class login_page extends AppCompatActivity {
 
             }
         });
-
     }
 
 
