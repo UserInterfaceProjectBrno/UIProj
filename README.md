@@ -9,7 +9,8 @@ Created on Android Studio, Using The Google's Firebase Products
 
 All Copyrights Reserved. 
 
-Creators:
-1. Monika Rosa
+Creators(Email/Username):
+
+1. Monika Rosa (monika.rosa7@gmail.com / monikarosa )
 2. Nikolaos Astyrakakis ( nastyrakakis@gmail.com / Nikos445 )
 3. Ahmet Sercan Cetin 
