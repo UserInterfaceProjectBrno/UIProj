@@ -3,7 +3,7 @@ package com.example.nasty.UIProject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ProductActivity extends AppCompatActivity {
+public class product_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -33,7 +33,7 @@ public class order_main_menu extends AppCompatActivity {
         OrderMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(order_main_menu.this, login_page.class);
+                Intent intent = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intent);
             }
         });

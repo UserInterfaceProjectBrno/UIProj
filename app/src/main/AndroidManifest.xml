@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".table_handle" />
         <activity android:name=".order_main_menu" />
-        <activity android:name=".ProductActivity"></activity>
+        <activity android:name=".product_activity"></activity>
     </application>
 
 </manifest>
