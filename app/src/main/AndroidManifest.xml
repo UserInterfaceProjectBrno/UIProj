@@ -26,10 +26,6 @@
         </activity>
         <activity android:name=".table_handle" />
         <activity android:name=".order_main_menu" />
-        <activity
-            android:name=".ProductsFood"
-            android:label="@string/title_activity_products_food"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
