@@ -57,7 +57,8 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button13"
@@ -74,7 +75,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button12"
@@ -91,7 +93,8 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button11"
@@ -108,7 +111,8 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button10"
@@ -125,7 +129,8 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button9"
@@ -142,7 +147,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button8"
@@ -159,7 +165,8 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button7"
@@ -176,7 +183,8 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button6"
@@ -193,7 +201,8 @@
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="invisible" />
 
         </LinearLayout>
     </ScrollView>
