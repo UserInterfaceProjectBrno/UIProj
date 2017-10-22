@@ -18,20 +18,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14999998"
+        app:layout_constraintVertical_bias="0.100000024"
         app:srcCompat="@drawable/title"
         android:layout_marginEnd="8dp" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="300dp"
+        android:layout_width="270dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="40dp"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ProductTittleImg">
@@ -45,7 +45,7 @@
             <Button
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -60,10 +60,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button13"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -78,10 +85,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button12"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -96,10 +110,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button11"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -114,10 +135,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button10"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -132,10 +160,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button9"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -150,10 +185,17 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <Button
                 android:id="@+id/button8"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
+                android:layout_height="67dp"
                 android:background="@drawable/rectangle"
                 android:text="Button"
                 android:textAlignment="center"
@@ -168,37 +210,36 @@
                 android:text="TextView"
                 android:visibility="invisible" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="91dp"
-                android:background="@drawable/rectangle"
-                android:text="Button"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="36sp"
-                android:textStyle="bold" />
-
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:visibility="invisible" />
 
-            <Button
-                android:id="@+id/button6"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="match_parent"
-                android:layout_height="91dp"
-                android:background="@drawable/rectangle"
-                android:text="Button"
-                android:textAlignment="center"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="36sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -211,17 +252,17 @@
         android:id="@+id/ArrowUp"
         android:layout_width="46dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="35dp"
-        app:layout_constraintLeft_toRightOf="@+id/scrollView2"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProductTittleImg"
         app:srcCompat="@drawable/arrowup"
-        app:layout_constraintHorizontal_bias="0.8"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.228" />
 
     <ImageView
         android:id="@+id/ArrowDown"
@@ -235,6 +276,7 @@
         app:layout_constraintLeft_toRightOf="@+id/scrollView2"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ArrowUp"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/arrowdown" />
+        app:layout_constraintVertical_bias="0.974"
+        app:srcCompat="@drawable/arrowdown"
+        app:layout_constraintHorizontal_bias="0.739" />
 </android.support.constraint.ConstraintLayout>
