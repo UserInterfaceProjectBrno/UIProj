@@ -16,6 +16,7 @@ public class table_handle extends AppCompatActivity {
     ImageButton AddPersonBtn;
     ImageButton DeletePersonBtn;
     TextView NumberOfPeople;
+    int number = 1;
 
 
 
@@ -26,31 +27,32 @@ public class table_handle extends AppCompatActivity {
         setContentView(R.layout.activity_table_handle);
 
         CheckForTableButt = (Button) findViewById(R.id.CheckForTableButton);
-
+        NumberOfPeople = (TextView) findViewById(R.id.PersNum);
         AddPersonBtn = (ImageButton) findViewById(R.id.AddPersonBtn);
         DeletePersonBtn = (ImageButton) findViewById(R.id.DeletePersonBtn);
+
 
 
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(table_handle.this, order_main_menu.class);
                 startActivity(intent);
             }
         });
-
         AddPersonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               int number = Integer.getInteger(NumberOfPeople.getText().toString());
-               NumberOfPeople.setText(number++);
+                number++;
+                NumberOfPeople.setText(String.valueOf(number));
             }
         });
         DeletePersonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int number = Integer.getInteger(NumberOfPeople.getText().toString());
-                NumberOfPeople.setText(number++);
+                number--;
+                NumberOfPeople.setText(String.valueOf(number));
             }
         });
 
