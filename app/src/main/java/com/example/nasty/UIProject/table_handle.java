@@ -8,13 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class table_handle extends AppCompatActivity {
 
     Button CheckForTableButt;
     ImageButton AddPersonBtn;
     ImageButton DeletePersonBtn;
-    EditText NumberOfPeople;
+    TextView NumberOfPeople;
+
 
 
 
@@ -25,6 +27,9 @@ public class table_handle extends AppCompatActivity {
 
         CheckForTableButt = (Button) findViewById(R.id.CheckForTableButton);
 
+        AddPersonBtn = (ImageButton) findViewById(R.id.AddPersonBtn);
+        DeletePersonBtn = (ImageButton) findViewById(R.id.DeletePersonBtn);
+
 
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,32 +39,22 @@ public class table_handle extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    int number;
-
-    public void clickedBtn(View view) {
-            number= Integer.valueOf(NumberOfPeople.getText().toString());
-            switch (view.getId())
-            {
-                case R.id.AddPersonBtn:
-                    number++;
-                    NumberOfPeople.setText(number);
-                    break;
-                case R.id.DeletePersonBtn:
-                    if(number >=1 ){
-                        number--;
-                        NumberOfPeople.setText(number);
-                    }
-                    break;
+        AddPersonBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               int number = Integer.getInteger(NumberOfPeople.getText().toString());
+               NumberOfPeople.setText(number++);
             }
-        }
+        });
+        DeletePersonBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int number = Integer.getInteger(NumberOfPeople.getText().toString());
+                NumberOfPeople.setText(number++);
+            }
+        });
 
 
-    public void clickedCheck(View view) {
-        //Integer.valueOf(NumberOfPeople.getText().toString());
-        // to be continued
     }
 }
 
