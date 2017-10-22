@@ -33,7 +33,7 @@ public class order_main_menu extends AppCompatActivity {
         OrderMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(order_main_menu.this, product_activity.class);
+                Intent intent = new Intent(order_main_menu.this, login_page.class);
                 startActivity(intent);
             }
         });
@@ -41,7 +41,7 @@ public class order_main_menu extends AppCompatActivity {
         chickButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentChick= new Intent(order_main_menu.this, login_page.class);
+                Intent intentChick= new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentChick);
             }
         });
@@ -49,7 +49,7 @@ public class order_main_menu extends AppCompatActivity {
         carrotButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentCarrot = new Intent(order_main_menu.this, login_page.class);
+                Intent intentCarrot = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentCarrot);
             }
         });
@@ -57,7 +57,7 @@ public class order_main_menu extends AppCompatActivity {
         cupButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentCup = new Intent(order_main_menu.this, login_page.class);
+                Intent intentCup = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentCup);
             }
         });
@@ -65,7 +65,7 @@ public class order_main_menu extends AppCompatActivity {
         fishButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentFish = new Intent(order_main_menu.this, login_page.class);
+                Intent intentFish = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentFish);
             }
         });
@@ -73,7 +73,7 @@ public class order_main_menu extends AppCompatActivity {
         pizzaButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPizza = new Intent(order_main_menu.this, login_page.class);
+                Intent intentPizza = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentPizza);
             }
         });
@@ -81,7 +81,7 @@ public class order_main_menu extends AppCompatActivity {
         wineButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentWine = new Intent(order_main_menu.this, login_page.class);
+                Intent intentWine = new Intent(order_main_menu.this, product_activity.class);
                 startActivity(intentWine);
             }
         });
