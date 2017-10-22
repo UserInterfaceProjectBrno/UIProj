@@ -51,6 +51,7 @@ public class table_handle extends AppCompatActivity {
         DeletePersonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(number==1)
                 number--;
                 NumberOfPeople.setText(String.valueOf(number));
             }
