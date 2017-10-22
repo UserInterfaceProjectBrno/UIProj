@@ -17,7 +17,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/CheckForTableButton" />
+        app:layout_constraintTop_toBottomOf="@+id/CheckForTableButton"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/TitleImgTable"
@@ -42,7 +43,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.634"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <ImageView
         android:id="@+id/PersonImg"
@@ -57,14 +59,15 @@
         app:layout_constraintHorizontal_bias="0.501"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
 
     <ImageButton
         android:id="@+id/AddPersonBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="71dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -73,7 +76,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus"
-        app:layout_constraintVertical_bias="0.568"
+        app:layout_constraintVertical_bias="0.485"
         android:contentDescription="" />
 
     <ImageButton
@@ -81,7 +84,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="78dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -89,7 +92,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/CopyRightTable"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578"
+        app:layout_constraintVertical_bias="0.492"
         app:srcCompat="@drawable/x"
         android:contentDescription="" />
 
@@ -109,6 +112,17 @@
         app:layout_constraintRight_toLeftOf="@+id/AddPersonBtn"
         app:layout_constraintTop_toBottomOf="@+id/PersonImg"
         app:layout_constraintVertical_bias="0.255" />
+
+    <ImageButton
+        android:id="@+id/Logout_tableHand"
+        android:layout_width="140dp"
+        android:layout_height="42dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/logout"
+        tools:layout_editor_absoluteY="490dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -121,7 +121,8 @@ public class login_page extends AppCompatActivity {
                                     Intent login_intent = new Intent(login_page.this, table_handle.class);
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                    soulboundDevice(userTxt.getText().toString());
+
+                                    soulboundDevice(RememberCheckBox.isChecked());
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -262,11 +263,11 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(imei)) {
-                    if (dataSnapshot.child(imei).getValue().toString() == "1" || true) {
+
                         Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
                         Intent SoulIntent = new Intent(login_page.this, table_handle.class);
                         startActivity(SoulIntent);
-                    }
+
                 }
             }
 
@@ -280,13 +281,18 @@ public class login_page extends AppCompatActivity {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void soulboundDevice(String s)
+    private void soulboundDevice(boolean checked)
     {
-
-        FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
-
-        SoulRef.setValue(s);
+        if(checked)
+        {
+            FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+            DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
+            SoulRef.setValue(mngr.getDeviceId());
+        }
+        else
+        {
+            Intent SoulInt = new Intent(login_page.this,table_handle.class);
+        }
 
 
     }
