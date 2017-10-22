@@ -68,33 +68,13 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:onClick="clickedBtn"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/NumberOfPeople"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/plus"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintVertical_bias="0.568"
         android:contentDescription="" />
-
-    <EditText
-        android:id="@+id/NumberOfPeople"
-        android:layout_width="87dp"
-        android:layout_height="38dp"
-        android:ems="10"
-        android:inputType="number"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/CopyRightTable"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintVertical_bias="0.564" />
 
     <ImageButton
         android:id="@+id/DeletePersonBtn"
@@ -105,16 +85,30 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:onClick="clickedBtn"
+
         app:layout_constraintBottom_toBottomOf="@+id/CopyRightTable"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/NumberOfPeople"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.578"
         app:srcCompat="@drawable/x"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.506"
         android:contentDescription="" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
+        app:layout_constraintLeft_toRightOf="@+id/DeletePersonBtn"
+        app:layout_constraintRight_toLeftOf="@+id/AddPersonBtn"
+        app:layout_constraintTop_toBottomOf="@+id/PersonImg"
+        app:layout_constraintVertical_bias="0.255" />
 
 
 </android.support.constraint.ConstraintLayout>
