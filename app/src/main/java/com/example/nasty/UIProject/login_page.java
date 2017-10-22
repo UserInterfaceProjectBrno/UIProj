@@ -262,7 +262,7 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(imei)) {
-                    if (dataSnapshot.child(imei).getValue().toString() == "1") {
+                    if (dataSnapshot.child(imei).getValue().toString() == "1" || true) {
                         Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
                         Intent SoulIntent = new Intent(login_page.this, table_handle.class);
                         startActivity(SoulIntent);
