@@ -123,7 +123,7 @@ public class login_page extends AppCompatActivity {
                                     startActivity(login_intent);
                                     Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
 
-                                    soulboundDevice(RememberCheckBox.isChecked());
+                                    soulboundDevice(RememberCheckBox.isChecked(),userTxt.getText().toString());
                                 }
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -282,13 +282,13 @@ public class login_page extends AppCompatActivity {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void soulboundDevice(boolean checked)
+    private void soulboundDevice(boolean checked,String s)
     {
         if(checked)
         {
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
-            SoulRef.setValue(mngr.getDeviceId());
+            SoulRef.setValue(s);
         }
         else
         {
