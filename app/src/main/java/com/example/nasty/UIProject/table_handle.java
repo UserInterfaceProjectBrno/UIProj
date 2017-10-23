@@ -28,6 +28,7 @@ public class table_handle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_handle);
+
         //////////////////////////////////IMEI PERMISSION///////////////////////////////////////////
         ActivityCompat.requestPermissions(table_handle.this,
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -35,6 +36,7 @@ public class table_handle extends AppCompatActivity {
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
         ////////////////////////////////////////////////////////////////////////////////////////////
+
         CheckForTableButt = (Button) findViewById(R.id.CheckForTableButton);
         NumberOfPeople = (TextView) findViewById(R.id.PersNum);
         AddPersonBtn = (ImageButton) findViewById(R.id.AddPersonBtn);
