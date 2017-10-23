@@ -60,6 +60,7 @@ public class login_page extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
             ActivityCompat.requestPermissions(login_page.this,
                     new String[]{"android.permission.READ_PHONE_STATE"},
                     1);
@@ -292,6 +293,7 @@ public class login_page extends AppCompatActivity {
         else
         {
             Intent SoulInt = new Intent(login_page.this,table_handle.class);
+            startActivity(SoulInt);
         }
 
 
