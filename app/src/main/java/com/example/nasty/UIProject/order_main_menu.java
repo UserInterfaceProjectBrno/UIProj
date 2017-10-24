@@ -63,7 +63,7 @@ public class order_main_menu extends AppCompatActivity {
                 for(int i=1;i<=Children; i++)
                 { //RESETING DATABASE!!   !!!! TABLES START FROM 1 !!!!
                     TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("No");
-                    TableRef.child(Integer.toString(i)).child("Reserved").child("Name").setValue("None");
+                    TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue("None");
                 }
             }
         });

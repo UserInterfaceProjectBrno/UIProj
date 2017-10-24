@@ -92,7 +92,7 @@ public class table_handle extends AppCompatActivity {
                     {
                             YourTable[0] = i;
                             TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
-                            TableRef.child(Integer.toString(i)).child("Reserved").child("Name").setValue(imei);
+                            TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
                             Toast.makeText(getApplicationContext(), "Your Table is Number: "+ YourTable[0], Toast.LENGTH_LONG).show();
                             Intent CheckGo = new Intent(table_handle.this,order_main_menu.class);
                             startActivity(CheckGo);
