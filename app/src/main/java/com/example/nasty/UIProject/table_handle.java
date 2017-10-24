@@ -82,6 +82,7 @@ public class table_handle extends AppCompatActivity {
                 for (int i = 1; i < 3;i++)
                 {
                     Toast.makeText( getApplicationContext() , table[i][1] , Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getApplicationContext() , table[i][2] , Toast.LENGTH_SHORT ).show();
                 }
             }
         });
