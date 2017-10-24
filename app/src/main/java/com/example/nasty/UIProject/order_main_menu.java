@@ -2,6 +2,7 @@ package com.example.nasty.UIProject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,7 @@ public class order_main_menu extends AppCompatActivity {
 
         final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
         final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
+
         TableRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -58,8 +60,11 @@ public class order_main_menu extends AppCompatActivity {
         Database_Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(int i=0;i<Children; i++)
+                for(int i=1;i<=Children; i++)
+                { //RESETING DATABASE!!   !!!! TABLES START FROM 1 !!!!
                     TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("No");
+                    TableRef.child(Integer.toString(i)).child("Reserved").child("Name").setValue("None");
+                }
             }
         });
 
