@@ -2,7 +2,6 @@ package com.example.nasty.UIProject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -79,7 +78,7 @@ public class order_main_menu extends AppCompatActivity {
         chickButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentChick= new Intent(order_main_menu.this, product_activity.class);
+                Intent intentChick= new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentChick);
             }
         });
@@ -87,7 +86,7 @@ public class order_main_menu extends AppCompatActivity {
         carrotButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentCarrot = new Intent(order_main_menu.this, product_activity.class);
+                Intent intentCarrot = new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentCarrot);
             }
         });
@@ -95,7 +94,7 @@ public class order_main_menu extends AppCompatActivity {
         cupButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentCup = new Intent(order_main_menu.this, product_activity.class);
+                Intent intentCup = new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentCup);
             }
         });
@@ -103,7 +102,7 @@ public class order_main_menu extends AppCompatActivity {
         fishButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentFish = new Intent(order_main_menu.this, product_activity.class);
+                Intent intentFish = new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentFish);
             }
         });
@@ -111,7 +110,7 @@ public class order_main_menu extends AppCompatActivity {
         pizzaButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPizza = new Intent(order_main_menu.this, product_activity.class);
+                Intent intentPizza = new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentPizza);
             }
         });
@@ -119,7 +118,7 @@ public class order_main_menu extends AppCompatActivity {
         wineButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentWine = new Intent(order_main_menu.this, product_activity.class);
+                Intent intentWine = new Intent(order_main_menu.this, product_coffee.class);
                 startActivity(intentWine);
             }
         });
