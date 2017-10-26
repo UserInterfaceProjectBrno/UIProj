@@ -32,6 +32,7 @@
         <activity android:name=".pizza_page" />
         <activity android:name=".salad_page" />
         <activity android:name=".meal_page" />
+        <activity android:name=".payment_page"></activity>
     </application>
 
 </manifest>
