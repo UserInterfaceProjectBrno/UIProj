@@ -29,7 +29,8 @@
         <activity android:name=".product_coffee" />
         <activity android:name=".other_drinks" />
         <activity android:name=".fish_page" />
-        <activity android:name=".pizza_page"></activity>
+        <activity android:name=".pizza_page" />
+        <activity android:name=".salad_page"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context="com.example.nasty.UIProject.pizza_page">
+    tools:context="com.example.nasty.UIProject.salad_page">
 
     <ImageView
         android:id="@+id/ProductTittleImg"
@@ -26,7 +26,7 @@
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.35"
-        android:text="Pizzas"
+        android:text="Salads"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="36sp"
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:background="@drawable/rectangle"
-                android:text="Margarita            (only Cheese)"
+                android:text="Green Salad"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@android:color/holo_blue_bright"
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:background="@drawable/rectangle"
-                android:text="Special-BBQ"
+                android:text="Chicken Salad"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@android:color/holo_red_light"
@@ -116,10 +116,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:background="@drawable/rectangle"
-                android:text="4 Cheese"
+                android:text="Spicy Carrot Salad"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_purple"
-                android:textSize="36sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:background="@drawable/rectangle"
-                android:text="Chicken - Cheese"
+                android:text="Cesar's Salad"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="28sp"
