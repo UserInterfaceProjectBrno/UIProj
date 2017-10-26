@@ -73,7 +73,7 @@
 
     <ImageButton
         android:id="@+id/chickenButton"
-        android:layout_width="90dp"
+        android:layout_width="105dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -88,7 +88,7 @@
 
     <ImageButton
         android:id="@+id/carrotButton"
-        android:layout_width="90dp"
+        android:layout_width="105dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -118,7 +118,7 @@
 
     <ImageButton
         android:id="@+id/fishButton"
-        android:layout_width="90dp"
+        android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
@@ -133,7 +133,7 @@
 
     <ImageButton
         android:id="@+id/pizzaButton"
-        android:layout_width="90dp"
+        android:layout_width="95dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
