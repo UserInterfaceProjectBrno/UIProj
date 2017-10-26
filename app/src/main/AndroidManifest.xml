@@ -31,7 +31,7 @@
         <activity android:name=".fish_page" />
         <activity android:name=".pizza_page" />
         <activity android:name=".salad_page" />
-        <activity android:name=".meat_page"></activity>
+        <activity android:name=".meal_page"></activity>
     </application>
 
 </manifest>

@@ -17,12 +17,12 @@ public class order_main_menu extends AppCompatActivity {
 
     Button OrderMenuButton;
     Button Database_Reset;
-    ImageButton chickButt;
-    ImageButton carrotButt;
-    ImageButton cupButt;
-    ImageButton fishButt;
-    ImageButton pizzaButt;
-    ImageButton wineButt;
+    ImageButton MealButt;
+    ImageButton SaladButt;
+    ImageButton CoffeeButt;
+    ImageButton FishButt;
+    ImageButton PizzaButt;
+    ImageButton OtherDrinksButt;
 
     int Children = 0;
 
@@ -48,12 +48,12 @@ public class order_main_menu extends AppCompatActivity {
 
 
         OrderMenuButton = (Button) findViewById(R.id.OrderMenuButton);
-        chickButt = (ImageButton) findViewById(R.id.chickenButton);
-        carrotButt = (ImageButton) findViewById(R.id.carrotButton);
-        cupButt = (ImageButton) findViewById(R.id.cupButton);
-        fishButt = (ImageButton) findViewById(R.id.fishButton);
-        pizzaButt = (ImageButton) findViewById(R.id.pizzaButton);
-        wineButt = (ImageButton) findViewById(R.id.wineButton);
+        MealButt = (ImageButton) findViewById(R.id.MealButt);
+        SaladButt = (ImageButton) findViewById(R.id.SaladButton);
+        CoffeeButt = (ImageButton) findViewById(R.id.CoffeeButton);
+        FishButt = (ImageButton) findViewById(R.id.FishButton);
+        PizzaButt = (ImageButton) findViewById(R.id.PizzaButton);
+        OtherDrinksButt = (ImageButton) findViewById(R.id.OtherDrinkButton);
         Database_Reset = (Button) findViewById(R.id.Database_Reset);
 
         Database_Reset.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        chickButt.setOnClickListener(new View.OnClickListener() {
+        MealButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentChick= new Intent(order_main_menu.this, product_coffee.class);
@@ -83,7 +83,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        carrotButt.setOnClickListener(new View.OnClickListener() {
+        SaladButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentCarrot = new Intent(order_main_menu.this, product_coffee.class);
@@ -91,7 +91,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        cupButt.setOnClickListener(new View.OnClickListener() {
+        CoffeeButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentCup = new Intent(order_main_menu.this, product_coffee.class);
@@ -99,7 +99,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        fishButt.setOnClickListener(new View.OnClickListener() {
+        FishButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentFish = new Intent(order_main_menu.this, product_coffee.class);
@@ -107,7 +107,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        pizzaButt.setOnClickListener(new View.OnClickListener() {
+        PizzaButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentPizza = new Intent(order_main_menu.this, product_coffee.class);
@@ -115,7 +115,7 @@ public class order_main_menu extends AppCompatActivity {
             }
         });
 
-        wineButt.setOnClickListener(new View.OnClickListener() {
+        OtherDrinksButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentWine = new Intent(order_main_menu.this, product_coffee.class);

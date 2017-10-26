@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.461" />
 
     <ImageButton
-        android:id="@+id/chickenButton"
+        android:id="@+id/MealButt"
         android:layout_width="105dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -87,22 +87,22 @@
         app:srcCompat="@drawable/chicken" />
 
     <ImageButton
-        android:id="@+id/carrotButton"
-        android:layout_width="105dp"
-        android:layout_height="80dp"
+        android:id="@+id/SaladButton"
+        android:layout_width="95dp"
+        android:layout_height="90dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:tint="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        app:srcCompat="@drawable/carrot" />
+        app:layout_constraintVertical_bias="0.612"
+        app:srcCompat="@drawable/salad" />
 
     <ImageButton
-        android:id="@+id/cupButton"
+        android:id="@+id/CoffeeButton"
         android:layout_width="90dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -117,7 +117,7 @@
         app:srcCompat="@drawable/cup" />
 
     <ImageButton
-        android:id="@+id/fishButton"
+        android:id="@+id/FishButton"
         android:layout_width="100dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -132,7 +132,7 @@
         app:srcCompat="@drawable/fish" />
 
     <ImageButton
-        android:id="@+id/pizzaButton"
+        android:id="@+id/PizzaButton"
         android:layout_width="95dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -147,7 +147,7 @@
         app:srcCompat="@drawable/pizza" />
 
     <ImageButton
-        android:id="@+id/wineButton"
+        android:id="@+id/OtherDrinkButton"
         android:layout_width="90dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
