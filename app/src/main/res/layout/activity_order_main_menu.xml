@@ -73,47 +73,47 @@
 
     <ImageButton
         android:id="@+id/MealButt"
-        android:layout_width="105dp"
-        android:layout_height="80dp"
+        android:layout_width="107dp"
+        android:layout_height="107dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:tint="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002"
-        app:srcCompat="@drawable/chicken" />
+        app:layout_constraintVertical_bias="0.354"
+        app:srcCompat="@drawable/meal" />
 
     <ImageButton
         android:id="@+id/SaladButton"
-        android:layout_width="95dp"
-        android:layout_height="90dp"
+        android:layout_width="100dp"
+        android:layout_height="95dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:tint="@android:color/holo_orange_dark"
+        android:tint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612"
+        app:layout_constraintVertical_bias="0.608"
         app:srcCompat="@drawable/salad" />
 
     <ImageButton
         android:id="@+id/CoffeeButton"
-        android:layout_width="90dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:tint="?android:attr/textColorHighlight"
+        android:tint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.603"
         app:srcCompat="@drawable/cup" />
 
     <ImageButton
@@ -124,41 +124,41 @@
         android:scaleType="fitXY"
         android:tint="@android:color/holo_blue_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338"
+        app:layout_constraintVertical_bias="0.357"
         app:srcCompat="@drawable/fish" />
 
     <ImageButton
         android:id="@+id/PizzaButton"
-        android:layout_width="95dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:tint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.867"
         app:srcCompat="@drawable/pizza" />
 
     <ImageButton
         android:id="@+id/OtherDrinkButton"
-        android:layout_width="90dp"
-        android:layout_height="80dp"
+        android:layout_width="105dp"
+        android:layout_height="95dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
-        android:tint="?android:attr/textColorHighlight"
+        android:tint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.886"
         app:srcCompat="@drawable/wine" />
 
 </android.support.constraint.ConstraintLayout>
