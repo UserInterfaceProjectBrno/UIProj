@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_order) {
+        if (id == R.id.nav_table) {
             fragmentManager.beginTransaction().replace(R.id.content_frame
-                    , new Order_Fragment())
+                    , new Table_Fragment())
                     .commit();
         }
 

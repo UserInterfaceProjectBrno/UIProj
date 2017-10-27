@@ -5,7 +5,11 @@
         <item
             android:id="@+id/nav_order"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Order" />
+            android:title="Order History" />
+        <item
+            android:id="@+id/nav_table"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Table Reserved" />
     </group>
 
 
