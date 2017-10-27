@@ -2,11 +2,11 @@ package com.example.nasty.UIProject;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -31,10 +31,8 @@ public class Main2Activity extends AppCompatActivity {
     EditText userTxt;
     EditText passTxt;
     Button loginButt;
-
-
-    private FirebaseAuth mAuth;
     TelephonyManager mngr;
+    private FirebaseAuth mAuth;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -219,9 +217,7 @@ public class Main2Activity extends AppCompatActivity {
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
             SoulRef.setValue(s);
-        }
-        else
-        {
+        } else {
 
         }
     }
@@ -236,11 +232,11 @@ public class Main2Activity extends AppCompatActivity {
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild(imei))
-                {
+                if (dataSnapshot.hasChild(imei)) {
                     Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
