@@ -37,10 +37,10 @@ public class login_page extends AppCompatActivity {
     EditText passTxtBox;
     CheckBox RememberCheckBox;
     Button OrderButt;
-    ImageButton CreateSmallButt;
-    ImageButton ForgotButt;
+    Button CreateSmallButt;
+    Button ForgotButt;
     ImageButton RegisterButt;
-    ImageButton LoginButt;
+    Button LoginButt;
     ImageView RememberTxt;
     ImageView PasswordTxt;
     ImageView DownTxtBox;
@@ -70,14 +70,13 @@ public class login_page extends AppCompatActivity {
         soulboundVerificationAndLogin();
 
         OrderButt = (Button) findViewById(R.id.OrderButt);
-        LoginButt = (ImageButton) findViewById(R.id.LoginButt);
-        CreateSmallButt = (ImageButton) findViewById(R.id.CreateButt);
-        ForgotButt = (ImageButton) findViewById(R.id.ForgotButt);
+        LoginButt = (Button) findViewById(R.id.LoginButt);
+        CreateSmallButt = (Button) findViewById(R.id.CreateButt);
+        ForgotButt = (Button) findViewById(R.id.ForgetButt);
         RegisterButt = (ImageButton) findViewById(R.id.RegisterButton);
         ForgotBigButton = (ImageButton) findViewById(R.id.ForgotBigButton);
         BackToLoginButton = (ImageButton) findViewById(R.id.BackToLoginButton);
 
-        DownTxtBox= (ImageView) findViewById(R.id.DownTxtBox);
         PasswordTxt = (ImageView) findViewById(R.id.PasswordTxt);
         userTxt = (EditText) findViewById(R.id.UsernameTxtBox);
         passTxtBox = (EditText) findViewById(R.id.PasswordTxtBox);
