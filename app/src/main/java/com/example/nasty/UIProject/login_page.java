@@ -1,6 +1,7 @@
 package com.example.nasty.UIProject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Main2Activity extends AppCompatActivity {
+public class login_page extends AppCompatActivity {
 
     EditText userTxt;
     EditText passTxt;
@@ -38,6 +40,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -45,7 +48,7 @@ public class Main2Activity extends AppCompatActivity {
         userTxt = (EditText) findViewById(R.id.UserTxtInput);
         passTxt = (EditText) findViewById(R.id.PassTxtInput);
 
-        ActivityCompat.requestPermissions(Main2Activity.this,
+        ActivityCompat.requestPermissions(login_page.this,
                 new String[]{"android.permission.READ_PHONE_STATE"},
                 1);
 
@@ -59,7 +62,7 @@ public class Main2Activity extends AppCompatActivity {
 
         ////////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
 
-           /* loginButt.setOnClickListener(new View.OnClickListener() {
+            loginButt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (userTxt.getText().toString().isEmpty() || passTxt.getText().toString().isEmpty()) {
@@ -86,15 +89,15 @@ public class Main2Activity extends AppCompatActivity {
                                 }
                             });
                 }
-            });*/
+            });
         ////////////////////////////////////////////////END LOGIN BUTTON  ////////////////////////////////////////////////////////////////////
-          /*  passTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+           passTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
 
                 public void onFocusChange(View v, boolean hasFocus) {
                     passTxt.setText("");
                 }
-            });*/
+            });
 /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
         /*RegisterButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,8 +220,10 @@ public class Main2Activity extends AppCompatActivity {
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
             SoulRef.setValue(s);
-        } else {
-
+        } else
+        {
+            Intent GoMain = new Intent(login_page.this,MainActivity.class);
+            startActivity(GoMain);
         }
     }
 
@@ -234,6 +239,8 @@ public class Main2Activity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(imei)) {
                     Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
+                    Intent GoMain = new Intent(login_page.this,MainActivity.class);
+                    startActivity(GoMain);
                 }
             }
 
