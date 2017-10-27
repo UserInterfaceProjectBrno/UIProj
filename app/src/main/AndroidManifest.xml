@@ -17,24 +17,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login_page">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".table_handle" />
-        <activity android:name=".order_main_menu" />
-        <activity android:name=".product_coffee" />
-        <activity android:name=".other_drinks" />
-        <activity android:name=".fish_page" />
-        <activity android:name=".pizza_page" />
-        <activity android:name=".salad_page" />
-        <activity android:name=".meal_page" />
-        <activity android:name=".payment_page" />
-        <activity android:name=".order_done_page" />
-        
     </application>
 
 </manifest>
