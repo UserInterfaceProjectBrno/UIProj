@@ -79,6 +79,16 @@ public class MainActivity extends AppCompatActivity
                     , new Table_Fragment())
                     .commit();
         }
+        else if (id == R.id.nav_order) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame
+                    , new Order_Fragment())
+                    .commit();
+        }
+        else if (id == R.id.nav_fish) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame
+                    , new Fish_Fragment())
+                    .commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -10,6 +10,10 @@
             android:id="@+id/nav_table"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Table Reserved" />
+        <item
+            android:id="@+id/nav_fish"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Fish" />
     </group>
 
 
