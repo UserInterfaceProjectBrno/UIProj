@@ -12,11 +12,13 @@
 
         <Button
             android:id="@+id/CheckForTableButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/ButtonColor"
             android:text="Check For Table"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_green_light"
+            android:textAllCaps="false"
+            android:textColor="@color/TittleColor"
             android:textSize="20sp"
             android:textStyle="bold|italic"
             android:visibility="gone"
@@ -24,19 +26,24 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.7" />
+            app:layout_constraintVertical_bias="0.73"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <ImageView
             android:id="@+id/PersonImg"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/person" />
+            app:layout_constraintVertical_bias="0.241"
+            app:srcCompat="@drawable/person"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <ImageButton
             android:id="@+id/AddPersonBtn"
@@ -47,10 +54,12 @@
             android:contentDescription=""
             android:scaleType="fitXY"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
-            app:layout_constraintLeft_toRightOf="@+id/PersNum"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ReserveTablebtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
             app:srcCompat="@drawable/plus" />
 
         <ImageButton
@@ -62,11 +71,12 @@
             android:contentDescription=""
             android:scaleType="fitXY"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/PersNum"
-            app:layout_constraintTop_toTopOf="@+id/ReserveTablebtn"
-            app:layout_constraintVertical_bias="0.446"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
             app:srcCompat="@drawable/x" />
 
         <TextView
@@ -74,61 +84,86 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="1"
+            android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="36sp"
+            android:textSize="40sp"
+            android:textStyle="bold"
             android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/CheckForTableButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ReserveTablebtn" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <ImageButton
             android:id="@+id/Logout_tableHand"
-            android:layout_width="140dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.984"
-            app:srcCompat="@drawable/logout"
-            android:layout_marginStart="16dp" />
+            app:srcCompat="@drawable/logout" />
 
         <Button
             android:id="@+id/TakeAwaybtn"
-            android:layout_width="275dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:background="@color/ButtonColor2"
             android:text="TAKE AWAY"
             android:textColor="@android:color/white"
             android:textSize="36sp"
             android:visibility="visible"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintHorizontal_bias="0.0" />
+            app:layout_constraintVertical_bias="0.351"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
 
         <Button
             android:id="@+id/ReserveTablebtn"
-            android:layout_width="275dp"
+            android:layout_width="250dp"
             android:layout_height="100dp"
             android:background="@color/ButtonColor"
             android:text="RESERVE TABLE"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:visibility="visible"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6" />
+            app:layout_constraintVertical_bias="0.599"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
+
+        <TextView
+            android:id="@+id/TableNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="You Have Reserved Table Number:"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.39999998" />
 
 
     </android.support.constraint.ConstraintLayout>
