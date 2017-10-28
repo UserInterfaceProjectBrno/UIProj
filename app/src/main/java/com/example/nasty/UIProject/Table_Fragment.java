@@ -77,7 +77,7 @@ public class Table_Fragment extends Fragment {
         NumberOfPeople = (TextView) Mview.findViewById(R.id.PersNum);
         AddPersonBtn = (ImageButton) Mview.findViewById(R.id.AddPersonBtn);
         DeletePersonBtn = (ImageButton) Mview.findViewById(R.id.DeletePersonBtn);
-        Logout_butt = (ImageButton) Mview.findViewById(R.id.Logout_tableHand);
+
         PersonImg = (ImageView) Mview.findViewById(R.id.PersonImg);
         TableNum = (TextView) Mview.findViewById(R.id.TableNum);
         UnreserveButt = (Button) Mview.findViewById(R.id.UnreserveButt);
@@ -207,14 +207,14 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
 
 
         ///////////////////////////////LOGOUT PROGRESS///////////////////////////////////////////////
-        Logout_butt.setOnClickListener(new View.OnClickListener() {
+       /* Logout_butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference LogoutRef = soulboundDatabase.getReference().child("Soulbounded").child(imei);
                 LogoutRef.removeValue();
             }
-        });
+        });*/
         /////////////////////////////////////////////////////////////////////////////////////////////
         return Mview;
     }

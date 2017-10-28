@@ -4,102 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background2">
 
     <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/MealButt"
-            android:layout_width="97dp"
-            android:layout_height="86dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="@android:color/holo_red_light"
+        <ImageView
+            android:id="@+id/topbuttonlayer"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="299dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/topbutt" />
+
+        <ImageView
+            android:id="@+id/middlebuttonlayer"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.19"
-            app:srcCompat="@drawable/meal" />
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/middlebutt" />
 
-        <ImageButton
-            android:id="@+id/PizzaButton"
-            android:layout_width="95dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="@android:color/holo_red_dark"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.215"
+        <ImageView
+            android:id="@+id/bottombuttonlayer"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="294dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.685"
-            app:srcCompat="@drawable/pizza" />
+            app:srcCompat="@drawable/bottombutt" />
 
-        <ImageButton
-            android:id="@+id/CoffeeButton"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="?android:attr/textColorHighlight"
+        <TextView
+            android:id="@+id/MealText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Fishes"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.755"
+            app:layout_constraintHorizontal_bias="0.77"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.435"
-            app:srcCompat="@drawable/cup" />
+            app:layout_constraintVertical_bias="0.281" />
 
-        <ImageButton
-            android:id="@+id/FishButton"
-            android:layout_width="105dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="@android:color/holo_blue_light"
+        <TextView
+            android:id="@+id/FishText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Meals"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.788"
+            app:layout_constraintHorizontal_bias="0.24"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.184"
-            app:srcCompat="@drawable/fish" />
+            app:layout_constraintVertical_bias="0.27999997" />
 
-        <ImageButton
-            android:id="@+id/SaladButton"
-            android:layout_width="95dp"
-            android:layout_height="90dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="@android:color/holo_orange_dark"
+        <TextView
+            android:id="@+id/SaladText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Salads"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.207"
+            app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45"
-            app:srcCompat="@drawable/salad" />
+            app:layout_constraintVertical_bias="0.607" />
 
-        <ImageButton
-            android:id="@+id/OtherDrinkButton"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:tint="?android:attr/textColorHighlight"
+        <TextView
+            android:id="@+id/DesertText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Deserts"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.755"
+            app:layout_constraintHorizontal_bias="0.776"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.685"
-            app:srcCompat="@drawable/wine" />
+            app:layout_constraintVertical_bias="0.607" />
 
+        <TextView
+            android:id="@+id/Alcohol0DrinksText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Alcohol Drinks"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90999997" />
+
+        <TextView
+            android:id="@+id/OtherDrinksText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Other Drinks"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.90999997" />
     </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

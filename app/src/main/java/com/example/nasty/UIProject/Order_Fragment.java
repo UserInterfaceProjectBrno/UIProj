@@ -48,15 +48,6 @@ public class Order_Fragment extends Fragment {
         imei = mngr.getDeviceId();
 
 
-        MealButton = (ImageButton) Mview.findViewById(R.id.MealButt);
-
-        MealButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Order("Fish","100","Milk","10");
-            }
-        });
-
 
         return Mview;
     }
