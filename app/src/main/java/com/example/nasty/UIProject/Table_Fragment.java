@@ -1,7 +1,10 @@
 package com.example.nasty.UIProject;
 
 import android.app.Fragment;
+import android.icu.util.Freezable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.renderscript.ScriptGroup;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
@@ -36,6 +39,7 @@ public class Table_Fragment extends Fragment {
 
     Button TakeAwayButt;
     Button ReserveTableButt;
+    Button UnreserveButt;
     Button CheckForTableButt;
     ImageButton AddPersonBtn;
     ImageButton DeletePersonBtn;
@@ -76,6 +80,7 @@ public class Table_Fragment extends Fragment {
         Logout_butt = (ImageButton) Mview.findViewById(R.id.Logout_tableHand);
         PersonImg = (ImageView) Mview.findViewById(R.id.PersonImg);
         TableNum = (TextView) Mview.findViewById(R.id.TableNum);
+        UnreserveButt = (Button) Mview.findViewById(R.id.UnreserveButt);
 /////////////////////////////////////// TABLE Fill START /////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +99,9 @@ public class Table_Fragment extends Fragment {
                         flag = 1;
                         YourTable[0]=i;
                         TableNum.setText("You Have Already Reserved Table Number: " + YourTable[0]);
+
                         ShowCurrTable();
+
                     }
 
                 }
@@ -107,13 +114,13 @@ public class Table_Fragment extends Fragment {
             }
         });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if(Objects.equals(table[YourTable[0]][3], imei))
-        {
-            flag=0;
-            TableNum.setText("You Have Already Reserved Table Number: "+YourTable[0]);
-            ShowCurrTable();
-
-        }
+UnreserveButt.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("ID-Phone").setValue("00000");
+        TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("Yes").setValue("No");
+    }
+});
 
 ///////////////////////////////////////////////////// TABLE Fill END /////////////////////////////////////////////////
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
@@ -131,8 +138,8 @@ public class Table_Fragment extends Fragment {
                     {
                         flag=1;
                         YourTable[0] = i;
-                        Toast.makeText(getActivity().getApplicationContext(), "Table Number " + i + " Reserved.", Toast.LENGTH_SHORT).show();
-                        TableNum.setText("Your Table Number Is" + YourTable[0]);
+                        TableNum.setText("You Reserved Table Number " + YourTable[0]);
+
                         ShowCurrTable();
                         break;
                     }
@@ -146,10 +153,10 @@ public class Table_Fragment extends Fragment {
                         if (parseInt(table[i][1]) >= number && !Objects.equals(table[i][2], "Yes")) //check for empty table and for fitting
                         {
                             YourTable[0] = i;
-                            Toast.makeText(getActivity().getApplicationContext(), "Table Number " + i + " Reserved.", Toast.LENGTH_SHORT).show();
                             TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
                             TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
                             TableNum.setText("Your Table Number Is" + YourTable[0]);
+
                             ShowCurrTable();
                             flag = 1;
                             break;
@@ -254,14 +261,19 @@ public class Table_Fragment extends Fragment {
 
     public void ShowCurrTable()
     {
-        fadeIn(TableNum);
+        ReserveTableButt.setEnabled(false);
+        TakeAwayButt.setEnabled(false);
+
+        fadeOutAndHideImage(ReserveTableButt);
+        fadeOutAndHideImage(TakeAwayButt);
+
         fadeOutAndHideImage(PersonImg);
         fadeOutAndHideImage(CheckForTableButt);
         fadeOutAndHideImage(AddPersonBtn);
         fadeOutAndHideImage(DeletePersonBtn);
         fadeOutAndHideImage(NumberOfPeople);
-        fadeOutAndHideImage(ReserveTableButt);
-        fadeOutAndHideImage(TakeAwayButt);
+        fadeIn(TableNum);
+        fadeIn(UnreserveButt);
 
     }
 }
