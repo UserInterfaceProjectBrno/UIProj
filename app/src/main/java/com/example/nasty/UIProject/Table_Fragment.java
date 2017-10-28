@@ -3,19 +3,15 @@ package com.example.nasty.UIProject;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
-import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -45,17 +41,24 @@ public class Table_Fragment extends Fragment {
     ImageButton DeletePersonBtn;
     TextView NumberOfPeople;
     ImageView PersonImg;
+    TextView TableNum;
     ImageButton Logout_butt;
     int number = 1;
     TelephonyManager mngr;
+    final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
+    final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
+    final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
+    final int[] children = new int[1]; // Tables in Database.
+    final int[] YourTable = {0}; // TABLE HOLDER
+    int flag=0;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         Mview = inflater.inflate(R.layout.table_activity, container, false);
-
 
         /////////////////////////////////IMEI PERMISSION///////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
@@ -63,7 +66,6 @@ public class Table_Fragment extends Fragment {
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
-
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
         TakeAwayButt = (Button) Mview.findViewById(R.id.TakeAwaybtn);
         ReserveTableButt = (Button) Mview.findViewById(R.id.ReserveTablebtn);
@@ -73,16 +75,10 @@ public class Table_Fragment extends Fragment {
         DeletePersonBtn = (ImageButton) Mview.findViewById(R.id.DeletePersonBtn);
         Logout_butt = (ImageButton) Mview.findViewById(R.id.Logout_tableHand);
         PersonImg = (ImageView) Mview.findViewById(R.id.PersonImg);
-
+        TableNum = (TextView) Mview.findViewById(R.id.TableNum);
 /////////////////////////////////////// TABLE Fill START /////////////////////////////////////////////////////
 
-        final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
-        final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
-        final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
-        final int[] children = new int[1]; // Tables in Database.
-        final int[] YourTable = {0}; // TABLE HOLDER.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         TableRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,7 +88,17 @@ public class Table_Fragment extends Fragment {
                 {
                     table[i][1] = dataSnapshot.child(Integer.toString(i)).child("Seats").getValue().toString();
                     table[i][2] = dataSnapshot.child(Integer.toString(i)).child("Reserved").child("Yes").getValue().toString();
+                    table[i][3] = dataSnapshot.child(Integer.toString(i)).child("Reserved").child("ID-Phone").getValue().toString();
+                    if(Objects.equals(table[i][3], imei))
+                    {
+                        flag = 1;
+                        YourTable[0]=i;
+                        TableNum.setText("You Have Already Reserved Table Number: " + YourTable[0]);
+                        ShowCurrTable();
+                    }
+
                 }
+
             }
 
             @Override
@@ -100,20 +106,57 @@ public class Table_Fragment extends Fragment {
 
             }
         });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        if(Objects.equals(table[YourTable[0]][3], imei))
+        {
+            flag=0;
+            TableNum.setText("You Have Already Reserved Table Number: "+YourTable[0]);
+            ShowCurrTable();
 
+        }
 
 ///////////////////////////////////////////////////// TABLE Fill END /////////////////////////////////////////////////
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
-                for (int i = 1; i <= children[0]; i++) {
-                    if (parseInt(table[i][1]) >= number && !Objects.equals(table[i][2], "Yes")) //check for empty table and for fitting
+
+                for(int i=1; i<=children[0];i++)
+                {
+                    if(!Objects.equals(table[i][3], imei))
                     {
+                        flag=0;
+                    }
+                    else
+                    {
+                        flag=1;
                         YourTable[0] = i;
-                        TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
-                        TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
-                        Toast.makeText(getActivity().getApplicationContext(), "Your Table is Number: " + YourTable[0], Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Table Number " + i + " Reserved.", Toast.LENGTH_SHORT).show();
+                        TableNum.setText("Your Table Number Is" + YourTable[0]);
+                        ShowCurrTable();
+                        break;
+                    }
+                }
+
+
+                for (int i = 1; i <= children[0]; i++)
+                {
+                    if(flag==0)
+                    {
+                        if (parseInt(table[i][1]) >= number && !Objects.equals(table[i][2], "Yes")) //check for empty table and for fitting
+                        {
+                            YourTable[0] = i;
+                            Toast.makeText(getActivity().getApplicationContext(), "Table Number " + i + " Reserved.", Toast.LENGTH_SHORT).show();
+                            TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
+                            TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
+                            TableNum.setText("Your Table Number Is" + YourTable[0]);
+                            ShowCurrTable();
+                            flag = 1;
+                            break;
+                        }
+                    }
+                    else
+                    {
                         break;
                     }
                 }
@@ -207,9 +250,21 @@ public class Table_Fragment extends Fragment {
         });
 
         img.startAnimation(fadeIn);
-
-
     }
 
+    public void ShowCurrTable()
+    {
+        fadeIn(TableNum);
+        fadeOutAndHideImage(PersonImg);
+        fadeOutAndHideImage(CheckForTableButt);
+        fadeOutAndHideImage(AddPersonBtn);
+        fadeOutAndHideImage(DeletePersonBtn);
+        fadeOutAndHideImage(NumberOfPeople);
+        fadeOutAndHideImage(ReserveTableButt);
+        fadeOutAndHideImage(TakeAwayButt);
+
+    }
 }
+
+
 
