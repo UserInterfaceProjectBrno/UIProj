@@ -11,6 +11,7 @@ import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.sql.Time;
@@ -23,11 +24,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Order_Fragment extends Fragment {
     View Mview;
-    ImageButton MealButton;
+
+    Button MealButton;
+
     TelephonyManager mngr;
+    String imei="null";
+
     FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
-    String imei="null";
+
+
 
     int Day = Calendar.getInstance().get(Calendar.DATE);
     int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
@@ -47,7 +53,13 @@ public class Order_Fragment extends Fragment {
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         imei = mngr.getDeviceId();
 
-
+        MealButton = (Button) Mview.findViewById(R.id.MealButt);
+        MealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Order("Meal","10","Coffee","2");
+            }
+        });
 
         return Mview;
     }
