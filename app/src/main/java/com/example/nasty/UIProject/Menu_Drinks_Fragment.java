@@ -1,6 +1,5 @@
 package com.example.nasty.UIProject;
 
-import com.example.nasty.UIProject.Cart;
 import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,9 +13,6 @@ import android.view.ViewGroup;
 public class Menu_Drinks_Fragment extends Fragment {
     View Mview;
 
-    Cart my = new Cart();
-    my.AddOnCart("SS");
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,6 +20,5 @@ public class Menu_Drinks_Fragment extends Fragment {
         return Mview;
     }
 
-    com.example.nasty.UIProject.Cart mcart = new Cart();
 
 }
