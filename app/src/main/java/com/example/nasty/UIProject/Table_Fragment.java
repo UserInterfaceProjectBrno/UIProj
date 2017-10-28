@@ -21,6 +21,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +37,14 @@ import static java.lang.Integer.parseInt;
 
 public class Table_Fragment extends Fragment {
     View Mview;
+
+    Button TakeAwayButt;
+    Button ReserveTableButt;
     Button CheckForTableButt;
     ImageButton AddPersonBtn;
     ImageButton DeletePersonBtn;
     TextView NumberOfPeople;
+    ImageView PersonImg;
     ImageButton Logout_butt;
     int number = 1;
     TelephonyManager mngr;
@@ -51,25 +56,32 @@ public class Table_Fragment extends Fragment {
     {
         Mview = inflater.inflate(R.layout.table_activity, container, false);
 
+
         /////////////////////////////////IMEI PERMISSION///////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
-        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
+        TakeAwayButt = (Button) Mview.findViewById(R.id.TakeAwaybtn);
+        ReserveTableButt = (Button) Mview.findViewById(R.id.ReserveTablebtn);
         CheckForTableButt = (Button) Mview.findViewById(R.id.CheckForTableButton);
         NumberOfPeople = (TextView) Mview.findViewById(R.id.PersNum);
         AddPersonBtn = (ImageButton) Mview.findViewById(R.id.AddPersonBtn);
         DeletePersonBtn = (ImageButton) Mview.findViewById(R.id.DeletePersonBtn);
         Logout_butt = (ImageButton) Mview.findViewById(R.id.Logout_tableHand);
-        final int[] YourTable = {0}; // TABLE HOLDER.
+        PersonImg = (ImageView) Mview.findViewById(R.id.PersonImg);
 
-/////////////////////////////////////// TABLE CHECK START /////////////////////////////////////////////////////
+/////////////////////////////////////// TABLE Fill START /////////////////////////////////////////////////////
+
         final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
         final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
         final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
         final int[] children = new int[1]; // Tables in Database.
+        final int[] YourTable = {0}; // TABLE HOLDER.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         TableRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,7 +102,7 @@ public class Table_Fragment extends Fragment {
         });
 
 
-///////////////////////////////////////////////////// TABLE CHECK END /////////////////////////////////////////////////
+///////////////////////////////////////////////////// TABLE Fill END /////////////////////////////////////////////////
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
@@ -110,8 +122,20 @@ public class Table_Fragment extends Fragment {
                 }
             }
         });
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+        ReserveTableButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fadeOutAndHideImage(TakeAwayButt);
+                fadeOutAndHideImage(ReserveTableButt);
+                fadeIn(CheckForTableButt);
+                fadeIn(NumberOfPeople);
+                fadeIn(AddPersonBtn);
+                fadeIn(DeletePersonBtn);
+                fadeIn(PersonImg);
+            }
+        });
 
         AddPersonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +145,7 @@ public class Table_Fragment extends Fragment {
                 NumberOfPeople.setText(String.valueOf(number));
             }
         });
+
         DeletePersonBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
