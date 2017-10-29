@@ -1,6 +1,7 @@
 package com.example.nasty.UIProject;
 
 import android.app.Fragment;
+import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -9,6 +10,7 @@ import android.support.transition.Fade;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -27,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.Objects;
 import java.util.concurrent.locks.Lock;
 
 public class Order_Fragment extends Fragment {
@@ -39,6 +42,8 @@ public class Order_Fragment extends Fragment {
     Button AlcoholButt;
     Button OtherDrink;
     Button LockOrder;
+
+    MenuItem OrderNav;
 
     ImageView TopLayer;
     ImageView MidLayer;
@@ -89,6 +94,7 @@ public class Order_Fragment extends Fragment {
         SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
         OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);
         MealButton  = (Button)   Mview.findViewById(R.id.MealButt);
+        OrderNav = (MenuItem) Mview.findViewById(R.id.nav_order);
 
         LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
 
@@ -114,6 +120,10 @@ public class Order_Fragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
+                if(Objects.equals(LockedState, "Yes"))
+                {
+                    Fader();
+                }
             }
 
             @Override
@@ -131,10 +141,7 @@ public class Order_Fragment extends Fragment {
             }
         });
 
-        if(LockedState == "Yes")
-        {
-            Fader();
-        }
+
 
         FishButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,6 +198,14 @@ public class Order_Fragment extends Fragment {
     }
     public void Fader()
     {
+        MealButton.setEnabled(false);
+        FishButton.setEnabled(false);
+        PizzaButt.setEnabled(false);
+        AlcoholButt.setEnabled(false);
+        SaladButt.setEnabled(false);
+        OtherDrink.setEnabled(false);
+        LockOrder.setEnabled(false);
+        OrderNav.setEnabled(false);
         fadeOutAndHideImage(FishButton);
         fadeOutAndHideImage(LockOrder);
         fadeOutAndHideImage(AlcoholButt);
