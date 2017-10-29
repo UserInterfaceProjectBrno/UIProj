@@ -14,6 +14,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.concurrent.locks.Lock;
 
@@ -34,7 +37,24 @@ public class Order_Fragment extends Fragment {
     Button PizzaButt;
     Button AlcoholButt;
     Button OtherDrink;
+    Button LockOrder;
 
+    ImageView TopLayer;
+    ImageView MidLayer;
+    ImageView BottomLayer;
+    ImageView MealImg;
+    ImageView FishImg;
+    ImageView SaladImg;
+    ImageView PizzaImg;
+    ImageView AlcoholImg;
+    ImageView OtherDrinkImg;
+
+    TextView MealText;
+    TextView FishText;
+    TextView SaladText;
+    TextView PizzaText;
+    TextView AlcoholText;
+    TextView OtherDrinkText;
     TextView LockStatus;
 
     TelephonyManager mngr;
@@ -42,7 +62,7 @@ public class Order_Fragment extends Fragment {
 
     String LockedState;
 
-    Button LockOrder;
+
 
     FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
@@ -68,7 +88,24 @@ public class Order_Fragment extends Fragment {
         SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
         OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);
         MealButton  = (Button)   Mview.findViewById(R.id.MealButt);
+
         LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
+
+        PizzaText  = (TextView) Mview.findViewById(R.id.PizzaText);
+        MealText  = (TextView) Mview.findViewById(R.id.MealText);
+        SaladText  = (TextView) Mview.findViewById(R.id.SaladText);
+        FishText = (TextView) Mview.findViewById(R.id.FishText);
+        AlcoholText  = (TextView) Mview.findViewById(R.id.AlcoholDrinksText);
+        OtherDrinkText  = (TextView) Mview.findViewById(R.id.OtherDrinksText);
+
+        PizzaImg  = (ImageView) Mview.findViewById(R.id.PizzaImg);
+        MealImg  = (ImageView) Mview.findViewById(R.id.MealImg);
+        SaladImg  = (ImageView) Mview.findViewById(R.id.SaladImg);
+        FishImg = (ImageView) Mview.findViewById(R.id.FishImg);
+        AlcoholImg  = (ImageView) Mview.findViewById(R.id.AlcoholDrinkImg);
+        OtherDrinkImg  = (ImageView) Mview.findViewById(R.id.OtherDrinkImg);
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
