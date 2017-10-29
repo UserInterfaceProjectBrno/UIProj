@@ -144,7 +144,14 @@ public class Order_Fragment extends Fragment {
             }
         });
 
-
+        MealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Meal_Fragment())
+                        .commit();
+            }
+        });
 
 
         return Mview;
