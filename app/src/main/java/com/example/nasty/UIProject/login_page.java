@@ -28,6 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 public class login_page extends AppCompatActivity {
 
     EditText userTxt;
@@ -35,6 +37,18 @@ public class login_page extends AppCompatActivity {
     Button loginButt;
     TelephonyManager mngr;
     private FirebaseAuth mAuth;
+    String imei = "null";
+
+    FirebaseDatabase DateDB = FirebaseDatabase.getInstance();
+    final DatabaseReference DateRef = DateDB.getReference().child("Orders");
+    FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+    final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
+
+    int Day = Calendar.getInstance().get(Calendar.DATE);
+    int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
+    int Year = Calendar.getInstance().get(Calendar.YEAR);
+    int Hour = Calendar.getInstance().getTime().getHours();
+    int Minute = Calendar.getInstance().getTime().getMinutes();
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -53,7 +67,7 @@ public class login_page extends AppCompatActivity {
                 1);
 
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
+        imei = mngr.getDeviceId();
         soulboundVerificationAndLogin();
 
 
@@ -77,7 +91,6 @@ public class login_page extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
                                         Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-
                                         soulboundDevice(true, userTxt.getText().toString()); //RememberCheckBox On TRUE
                                     }
                                     if (!task.isSuccessful()) {
@@ -230,9 +243,7 @@ public class login_page extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void soulboundVerificationAndLogin() {
         final String imei = mngr.getDeviceId();
-
-        FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
-        final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
+        DateRef.child(imei).child("Date").setValue(Day + "/" + Month + "/" + Year + "," + Integer.toString(Hour) + ":" + Integer.toString(Minute));
 
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.nasty.UIProject;
 
+import com.example.nasty.UIProject.Cart.*;
 import android.app.Fragment;
 import android.content.Context;
 import android.media.Image;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -26,17 +28,12 @@ public class Order_Fragment extends Fragment {
     View Mview;
 
     Button FishButton;
+    Button MealButton;
 
     TelephonyManager mngr;
     String imei="null";
 
-    FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
-    final DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
-    int Day = Calendar.getInstance().get(Calendar.DATE);
-    int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
-    int Year = Calendar.getInstance().get(Calendar.YEAR);
-    int Hour = Calendar.getInstance().getTime().getHours();
-    int Minute = Calendar.getInstance().getTime().getMinutes();
+
 
 
     @Nullable
@@ -51,7 +48,7 @@ public class Order_Fragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
                         , new Fish_Fragment())
-                        .commit();    //START FROM ORDER PAGE
+                        .commit();
             }
         });
         return Mview;
