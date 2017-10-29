@@ -105,7 +105,9 @@ public class Order_Fragment extends Fragment {
         FishImg = (ImageView) Mview.findViewById(R.id.FishImg);
         AlcoholImg  = (ImageView) Mview.findViewById(R.id.AlcoholDrinkImg);
         OtherDrinkImg  = (ImageView) Mview.findViewById(R.id.OtherDrinkImg);
-
+        BottomLayer = (ImageView) Mview.findViewById(R.id.bottombuttonlayer);
+        TopLayer = (ImageView) Mview.findViewById(R.id.topbuttonlayer);
+        MidLayer = (ImageView) Mview.findViewById(R.id.middlebuttonlayer);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addValueEventListener(new ValueEventListener() {
@@ -208,6 +210,9 @@ public class Order_Fragment extends Fragment {
         fadeOutAndHideImage(SaladText);
         fadeOutAndHideImage(PizzaText);
         fadeOutAndHideImage(MealText);
+        fadeOutAndHideImage(MidLayer);
+        fadeOutAndHideImage(TopLayer);
+        fadeOutAndHideImage(BottomLayer);
         fadeIn(LockStatus);
     }
 }
