@@ -1,13 +1,11 @@
 package com.example.nasty.UIProject;
 
 import android.app.Fragment;
-import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.support.transition.Fade;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.view.menu.MenuView;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -20,17 +18,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.Objects;
-import java.util.concurrent.locks.Lock;
 
 public class Order_Fragment extends Fragment {
     View Mview;
@@ -43,7 +37,6 @@ public class Order_Fragment extends Fragment {
     Button OtherDrink;
     Button LockOrder;
 
-    MenuItem OrderNav;
 
     ImageView TopLayer;
     ImageView MidLayer;
@@ -94,7 +87,6 @@ public class Order_Fragment extends Fragment {
         SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
         OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);
         MealButton  = (Button)   Mview.findViewById(R.id.MealButt);
-        OrderNav = (MenuItem) Mview.findViewById(R.id.nav_order);
 
         LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
 
@@ -205,7 +197,6 @@ public class Order_Fragment extends Fragment {
         SaladButt.setEnabled(false);
         OtherDrink.setEnabled(false);
         LockOrder.setEnabled(false);
-        OrderNav.setEnabled(false);
         fadeOutAndHideImage(FishButton);
         fadeOutAndHideImage(LockOrder);
         fadeOutAndHideImage(AlcoholButt);
