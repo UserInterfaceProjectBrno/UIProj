@@ -149,6 +149,8 @@ public class Order_Fragment extends Fragment {
 
         return Mview;
     }
+
+
     public void fadeOutAndHideImage(final View img) {
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
@@ -188,6 +190,7 @@ public class Order_Fragment extends Fragment {
 
         img.startAnimation(fadeIn);
     }
+
     public void Fader()
     {
         MealButton.setEnabled(false);

@@ -17,6 +17,23 @@ public class Menu_Drinks_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Mview = inflater.inflate(R.layout.drinks_activity, container, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         return Mview;
     }
 

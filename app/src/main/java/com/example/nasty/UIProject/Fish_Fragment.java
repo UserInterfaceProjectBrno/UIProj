@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import static java.lang.Integer.parseInt;
 
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
@@ -134,13 +136,13 @@ public class Fish_Fragment extends Fragment {
                 String SecondQuan = SecondText.getText().toString();
                 String ThirdQuan = ThirdText.getText().toString();
 
-                if (FirstQuan != "0")
+                if (!Objects.equals(FirstQuan, "0"))
                     mCart.addOnCart(FirstProd, FirstQuan);
 
-                if (SecondQuan != "0")
+                if (!Objects.equals(SecondQuan, "0"))
                     mCart.addOnCart(SecondProd, SecondQuan);
 
-                if (ThirdQuan != "0")
+                if (!Objects.equals(ThirdQuan, "0"))
                     mCart.addOnCart(ThirdProd, ThirdQuan);
 
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
