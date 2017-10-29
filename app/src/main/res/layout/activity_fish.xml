@@ -86,7 +86,7 @@
                     app:srcCompat="@drawable/productbox" />
 
                 <ImageButton
-                    android:id="@+id/ArrowUpButt"
+                    android:id="@+id/FirstArrowUp"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -97,6 +97,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_green_light"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -104,11 +105,10 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <ImageButton
-                    android:id="@+id/ArrowDownButt"
+                    android:id="@+id/FirstArrowDown"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -119,6 +119,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:rotation="180"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_red_light"
@@ -128,8 +129,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <TextView
                     android:id="@+id/FirstRowText"
@@ -180,7 +180,7 @@
                     app:srcCompat="@drawable/productbox" />
 
                 <ImageButton
-                    android:id="@+id/ArrowUpButt"
+                    android:id="@+id/SecondArrowUp"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -191,6 +191,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_green_light"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -198,11 +199,10 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <ImageButton
-                    android:id="@+id/ArrowDownButt"
+                    android:id="@+id/SecondArrowDown"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -213,6 +213,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:rotation="180"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_red_light"
@@ -222,8 +223,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <TextView
                     android:id="@+id/SecondRowText"
@@ -275,7 +275,7 @@
                     app:srcCompat="@drawable/productbox" />
 
                 <ImageButton
-                    android:id="@+id/ArrowUpButt"
+                    android:id="@+id/ThirdArrowUp"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -286,6 +286,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_green_light"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -293,11 +294,10 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <ImageButton
-                    android:id="@+id/ArrowDownButt"
+                    android:id="@+id/ThirdArrowDown"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginBottom="8dp"
@@ -308,6 +308,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="ArrowClicked()"
                     android:rotation="180"
                     android:scaleType="fitXY"
                     android:tint="@android:color/holo_red_light"
@@ -317,8 +318,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup"
-                    android:onClick="ArrowClicked()"/>
+                    app:srcCompat="@drawable/arrowup" />
 
                 <TextView
                     android:id="@+id/ThirdRowText"
