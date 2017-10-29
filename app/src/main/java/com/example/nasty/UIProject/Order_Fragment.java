@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.support.transition.Fade;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -124,27 +125,13 @@ public class Order_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 OrderRef.child(imei).child("Locked").setValue("Yes");
-                fadeOutAndHideImage(FishButton);
-                fadeOutAndHideImage(LockOrder);
-                fadeOutAndHideImage(AlcoholButt);
-                fadeOutAndHideImage(PizzaButt);
-                fadeOutAndHideImage(SaladButt);
-                fadeOutAndHideImage(OtherDrink);
-                fadeOutAndHideImage(MealButton);
-                fadeIn(LockStatus);
+                Fader();
             }
         });
 
         if(LockedState == "Yes")
         {
-            fadeOutAndHideImage(FishButton);
-            fadeOutAndHideImage(LockOrder);
-            fadeOutAndHideImage(AlcoholButt);
-            fadeOutAndHideImage(PizzaButt);
-            fadeOutAndHideImage(SaladButt);
-            fadeOutAndHideImage(OtherDrink);
-            fadeOutAndHideImage(MealButton);
-            fadeIn(LockStatus);
+            Fader();
         }
 
         FishButton.setOnClickListener(new View.OnClickListener() {
@@ -199,5 +186,28 @@ public class Order_Fragment extends Fragment {
         });
 
         img.startAnimation(fadeIn);
+    }
+    public void Fader()
+    {
+        fadeOutAndHideImage(FishButton);
+        fadeOutAndHideImage(LockOrder);
+        fadeOutAndHideImage(AlcoholButt);
+        fadeOutAndHideImage(PizzaButt);
+        fadeOutAndHideImage(SaladButt);
+        fadeOutAndHideImage(OtherDrink);
+        fadeOutAndHideImage(MealButton);
+        fadeOutAndHideImage(MealImg);
+        fadeOutAndHideImage(PizzaImg);
+        fadeOutAndHideImage(SaladImg);
+        fadeOutAndHideImage(OtherDrinkImg);
+        fadeOutAndHideImage(AlcoholImg);
+        fadeOutAndHideImage(FishImg);
+        fadeOutAndHideImage(FishText);
+        fadeOutAndHideImage(AlcoholText);
+        fadeOutAndHideImage(OtherDrinkText);
+        fadeOutAndHideImage(SaladText);
+        fadeOutAndHideImage(PizzaText);
+        fadeOutAndHideImage(MealText);
+        fadeIn(LockStatus);
     }
 }
