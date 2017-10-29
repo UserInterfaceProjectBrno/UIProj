@@ -5,15 +5,15 @@
         <item
             android:id="@+id/nav_order"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Order History" />
+            android:title="Order" />
         <item
             android:id="@+id/nav_table"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Table Reserved" />
         <item
-            android:id="@+id/nav_fish"
+            android:id="@+id/nav_cart"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Fish" />
+            android:title="Cart" />
     </group>
 
 

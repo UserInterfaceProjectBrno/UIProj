@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity
                     , new Order_Fragment())
                     .commit();
         }
-        else if (id == R.id.nav_fish) {
+        else if (id == R.id.nav_cart) {
             fragmentManager.beginTransaction().replace(R.id.content_frame
-                    , new Fish_Fragment())
+                    , new Cart_Fragment())
                     .commit();
         }
 
