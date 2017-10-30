@@ -5,16 +5,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.view.menu.MenuView;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,32 +28,13 @@ import java.util.Objects;
 public class Order_Fragment extends Fragment {
     View Mview;
 
-    Button FishButton;
-    Button MealButton;
-    Button SaladButt;
-    Button PizzaButt;
-    Button AlcoholButt;
-    Button OtherDrink;
-    Button LockOrder;
-
-
-    ImageView TopLayer;
-    ImageView MidLayer;
-    ImageView BottomLayer;
-    ImageView MealImg;
-    ImageView FishImg;
-    ImageView SaladImg;
-    ImageView PizzaImg;
-    ImageView AlcoholImg;
-    ImageView OtherDrinkImg;
-
-    TextView MealText;
-    TextView FishText;
-    TextView SaladText;
-    TextView PizzaText;
-    TextView AlcoholText;
-    TextView OtherDrinkText;
-    TextView LockStatus;
+    ImageButton FishButton;
+    ImageButton MealButton;
+    ImageButton SaladButt;
+    ImageButton PizzaButt;
+    ImageButton AlcoholButt;
+    ImageButton OtherDrink;
+    ImageButton LockOrder;
 
     TelephonyManager mngr;
     String imei="null";
@@ -80,32 +60,16 @@ public class Order_Fragment extends Fragment {
          imei = mngr.getDeviceId();
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
 
-        FishButton  = (Button)   Mview.findViewById(R.id.FishButt);
-        LockOrder   = (Button)   Mview.findViewById(R.id.LockOrderButt);
+        FishButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
+       /* LockOrder   = (Button)   Mview.findViewById(R.id.LockOrderButt);
         AlcoholButt = (Button)   Mview.findViewById(R.id.AlcoholButt);
         PizzaButt   = (Button)   Mview.findViewById(R.id.PizzaButt);
         SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
-        OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);
-        MealButton  = (Button)   Mview.findViewById(R.id.MealButt);
+        OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);*/
+        MealButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
+/*
+        LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);*/
 
-        LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
-
-        PizzaText  = (TextView) Mview.findViewById(R.id.PizzaText);
-        MealText  = (TextView) Mview.findViewById(R.id.MealText);
-        SaladText  = (TextView) Mview.findViewById(R.id.SaladText);
-        FishText = (TextView) Mview.findViewById(R.id.FishText);
-        AlcoholText  = (TextView) Mview.findViewById(R.id.AlcoholDrinksText);
-        OtherDrinkText  = (TextView) Mview.findViewById(R.id.OtherDrinksText);
-
-        PizzaImg  = (ImageView) Mview.findViewById(R.id.PizzaImg);
-        MealImg  = (ImageView) Mview.findViewById(R.id.MealImg);
-        SaladImg  = (ImageView) Mview.findViewById(R.id.SaladImg);
-        FishImg = (ImageView) Mview.findViewById(R.id.FishImg);
-        AlcoholImg  = (ImageView) Mview.findViewById(R.id.AlcoholDrinkImg);
-        OtherDrinkImg  = (ImageView) Mview.findViewById(R.id.OtherDrinkImg);
-        BottomLayer = (ImageView) Mview.findViewById(R.id.bottombuttonlayer);
-        TopLayer = (ImageView) Mview.findViewById(R.id.topbuttonlayer);
-        MidLayer = (ImageView) Mview.findViewById(R.id.middlebuttonlayer);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addValueEventListener(new ValueEventListener() {
@@ -125,7 +89,7 @@ public class Order_Fragment extends Fragment {
         });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        LockOrder.setOnClickListener(new View.OnClickListener() {
+     /*   LockOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OrderRef.child(imei).child("Locked").setValue("Yes");
@@ -152,7 +116,7 @@ public class Order_Fragment extends Fragment {
                         .commit();
             }
         });
-
+*/
 
         return Mview;
     }
@@ -207,28 +171,5 @@ public class Order_Fragment extends Fragment {
         SaladButt.setEnabled(false);
         OtherDrink.setEnabled(false);
         LockOrder.setEnabled(false);
-        fadeOutAndHideImage(FishButton);
-        fadeOutAndHideImage(LockOrder);
-        fadeOutAndHideImage(AlcoholButt);
-        fadeOutAndHideImage(PizzaButt);
-        fadeOutAndHideImage(SaladButt);
-        fadeOutAndHideImage(OtherDrink);
-        fadeOutAndHideImage(MealButton);
-        fadeOutAndHideImage(MealImg);
-        fadeOutAndHideImage(PizzaImg);
-        fadeOutAndHideImage(SaladImg);
-        fadeOutAndHideImage(OtherDrinkImg);
-        fadeOutAndHideImage(AlcoholImg);
-        fadeOutAndHideImage(FishImg);
-        fadeOutAndHideImage(FishText);
-        fadeOutAndHideImage(AlcoholText);
-        fadeOutAndHideImage(OtherDrinkText);
-        fadeOutAndHideImage(SaladText);
-        fadeOutAndHideImage(PizzaText);
-        fadeOutAndHideImage(MealText);
-        fadeOutAndHideImage(MidLayer);
-        fadeOutAndHideImage(TopLayer);
-        fadeOutAndHideImage(BottomLayer);
-        fadeIn(LockStatus);
     }
 }

@@ -23,8 +23,8 @@
 
                 <ImageButton
                     android:id="@+id/MealButt"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -86,8 +86,8 @@
 
                 <ImageButton
                     android:id="@+id/FishButt"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -154,8 +154,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton5"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -179,8 +179,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton6"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -208,8 +208,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton7"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -233,8 +233,8 @@
 
                 <ImageButton
                     android:id="@+id/imageButton8"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
