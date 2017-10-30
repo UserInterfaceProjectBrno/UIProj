@@ -282,6 +282,7 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/Alcohol_Other_Row"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -415,16 +416,15 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TableLayout
+            android:id="@+id/LockButtCont"
+            android:layout_height="wrap_content">
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/LockButt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="2"
+                android:layout_column="1"
                 android:background="@android:color/holo_red_dark"
                 android:fontFamily="casual"
                 android:text="Process / Lock Order"
@@ -432,8 +432,6 @@
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
-
-        </TableRow>
-
+        </TableLayout>
     </TableLayout>
 </RelativeLayout>
