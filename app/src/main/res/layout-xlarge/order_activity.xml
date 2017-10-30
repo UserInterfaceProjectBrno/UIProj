@@ -12,13 +12,13 @@
 
         <Button
             android:id="@+id/LockButt"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:background="@android:color/holo_red_dark"
             android:fontFamily="casual"
             android:text="   Process / Lock Order   "
-            android:textSize="18sp"
+            android:textSize="50sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -39,8 +39,8 @@
 
             <ImageButton
                 android:id="@+id/AlcoholButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -63,7 +63,7 @@
                 android:text="Alcoholic Drinks"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -73,8 +73,8 @@
 
             <ImageView
                 android:id="@+id/AlcoholImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -100,8 +100,8 @@
 
             <ImageButton
                 android:id="@+id/OtherDrinkButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -124,7 +124,7 @@
                 android:text="Other Drinks"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -134,8 +134,8 @@
 
             <ImageView
                 android:id="@+id/OtherDrinkImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -161,8 +161,8 @@
 
             <ImageButton
                 android:id="@+id/PizzaButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -185,7 +185,7 @@
                 android:text="Pizzas"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -195,8 +195,8 @@
 
             <ImageView
                 android:id="@+id/PizzaImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -222,8 +222,8 @@
 
             <ImageButton
                 android:id="@+id/SaladButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -246,7 +246,7 @@
                 android:text="Salads"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -256,8 +256,8 @@
 
             <ImageView
                 android:id="@+id/SaladImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -283,8 +283,8 @@
 
             <ImageButton
                 android:id="@+id/FishButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -307,7 +307,7 @@
                 android:text="Fishes"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -317,8 +317,8 @@
 
             <ImageView
                 android:id="@+id/FishImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -344,8 +344,8 @@
 
             <ImageButton
                 android:id="@+id/MealButt"
-                android:layout_width="150dp"
-                android:layout_height="135dp"
+                android:layout_width="350dp"
+                android:layout_height="330dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
@@ -368,7 +368,7 @@
                 android:text="Meals"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="36sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -378,8 +378,8 @@
 
             <ImageView
                 android:id="@+id/MealImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

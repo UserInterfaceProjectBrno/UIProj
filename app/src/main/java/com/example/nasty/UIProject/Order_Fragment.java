@@ -66,7 +66,7 @@ public class Order_Fragment extends Fragment {
         PizzaButt   = (Button)   Mview.findViewById(R.id.PizzaButt);
         SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
         OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);*/
-        MealButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
+        MealButton  = (ImageButton)   Mview.findViewById(R.id.MealButt);
 /*
         LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);*/
 
@@ -96,7 +96,7 @@ public class Order_Fragment extends Fragment {
                 Fader();
             }
         });
-
+*/
 
 
         FishButton.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +116,7 @@ public class Order_Fragment extends Fragment {
                         .commit();
             }
         });
-*/
+
 
         return Mview;
     }
