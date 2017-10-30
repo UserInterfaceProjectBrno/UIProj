@@ -23,8 +23,8 @@
 
                 <ImageButton
                     android:id="@+id/MealButt"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -74,8 +74,9 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/MealButt"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/meal" />
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/meal"
+                    app:layout_constraintHorizontal_bias="0.495" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -86,8 +87,8 @@
 
                 <ImageButton
                     android:id="@+id/FishButt"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -137,25 +138,28 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/FishButt"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/fish" />
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/fish"
+                    app:layout_constraintHorizontal_bias="0.494" />
 
             </android.support.constraint.ConstraintLayout>
 
         </TableRow>
 
         <TableRow
+            android:id="@+id/Salad_Pizza_row"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/Salad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton5"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/SaladButt"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -169,18 +173,57 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/greenback" />
+
+                <TextView
+                    android:id="@+id/SaladText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="casual"
+                    android:text="Salads"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9" />
+
+                <ImageView
+                    android:id="@+id/SaladImg"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:color/transparent"
+                    android:tint="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/SaladButt"
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/salad" />
+
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/Pizza"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton6"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/PizzaButt"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -194,6 +237,46 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/greenback" />
+
+                <TextView
+                    android:id="@+id/PizzaText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="casual"
+                    android:text="Pizzas"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9" />
+
+                <ImageView
+                    android:id="@+id/PizzaImg"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:color/transparent"
+                    android:tint="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/PizzaButt"
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/pizza" />
+
             </android.support.constraint.ConstraintLayout>
 
         </TableRow>
@@ -203,13 +286,14 @@
             android:layout_height="match_parent">
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/Alcoholic_Drinks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton7"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/AlcoholButt"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -223,18 +307,57 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/blueback" />
+
+                <TextView
+                    android:id="@+id/AlcoholText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="casual"
+                    android:text="Alcoholic Drinks"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9" />
+
+                <ImageView
+                    android:id="@+id/AlcoholImg"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:color/transparent"
+                    android:tint="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/AlcoholButt"
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/wine" />
+
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/Other_Drinks"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imageButton8"
-                    android:layout_width="145dp"
-                    android:layout_height="130dp"
+                    android:id="@+id/OtherDrinkButt"
+                    android:layout_width="165dp"
+                    android:layout_height="155dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -248,6 +371,46 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/blueback" />
+
+                <TextView
+                    android:id="@+id/OtherDrinkText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:fontFamily="casual"
+                    android:text="Other Drinks"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9" />
+
+                <ImageView
+                    android:id="@+id/OtherDrinkImg"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@android:color/transparent"
+                    android:tint="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/OtherDrinkButt"
+                    app:layout_constraintVertical_bias="0.109"
+                    app:srcCompat="@drawable/cup" />
+
             </android.support.constraint.ConstraintLayout>
 
         </TableRow>
