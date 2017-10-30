@@ -56,11 +56,10 @@ public class Order_Fragment extends Fragment {
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
          imei = mngr.getDeviceId();
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
-
+        MealButton = (ImageButton) Mview.findViewById(R.id.MealButt);
         FishButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
-        LockOrder   = (Button) Mview.findViewById(R.id.LockButt);
 
-        MealButton  = (ImageButton)   Mview.findViewById(R.id.MealButt);
+        LockOrder   = (Button) Mview.findViewById(R.id.LockButt);
 
         LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
 
@@ -108,7 +107,6 @@ public class Order_Fragment extends Fragment {
             }
         });
 
-
         return Mview;
     }
 
@@ -152,6 +150,7 @@ public class Order_Fragment extends Fragment {
 
         img.startAnimation(fadeIn);
     }
+
 
     public void Fader()
     {

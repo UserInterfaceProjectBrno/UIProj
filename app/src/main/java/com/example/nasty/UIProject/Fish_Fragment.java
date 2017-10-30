@@ -2,6 +2,7 @@ package com.example.nasty.UIProject;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +12,6 @@ import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -155,19 +155,15 @@ public class Fish_Fragment extends Fragment {
 
         return Mview;
     }
-    private void unbindDrawables(View view)
-    {
-        if (view.getBackground() != null)
-        {
-            view.getBackground().setCallback(null);
-        }
-        if (view instanceof ViewGroup && !(view instanceof AdapterView))
-        {
-            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)
-            {
-                unbindDrawables(((ViewGroup) view).getChildAt(i));
-            }
-            ((ViewGroup) view).removeAllViews();
-        }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ((BitmapDrawable) FirstArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) FirstArrowUp.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) SecondArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) SecondArrowUp.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) ThirdArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) ThirdArrowUp.getDrawable()).getBitmap().recycle();
     }
 }

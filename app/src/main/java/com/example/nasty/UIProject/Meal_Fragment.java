@@ -2,6 +2,7 @@ package com.example.nasty.UIProject;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -144,15 +145,20 @@ public class Meal_Fragment extends Fragment {
 
                 if (!Objects.equals(ThirdQuan, "0"))
                     mCart.addOnCart(ThirdProd, ThirdQuan);
-
-                getFragmentManager().beginTransaction().replace(R.id.content_frame
-                        , new Order_Fragment())
-                        .commit();
-
             }
         });
 
         return Mview;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ((BitmapDrawable) FirstArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) FirstArrowUp.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) SecondArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) SecondArrowUp.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) ThirdArrowDown.getDrawable()).getBitmap().recycle();
+        ((BitmapDrawable) ThirdArrowUp.getDrawable()).getBitmap().recycle();
+    }
 }
