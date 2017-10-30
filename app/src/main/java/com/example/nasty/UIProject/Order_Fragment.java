@@ -34,7 +34,9 @@ public class Order_Fragment extends Fragment {
     ImageButton PizzaButt;
     ImageButton AlcoholButt;
     ImageButton OtherDrink;
-    ImageButton LockOrder;
+    Button LockOrder;
+
+    TextView LockStatus;
 
     TelephonyManager mngr;
     String imei="null";
@@ -61,18 +63,15 @@ public class Order_Fragment extends Fragment {
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
 
         FishButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
-       /* LockOrder   = (Button)   Mview.findViewById(R.id.LockOrderButt);
-        AlcoholButt = (Button)   Mview.findViewById(R.id.AlcoholButt);
-        PizzaButt   = (Button)   Mview.findViewById(R.id.PizzaButt);
-        SaladButt   = (Button)   Mview.findViewById(R.id.SaladButt);
-        OtherDrink  = (Button)   Mview.findViewById(R.id.OtherDrinkButt);*/
+        LockOrder   = (Button) Mview.findViewById(R.id.LockButt);
+
         MealButton  = (ImageButton)   Mview.findViewById(R.id.MealButt);
-/*
-        LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);*/
+
+        LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-       /* OrderRef.addValueEventListener(new ValueEventListener() {
+       OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
@@ -86,18 +85,15 @@ public class Order_Fragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-     /*   LockOrder.setOnClickListener(new View.OnClickListener() {
+        LockOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OrderRef.child(imei).child("Locked").setValue("Yes");
-                Fader();
             }
         });
-*/
-
 
         FishButton.setOnClickListener(new View.OnClickListener() {
             @Override
