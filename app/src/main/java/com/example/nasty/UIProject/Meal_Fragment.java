@@ -20,7 +20,7 @@ import java.util.Objects;
 import static java.lang.Integer.parseInt;
 
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
-public class Fish_Fragment extends Fragment {
+public class Meal_Fragment extends Fragment {
     View Mview;
     TelephonyManager mngr;
     String imei = "null";
@@ -48,7 +48,7 @@ public class Fish_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Mview = inflater.inflate(R.layout.activity_fish, container, false);
+        Mview = inflater.inflate(R.layout.activity_meal, container, false);
 
         /////////////////////////////////IMEI PERMISSION///////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
