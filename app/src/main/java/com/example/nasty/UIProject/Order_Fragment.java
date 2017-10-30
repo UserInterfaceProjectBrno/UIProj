@@ -14,7 +14,6 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,10 +29,6 @@ public class Order_Fragment extends Fragment {
 
     ImageButton FishButton;
     ImageButton MealButton;
-    ImageButton SaladButt;
-    ImageButton PizzaButt;
-    ImageButton AlcoholButt;
-    ImageButton OtherDrink;
     Button LockOrder;
 
     TextView LockStatus;
@@ -160,12 +155,5 @@ public class Order_Fragment extends Fragment {
 
     public void Fader()
     {
-        MealButton.setEnabled(false);
-        FishButton.setEnabled(false);
-        PizzaButt.setEnabled(false);
-        AlcoholButt.setEnabled(false);
-        SaladButt.setEnabled(false);
-        OtherDrink.setEnabled(false);
-        LockOrder.setEnabled(false);
     }
 }
