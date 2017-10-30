@@ -72,7 +72,7 @@ public class Order_Fragment extends Fragment {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        OrderRef.addValueEventListener(new ValueEventListener() {
+       /* OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
@@ -86,7 +86,7 @@ public class Order_Fragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
      /*   LockOrder.setOnClickListener(new View.OnClickListener() {

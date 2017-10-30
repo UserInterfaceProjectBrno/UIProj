@@ -23,8 +23,8 @@
 
                 <ImageButton
                     android:id="@+id/MealButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -87,8 +87,8 @@
 
                 <ImageButton
                     android:id="@+id/FishButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -158,8 +158,8 @@
 
                 <ImageButton
                     android:id="@+id/SaladButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -222,8 +222,8 @@
 
                 <ImageButton
                     android:id="@+id/PizzaButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -292,8 +292,8 @@
 
                 <ImageButton
                     android:id="@+id/AlcoholButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
@@ -320,7 +320,7 @@
                     android:text="Alcoholic Drinks"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -356,8 +356,8 @@
 
                 <ImageButton
                     android:id="@+id/OtherDrinkButt"
-                    android:layout_width="175dp"
-                    android:layout_height="155dp"
+                    android:layout_width="165dp"
+                    android:layout_height="135dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
