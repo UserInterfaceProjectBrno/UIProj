@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@mipmap/background">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/productbox" />
+                    app:srcCompat="@mipmap/productbox" />
 
                 <ImageButton
                     android:id="@+id/FirstArrowUp"
@@ -105,7 +105,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <ImageButton
                     android:id="@+id/FirstArrowDown"
@@ -128,7 +128,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <TextView
                     android:id="@+id/FirstRowText"
@@ -176,7 +176,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/productbox" />
+                    app:srcCompat="@mipmap/productbox" />
 
                 <ImageButton
                     android:id="@+id/SecondArrowUp"
@@ -197,7 +197,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <ImageButton
                     android:id="@+id/SecondArrowDown"
@@ -220,7 +220,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <TextView
                     android:id="@+id/SecondRowText"
@@ -269,7 +269,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/productbox" />
+                    app:srcCompat="@mipmap/productbox" />
 
                 <ImageButton
                     android:id="@+id/ThirdArrowUp"
@@ -290,7 +290,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <ImageButton
                     android:id="@+id/ThirdArrowDown"
@@ -313,7 +313,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.82"
-                    app:srcCompat="@drawable/arrowup" />
+                    app:srcCompat="@mipmap/arrowup" />
 
                 <TextView
                     android:id="@+id/ThirdRowText"

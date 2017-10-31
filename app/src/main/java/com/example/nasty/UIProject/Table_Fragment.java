@@ -1,20 +1,16 @@
 package com.example.nasty.UIProject;
 
 import android.app.Fragment;
-import android.icu.util.Freezable;
-import android.os.Bundle;
-import android.os.Handler;
-import android.renderscript.ScriptGroup;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatDelegate;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;

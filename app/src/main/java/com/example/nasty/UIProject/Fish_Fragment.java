@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -24,7 +25,7 @@ public class Fish_Fragment extends Fragment {
     View Mview;
     TelephonyManager mngr;
     String imei = "null";
-
+    List<Object> td;
 
     TextView FirstText;
     TextView SecondText;
@@ -145,10 +146,24 @@ public class Fish_Fragment extends Fragment {
                 if (!Objects.equals(ThirdQuan, "0"))
                     mCart.addOnCart(ThirdProd, ThirdQuan);
 
+                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
+
             }
         });
 
         return Mview;
     }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        FirstArrowUp.setImageResource(0);
+        FirstArrowDown.setImageResource(0);
+        SecondArrowDown.setImageResource(0);
+        SecondArrowUp.setImageResource(0);
+        ThirdArrowUp.setImageResource(0);
+        ThirdArrowDown.setImageResource(0);
+
+        }
 
 }

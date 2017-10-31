@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background">
+    android:background="@mipmap/background">
 
     <EditText
         android:id="@+id/UserTxtInput"
@@ -38,7 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13999999"
-        app:srcCompat="@drawable/title" />
+        app:srcCompat="@mipmap/title" />
 
     <Button
         android:id="@+id/LoginButt"

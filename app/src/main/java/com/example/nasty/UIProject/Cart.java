@@ -8,18 +8,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class Cart extends Fish_Fragment
+public class Cart
 {
+
     String imei="null";
-    FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
-    final DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
+    static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
+    final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
 
     int flag=0;
-
+    int ProductCount;
+    static String data;
 
     public Cart()
     {
-
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

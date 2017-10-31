@@ -71,7 +71,6 @@ public class Order_Fragment extends Fragment {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 if(Objects.equals(LockedState, "Yes"))
                 {
-                    Fader();
                 }
             }
 
@@ -92,9 +91,10 @@ public class Order_Fragment extends Fragment {
         FishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.content_frame
-                        , new Fish_Fragment())
-                        .commit();
+               getFragmentManager().beginTransaction().replace(R.id.content_frame
+                            ,new Fish_Fragment(),"Fish")
+                            .commit();
+
             }
         });
 
@@ -149,10 +149,5 @@ public class Order_Fragment extends Fragment {
         });
 
         img.startAnimation(fadeIn);
-    }
-
-
-    public void Fader()
-    {
     }
 }
