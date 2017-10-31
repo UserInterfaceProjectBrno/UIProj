@@ -6,20 +6,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Calendar;
 import java.util.Objects;
 
-public class Cart
+public class Cart extends Fish_Fragment
 {
     String imei="null";
-
     FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
 
     int flag=0;
 
+
     public Cart()
     {
+
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,12 +44,13 @@ public class Cart
         imei=mimei;
        }
 
-     public void addOnCart(String Product, String Quantity)
+    public void addOnCart(String Product, String Quantity)
      {
           if(flag==0)
           {
                OrderRef.child(imei).child("Products").child(Product).setValue(Quantity);
           }
       }
+
 
 }
