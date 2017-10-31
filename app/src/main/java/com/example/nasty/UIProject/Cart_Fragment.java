@@ -14,7 +14,7 @@ public class Cart_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Mview = inflater.inflate(R.layout.cart_page_activity, container, false);
+        Mview = inflater.inflate(R.layout.activity_cart, container, false);
 
 
         Toast.makeText(Mview.getContext().getApplicationContext(),data,Toast.LENGTH_LONG).show();

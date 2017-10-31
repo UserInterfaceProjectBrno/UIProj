@@ -94,7 +94,7 @@ public class Table_Fragment extends Fragment {
                     {
                         flag = 1;
                         YourTable[0]=i;
-                        TableNum.setText("You Have Already Reserved Table Number: " + YourTable[0]);
+                        TableNum.setText("You Reserved Table Number : " + YourTable[0] +"\n\n...TAP TO ORDER...");
 
                         ShowCurrTable();
 
@@ -115,6 +115,10 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("ID-Phone").setValue("00000");
         TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("Yes").setValue("No");
+        TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
+        getFragmentManager().beginTransaction().replace(R.id.content_frame
+                , new Table_Fragment(),"Order")
+                .commit();    //START FROM ORDER PAGE
     }
 });
 
@@ -134,7 +138,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                     {
                         flag=1;
                         YourTable[0] = i;
-                        TableNum.setText("You Reserved Table Number " + YourTable[0]);
+                        TableNum.setText("You Reserved Table Number " + YourTable[0] +"\n\n...TAP TO ORDER...");
 
                         ShowCurrTable();
                         break;
@@ -151,8 +155,9 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                             YourTable[0] = i;
                             TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
                             TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
-                            TableNum.setText("Your Table Number Is" + YourTable[0]);
-
+                            TableNum.setText("You Reserved Table Number " + YourTable[0] +"\n\n...TAP TO ORDER...");
+                            TableRef.getDatabase().getReference("Orders").child(imei).child("TakeAway").setValue("No");
+                            TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(YourTable[0]);
                             ShowCurrTable();
                             flag = 1;
                             break;
@@ -164,11 +169,20 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                     }
                 }
                 if (YourTable[0] == 0) {
-                    Toast.makeText(getActivity().getApplicationContext(), "There Is No Table For " + number + " Person.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "There Is No Table For " + number + " Person. Try Again Later!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        TableNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Order_Fragment(),"Order")
+                        .commit();
+            }
+        });
 
         ReserveTableButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +215,16 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
             }
         });
 
-
+        TakeAwayButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TableRef.getDatabase().getReference("Orders").child(imei).child("TakeAway").setValue("Yes");
+                TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Order_Fragment(),"Order")
+                        .commit();
+            }
+        });
         ///////////////////////////////LOGOUT PROGRESS///////////////////////////////////////////////
        /* Logout_butt.setOnClickListener(new View.OnClickListener() {
             @Override

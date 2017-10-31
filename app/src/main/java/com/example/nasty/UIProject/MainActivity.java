@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
     ////////////////////////////////////////////////////////////////////////////////////
         getFragmentManager().beginTransaction().replace(R.id.content_frame
-                , new Order_Fragment(),"Order")
+                , new Table_Fragment(),"Order")
                 .commit();    //START FROM ORDER PAGE
     ////////////////////////////////////////////////////////////////////////////////////
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
