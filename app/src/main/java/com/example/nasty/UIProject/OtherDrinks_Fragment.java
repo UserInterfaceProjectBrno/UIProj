@@ -144,6 +144,8 @@ public class OtherDrinks_Fragment extends Fragment {
 
                 if (!Objects.equals(ThirdQuan, "0"))
                     mCart.addOnCart(ThirdProd, ThirdQuan);
+
+                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
             }
         });
 
