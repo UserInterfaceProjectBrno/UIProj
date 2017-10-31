@@ -29,6 +29,11 @@ public class Order_Fragment extends Fragment {
 
     ImageButton FishButton;
     ImageButton MealButton;
+    ImageButton SaladButton;
+    ImageButton PizzaButton;
+    ImageButton AlcoholicDrinksButton;
+    ImageButton OtherDrinksButton;
+
     Button LockOrder;
 
     TextView LockStatus;
@@ -58,6 +63,10 @@ public class Order_Fragment extends Fragment {
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
         MealButton = (ImageButton) Mview.findViewById(R.id.MealButt);
         FishButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
+        SaladButton = (ImageButton) Mview.findViewById(R.id.SaladButt);
+        PizzaButton = (ImageButton) Mview.findViewById(R.id.PizzaButt);
+        AlcoholicDrinksButton = (ImageButton) Mview.findViewById(R.id.AlcoholButt);
+        OtherDrinksButton = (ImageButton) Mview.findViewById(R.id.OtherDrinkButt);
 
         LockOrder   = (Button) Mview.findViewById(R.id.LockButt);
 
@@ -103,6 +112,42 @@ public class Order_Fragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
                         , new Meal_Fragment())
+                        .commit();
+            }
+        });
+
+        SaladButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Salad_Fragment())
+                        .commit();
+            }
+        });
+
+        PizzaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Pizza_Fragment())
+                        .commit();
+            }
+        });
+
+        AlcoholicDrinksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new AlcoholicDrinks_Fragment())
+                        .commit();
+            }
+        });
+
+        OtherDrinksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new OtherDrinks_Fragment())
                         .commit();
             }
         });
