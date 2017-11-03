@@ -39,9 +39,9 @@ public class Pizza_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "First";
-    String SecondProd = "Second";
-    String ThirdProd = "Third";
+    String FirstProd = "Margarita Pizza";
+    String SecondProd = "BBQ Pizza";
+    String ThirdProd = "Special Pizza";
 
     Button Submit;
 

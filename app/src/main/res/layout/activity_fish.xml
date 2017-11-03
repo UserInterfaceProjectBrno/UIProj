@@ -348,7 +348,7 @@
                     app:srcCompat="@mipmap/productbox" />
 
                 <ImageView
-                    android:id="@+id/Nemo"
+                    android:id="@+id/NemoImg"
                     android:layout_width="220dp"
                     android:layout_height="128dp"
                     android:layout_marginBottom="8dp"
