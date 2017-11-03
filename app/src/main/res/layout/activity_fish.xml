@@ -86,7 +86,7 @@
                     app:srcCompat="@mipmap/productbox" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/SalmonImg"
                     android:layout_width="220dp"
                     android:layout_height="128dp"
                     android:layout_marginBottom="8dp"
@@ -104,7 +104,7 @@
                     app:srcCompat="@mipmap/fish1" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/SalmonTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -112,7 +112,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Fish 1"
+                    android:text="Salmon"
                     android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -216,7 +216,7 @@
                     app:srcCompat="@mipmap/productbox" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/ShrimpsImg"
                     android:layout_width="220dp"
                     android:layout_height="128dp"
                     android:layout_marginBottom="8dp"
@@ -231,17 +231,18 @@
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@mipmap/fish1" />
+                    app:srcCompat="@mipmap/fish2" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/ShrimpsTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Fish 1"
+                    android:text="Shrimps"
                     android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -249,8 +250,7 @@
                     app:layout_constraintHorizontal_bias="0.451"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/Shrimps"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
@@ -348,7 +348,7 @@
                     app:srcCompat="@mipmap/productbox" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/Nemo"
                     android:layout_width="220dp"
                     android:layout_height="128dp"
                     android:layout_marginBottom="8dp"
@@ -363,17 +363,18 @@
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@mipmap/fish1" />
+                    app:srcCompat="@mipmap/fish3" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/NemoTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Fish 1"
+                    android:text="Nemo"
                     android:textColor="@android:color/white"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -381,8 +382,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                    app:layout_constraintTop_toBottomOf="@+id/Nemo"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton

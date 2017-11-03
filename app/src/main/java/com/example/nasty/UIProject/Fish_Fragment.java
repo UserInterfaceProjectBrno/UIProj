@@ -40,9 +40,9 @@ public class Fish_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "First";
-    String SecondProd = "Second";
-    String ThirdProd = "Third";
+    String FirstProd = "Salmon";
+    String SecondProd = "Shrimps";
+    String ThirdProd = "Nemo";
 
     Button Submit;
 

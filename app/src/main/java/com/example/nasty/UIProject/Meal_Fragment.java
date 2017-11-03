@@ -39,9 +39,9 @@ public class Meal_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "First";
-    String SecondProd = "Second";
-    String ThirdProd = "Third";
+    String FirstProd = "Svickova";
+    String SecondProd = "Spaghetti";
+    String ThirdProd = "Kebap";
 
     Button Submit;
 
