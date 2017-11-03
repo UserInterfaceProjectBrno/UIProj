@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class Order_Fragment extends Fragment {
-    View Mview;
+    public View Mview;
 
     ImageButton FishButton;
     ImageButton MealButton;
