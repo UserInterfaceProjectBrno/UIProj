@@ -32,23 +32,25 @@ import java.util.Calendar;
 
 public class login_page extends AppCompatActivity {
 
-    EditText userTxt;
-    EditText passTxt;
-    Button loginButt;
+    EditText UserTxt;
+    EditText PassTxt;
+    Button LoginButt;
+    Button ForgotButt;
+    Button ForgotBigButt;
+    Button RegisterButt;
+    Button RegisterBigButt;
     TelephonyManager mngr;
-    private FirebaseAuth mAuth;
     String imei = "null";
-
     FirebaseDatabase DateDB = FirebaseDatabase.getInstance();
     final DatabaseReference DateRef = DateDB.getReference().child("Orders");
     FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
-
     int Day = Calendar.getInstance().get(Calendar.DATE);
     int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
     int Year = Calendar.getInstance().get(Calendar.YEAR);
     int Hour = Calendar.getInstance().getTime().getHours();
     int Minute = Calendar.getInstance().getTime().getMinutes();
+    private FirebaseAuth mAuth;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -58,9 +60,15 @@ public class login_page extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        loginButt = (Button) findViewById(R.id.LoginButt);
-        userTxt = (EditText) findViewById(R.id.UserTxtInput);
-        passTxt = (EditText) findViewById(R.id.PassTxtInput);
+        LoginButt = (Button) findViewById(R.id.LoginButt);
+        UserTxt = (EditText) findViewById(R.id.UserTxtInput);
+        PassTxt = (EditText) findViewById(R.id.PassTxtInput);
+        ForgotButt = (Button) findViewById(R.id.ForgotButt);
+        ForgotBigButt = (Button) findViewById(R.id.ForgotBigButt);
+        RegisterButt = (Button) findViewById(R.id.RegisterButt);
+        RegisterBigButt = (Button) findViewById(R.id.RegisterBigButt);
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////
 
         ActivityCompat.requestPermissions(login_page.this,
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -70,20 +78,16 @@ public class login_page extends AppCompatActivity {
         imei = mngr.getDeviceId();
         soulboundVerificationAndLogin();
 
-
-        //////////////////////////////////////////////////////////////////////////
-
-
         ////////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
 
-            loginButt.setOnClickListener(new View.OnClickListener() {
+            LoginButt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (userTxt.getText().toString().isEmpty() || passTxt.getText().toString().isEmpty()) {
-                        userTxt.setText("Empty");
-                        passTxt.setText("Empty");
+                    if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
+                        UserTxt.setText("Empty");
+                        PassTxt.setText("Empty");
                     }
-                    mAuth.signInWithEmailAndPassword(userTxt.getText().toString(), passTxt.getText().toString())
+                    mAuth.signInWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                                 @RequiresApi(api = Build.VERSION_CODES.M)
@@ -91,7 +95,7 @@ public class login_page extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
                                         Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                        soulboundDevice(true, userTxt.getText().toString()); //RememberCheckBox On TRUE
+                                        soulboundDevice(true, UserTxt.getText().toString()); //RememberCheckBox On TRUE
                                     }
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -104,22 +108,22 @@ public class login_page extends AppCompatActivity {
                 }
             });
         ////////////////////////////////////////////////END LOGIN BUTTON  ////////////////////////////////////////////////////////////////////
-           passTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+           PassTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
 
                 public void onFocusChange(View v, boolean hasFocus) {
-                    passTxt.setText("");
+                    PassTxt.setText("");
                 }
             });
 /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
-        /*RegisterButt.setOnClickListener(new View.OnClickListener() {
+        RegisterButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (userTxt.getText().toString().isEmpty() || passTxtBox.getText().toString().isEmpty()) {
-                    userTxt.setText("Empty");
-                    passTxtBox.setText("Empty");
+                if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
+                    UserTxt.setText("Empty");
+                    PassTxt.setText("Empty");
                 }
-                mAuth.createUserWithEmailAndPassword(userTxt.getText().toString(), passTxtBox.getText().toString())
+                mAuth.createUserWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -133,42 +137,50 @@ public class login_page extends AppCompatActivity {
                         });
 
             }
-        });*/
+        });
 
+        final Intent GoLogin = new Intent(login_page.this,login_page.class);
         //////////////////////////////////////// FORGOT BUTTON //////////////////////////////////////////////
-
-       /* ForgotButt.setOnClickListener(new View.OnClickListener() {
+        ForgotBigButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                FirebaseAuth.getInstance().sendPasswordResetEmail(UserTxt.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "RESET EMAIL SENT,PLEASE CHECK YOUR EMAIL'S", Toast.LENGTH_LONG).show();
+                                    startActivity(GoLogin);
 
-                ForgotBigButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                                }
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "ERROR RESETING PASSWORD", Toast.LENGTH_LONG).show();
+                                    startActivity(GoLogin);
+                                }
+                            }
 
-                        FirebaseAuth.getInstance().sendPasswordResetEmail(userTxt.getText().toString())
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(getApplicationContext(), "RESET EMAIL SENT,PLEASE CHECK YOUR EMAIL'S", Toast.LENGTH_LONG).show();
-                                            BackToLoginButton.callOnClick();
-                                        }
-                                        if (!task.isSuccessful()) {
-                                            Toast.makeText(getApplicationContext(), "ERROR RESETING PASSWORD", Toast.LENGTH_LONG).show();
-                                        }
-                                    }
+                        });
+            }
+        });
 
-                                });
-                    }
-                });
+        ForgotButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                fadeOutAndHideImage(LoginButt);
+                fadeOutAndHideImage(ForgotButt);
+                fadeOutAndHideImage(RegisterBigButt);
+
+                fadeIn(ForgotBigButt);
 
             }
-        });*/
+        });
 
         /////////////////////////////////////////////END FORGOT /////////////////////////////////////////////
     }
-    ///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 //....ON CREATE....//
 ////////////////////////////////////////////////////////////////////////////////
 

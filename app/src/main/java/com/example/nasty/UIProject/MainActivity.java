@@ -1,18 +1,28 @@
 package com.example.nasty.UIProject;
 
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    TelephonyManager mngr;
+    String imei = "null";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +30,17 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    ////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+       try
+       {
+           ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{"android.permission.READ_PHONE_STATE"},
+                1);
+       }catch(NullPointerException ignored){}
+        //////////////////////////////////////////////////////////////////////////////////////
+        mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        imei = mngr.getDeviceId();
+        ////////////////////////////////////////////////////////////////////////////////////
         getFragmentManager().beginTransaction().replace(R.id.content_frame
                 , new Table_Fragment(),"Order")
                 .commit();    //START FROM ORDER PAGE
@@ -58,8 +78,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.LogoutButt) {
+            FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+            final DatabaseReference SoulRef = soulboundDatabase.getReference();
+            SoulRef.child("Soulbounded").child(imei).removeValue();
+            Intent GoLogin = new Intent(MainActivity.this,login_page.class);
+            startActivity(GoLogin);
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout tools:context="com.example.nasty.UIProject.login_page"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@mipmap/background">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context="com.example.nasty.UIProject.login_page">
 
     <EditText
         android:id="@+id/UserTxtInput"
@@ -43,14 +43,15 @@
     <Button
         android:id="@+id/LoginButt"
         android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
         android:background="@color/ButtonColor"
         android:text="Login"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -101,5 +102,69 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/RegisterButt"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_red_dark"
+        android:fontFamily="casual"
+        android:text="Register"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginButt" />
+
+    <Button
+        android:id="@+id/ForgotButt"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:fontFamily="casual"
+        android:text="Forgot Password?"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/RegisterButt"
+        app:layout_constraintTop_toBottomOf="@+id/LoginButt" />
+
+    <Button
+        android:id="@+id/ForgotBigButt"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_light"
+        android:fontFamily="casual"
+        android:text="Forgot"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:id="@+id/RegisterBigButt"
+        style="@android:style/Widget.Material.Button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_red_dark"
+        android:fontFamily="casual"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
 </android.support.constraint.ConstraintLayout>
