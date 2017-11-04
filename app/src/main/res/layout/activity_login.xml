@@ -41,7 +41,7 @@
         app:srcCompat="@mipmap/title" />
 
     <Button
-        android:id="@+id/LoginButt"
+        android:id="@+id/LoginBigButt"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginBottom="0dp"
@@ -108,30 +108,62 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="110dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/holo_red_dark"
+        android:elevation="0dp"
         android:fontFamily="casual"
         android:text="Register"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButt" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
 
     <Button
         android:id="@+id/ForgotButt"
         style="@android:style/Widget.Material.Button"
         android:layout_width="110dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/holo_orange_light"
+        android:elevation="0dp"
         android:fontFamily="casual"
         android:text="Forgot Password?"
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/RegisterButt"
-        app:layout_constraintTop_toBottomOf="@+id/LoginButt" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
+
+    <Button
+        android:id="@+id/LoginButt"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/ButtonColor"
+        android:elevation="0dp"
+        android:fontFamily="casual"
+        android:text="Back to Login"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
 
     <Button
         android:id="@+id/ForgotBigButt"
@@ -145,10 +177,11 @@
         android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <Button
         android:id="@+id/RegisterBigButt"

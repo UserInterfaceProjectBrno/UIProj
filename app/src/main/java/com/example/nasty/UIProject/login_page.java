@@ -15,6 +15,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,23 +35,31 @@ public class login_page extends AppCompatActivity {
 
     EditText UserTxt;
     EditText PassTxt;
+    Button LoginBigButt;
     Button LoginButt;
     Button ForgotButt;
     Button ForgotBigButt;
     Button RegisterButt;
     Button RegisterBigButt;
+    TextView PassTxtView;
+
     TelephonyManager mngr;
     String imei = "null";
+
     FirebaseDatabase DateDB = FirebaseDatabase.getInstance();
     final DatabaseReference DateRef = DateDB.getReference().child("Orders");
     FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
+
     int Day = Calendar.getInstance().get(Calendar.DATE);
     int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
     int Year = Calendar.getInstance().get(Calendar.YEAR);
     int Hour = Calendar.getInstance().getTime().getHours();
     int Minute = Calendar.getInstance().getTime().getMinutes();
+
     private FirebaseAuth mAuth;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -58,8 +67,10 @@ public class login_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        final Intent GoLogin = new Intent(login_page.this,login_page.class);
         mAuth = FirebaseAuth.getInstance();
 
+        LoginBigButt = (Button) findViewById(R.id.LoginBigButt);
         LoginButt = (Button) findViewById(R.id.LoginButt);
         UserTxt = (EditText) findViewById(R.id.UserTxtInput);
         PassTxt = (EditText) findViewById(R.id.PassTxtInput);
@@ -67,7 +78,9 @@ public class login_page extends AppCompatActivity {
         ForgotBigButt = (Button) findViewById(R.id.ForgotBigButt);
         RegisterButt = (Button) findViewById(R.id.RegisterButt);
         RegisterBigButt = (Button) findViewById(R.id.RegisterBigButt);
+        PassTxtView = (TextView) findViewById(R.id.PassTxt);
 
+        final float[] Startpos = {LoginButt.getTranslationX()};
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         ActivityCompat.requestPermissions(login_page.this,
@@ -77,10 +90,23 @@ public class login_page extends AppCompatActivity {
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         imei = mngr.getDeviceId();
         soulboundVerificationAndLogin();
-
-        ////////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
-
+        ///////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
             LoginButt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fadeIn(LoginBigButt);
+                    fadeOutAndHideImage(RegisterBigButt);
+                    fadeOutAndHideImage(ForgotBigButt);
+                    fadeIn(RegisterButt);
+                    fadeIn(ForgotButt);
+                    fadeOutAndHideImage(LoginButt);
+                    fadeIn(PassTxt);
+                    fadeIn(PassTxtView);
+                }
+            });
+
+
+            LoginBigButt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
@@ -119,6 +145,23 @@ public class login_page extends AppCompatActivity {
         RegisterButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fadeOutAndHideImage(RegisterButt);
+                fadeOutAndHideImage(ForgotBigButt);
+                fadeOutAndHideImage(LoginBigButt);
+                fadeIn(LoginButt);
+                fadeIn(RegisterBigButt);
+                fadeIn(PassTxtView);
+                fadeIn(PassTxt);
+                fadeIn(ForgotButt);
+
+                LoginButt.setTranslationX(Startpos[0] +200);
+            }
+        });
+
+
+        RegisterBigButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
                     UserTxt.setText("Empty");
                     PassTxt.setText("Empty");
@@ -128,10 +171,11 @@ public class login_page extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "REGISTER DONE", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "REGISTER DONE", Toast.LENGTH_LONG).show();
                                     sendVerificationEmail();
+                                    startActivity(GoLogin);
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "REGISTER NOT DONE", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "REGISTER NOT DONE", Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -139,7 +183,7 @@ public class login_page extends AppCompatActivity {
             }
         });
 
-        final Intent GoLogin = new Intent(login_page.this,login_page.class);
+
         //////////////////////////////////////// FORGOT BUTTON //////////////////////////////////////////////
         ForgotBigButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,11 +213,15 @@ public class login_page extends AppCompatActivity {
             public void onClick(View v)
             {
 
-                fadeOutAndHideImage(LoginButt);
+                fadeOutAndHideImage(LoginBigButt);
                 fadeOutAndHideImage(ForgotButt);
                 fadeOutAndHideImage(RegisterBigButt);
-
+                fadeOutAndHideImage(PassTxt);
+                fadeOutAndHideImage(PassTxtView);
                 fadeIn(ForgotBigButt);
+                fadeIn(RegisterButt);
+                fadeIn(LoginButt);
+                LoginButt.setTranslationX(Startpos[0] -200);
 
             }
         });
