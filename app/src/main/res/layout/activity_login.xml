@@ -7,21 +7,10 @@
     android:background="@mipmap/background"
     tools:context="com.example.nasty.UIProject.login_page">
 
-    <EditText
-        android:id="@+id/UserTxtInput"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
+
 
     <ImageView
+
         android:id="@+id/TittleImgLogin"
         android:layout_width="297dp"
         android:layout_height="75dp"
@@ -40,22 +29,7 @@
         app:layout_constraintVertical_bias="0.13999999"
         app:srcCompat="@mipmap/title" />
 
-    <Button
-        android:id="@+id/LoginBigButt"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/ButtonColor"
-        android:text="Login"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+
 
     <TextView
         android:id="@+id/PassTxt"
@@ -74,10 +48,27 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <EditText
+        android:id="@+id/UserTxtInput"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:text=""
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+    <EditText
         android:id="@+id/PassTxtInput"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:imeOptions="actionGo"
         android:inputType="textPassword"
+        android:singleLine="true"
         android:text=""
         android:textAlignment="center"
         android:visibility="visible"
@@ -86,6 +77,23 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
+
+    <Button
+        android:id="@+id/LoginBigButt"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/ButtonColor"
+        android:text="Login"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
 
     <TextView
         android:id="@+id/UserText"

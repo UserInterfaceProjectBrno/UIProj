@@ -9,10 +9,12 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -81,6 +83,8 @@ public class login_page extends AppCompatActivity {
         PassTxtView = (TextView) findViewById(R.id.PassTxt);
 
         final float[] Startpos = {LoginButt.getTranslationX()};
+
+
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         ActivityCompat.requestPermissions(login_page.this,
@@ -134,10 +138,23 @@ public class login_page extends AppCompatActivity {
                 }
             });
         ////////////////////////////////////////////////END LOGIN BUTTON  ////////////////////////////////////////////////////////////////////
+         PassTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+             @Override
+             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+                 if (actionId == EditorInfo.IME_ACTION_GO) {
+                     LoginBigButt.callOnClick();
+
+                 }
+                 return true;
+             }
+         });
+
+
            PassTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                 @Override
 
                 public void onFocusChange(View v, boolean hasFocus) {
+
                     PassTxt.setText("");
                 }
             });
