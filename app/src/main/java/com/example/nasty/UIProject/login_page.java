@@ -141,13 +141,28 @@ public class login_page extends AppCompatActivity {
          PassTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
              @Override
              public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-                 if (actionId == EditorInfo.IME_ACTION_GO) {
+                 if (actionId == EditorInfo.IME_ACTION_GO && LoginBigButt.getVisibility()!=View.GONE)
+                 {
                      LoginBigButt.callOnClick();
-
+                 }
+                 else if( actionId == EditorInfo.IME_ACTION_GO && RegisterBigButt.getVisibility()!=View.GONE)
+                 {
+                     RegisterBigButt.callOnClick();
                  }
                  return true;
              }
          });
+        UserTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+                if( actionId == EditorInfo.IME_ACTION_NEXT && ForgotBigButt.getVisibility()!=View.GONE)
+                {
+                    ForgotBigButt.callOnClick();
+
+                }
+                return false;
+            }
+        });
 
 
            PassTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
