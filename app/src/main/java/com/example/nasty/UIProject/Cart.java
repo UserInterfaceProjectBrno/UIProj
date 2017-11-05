@@ -57,5 +57,10 @@ public class Cart
             OrderRef.child(imei).child("Products").child(Product).removeValue();
     }
 
+    public void CleanCart() {
+        if (flag == 0)
+            OrderRef.child(imei).child("Products").removeValue();
+    }
+
 
 }
