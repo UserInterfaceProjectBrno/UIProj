@@ -4,12 +4,12 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,14 +33,14 @@ public class Cart_Fragment extends Fragment {
     TelephonyManager mngr;
     String imei = "null";
 
-    ConstraintLayout LayoutC;
+    Button CartClearButt;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Mview = inflater.inflate(R.layout.activity_cart, container, false);
-        LayoutC = (ConstraintLayout) Mview.findViewById(R.id.CartBox);
+        CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         CartText = (TextView) Mview.findViewById(R.id.CartText);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
@@ -66,6 +66,14 @@ public class Cart_Fragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        CartClearButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Cart mCart = new Cart();
+                mCart.CleanCart();
             }
         });
         return Mview;
