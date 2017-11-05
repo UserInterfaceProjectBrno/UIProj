@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,6 +44,8 @@ public class Cart_Fragment extends Fragment {
         Mview = inflater.inflate(R.layout.activity_cart, container, false);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         CartText = (TextView) Mview.findViewById(R.id.CartText);
+        final Cart mCart = new Cart();
+        mCart.setImei(imei);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -82,9 +85,16 @@ public class Cart_Fragment extends Fragment {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
 
-                                OrderRef.child(imei).child("Products").removeValue();
-                                getFragmentManager().beginTransaction().replace(R.id.content_frame, new Order_Fragment()).commit();
-
+                                boolean M = mCart.CleanCart();
+                                if(M==false)
+                                {
+                                    Toast.makeText(getContext().getApplicationContext(),"CART LOCKED... CANNOT CLEAR!",Toast.LENGTH_LONG).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getContext().getApplicationContext(),"CART CLEARED!",Toast.LENGTH_LONG).show();
+                                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Order_Fragment()).commit();
+                                }
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:

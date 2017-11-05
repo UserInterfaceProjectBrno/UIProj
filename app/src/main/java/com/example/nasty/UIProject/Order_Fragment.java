@@ -2,9 +2,11 @@ package com.example.nasty.UIProject;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -93,7 +95,29 @@ public class Order_Fragment extends Fragment {
         LockOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OrderRef.child(imei).child("Locked").setValue("Yes");
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+
+                                OrderRef.child(imei).child("Locked").setValue("Yes");
+                                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Cart_Fragment()).commit();
+
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
+
             }
         });
 
