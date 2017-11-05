@@ -14,15 +14,24 @@ import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
+    final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
+
     TelephonyManager mngr;
     String imei = "null";
+    TextView navEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
         ////////////////////////////////////////////////////////////////////////////////
        try
        {
@@ -40,6 +51,8 @@ public class MainActivity extends AppCompatActivity
         //////////////////////////////////////////////////////////////////////////////////////
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         imei = mngr.getDeviceId();
+
+
         ////////////////////////////////////////////////////////////////////////////////////
         getFragmentManager().beginTransaction().replace(R.id.content_frame
                 , new Table_Fragment(),"Order")
@@ -50,9 +63,23 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        navEmail = (TextView) headerView.findViewById(R.id.EmailTextNav);
+
+        SoulRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                navEmail.setText(dataSnapshot.child(imei).getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

@@ -37,6 +37,7 @@ public class Cart_Fragment extends Fragment {
     TelephonyManager mngr;
     String imei = "null";
     Button CartClearButt;
+    Button LockButt;
 
 
     @Nullable
@@ -45,7 +46,7 @@ public class Cart_Fragment extends Fragment {
         Mview = inflater.inflate(R.layout.activity_cart, container, false);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         CartText = (TextView) Mview.findViewById(R.id.CartText);
-
+        LockButt = (Button) Mview.findViewById(R.id.LockButt);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -53,7 +54,7 @@ public class Cart_Fragment extends Fragment {
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
         ////////////////////////////////////////////////////////////////////////////////////////////
-        OrderRef.addValueEventListener(new ValueEventListener() {
+        OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
@@ -73,6 +74,7 @@ public class Cart_Fragment extends Fragment {
 
             }
         });
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -128,6 +130,34 @@ public class Cart_Fragment extends Fragment {
 
         }
         });
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        LockButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case DialogInterface.BUTTON_POSITIVE:
+
+                                OrderRef.child(imei).child("Locked").setValue("Yes");
+                                getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+            }
+        });
+
         return Mview;
     }
 

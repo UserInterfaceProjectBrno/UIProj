@@ -10,29 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="casual"
-            android:text="CART:"
-            android:textAlignment="center"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
         <ScrollView
             android:id="@+id/scrollView2"
             style="@android:style/Widget.Material.ScrollView"
             android:layout_width="0dp"
-            android:layout_height="370dp"
+            android:layout_height="360dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -43,8 +25,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ClearButt"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.58">
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,7 +41,8 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginStart="16dp"
                     android:fontFamily="serif"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -72,20 +54,62 @@
 
         <Button
             android:id="@+id/ClearButt"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/black"
+            android:background="#00164d"
+            android:elevation="10dp"
             android:fontFamily="casual"
             android:text="  Clear Cart  "
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@android:color/white"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.87" />
+            app:layout_constraintVertical_bias="0.9" />
+
+        <Button
+            android:id="@+id/LockButt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#27336f"
+            android:fontFamily="casual"
+            android:text="Lock Order"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ClearButt"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="0dp"
+            android:background="#004c83"
+            android:fontFamily="casual"
+            android:text="Cart:"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>

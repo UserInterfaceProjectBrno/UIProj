@@ -24,14 +24,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/LockButt"
+            android:id="@+id/CartButt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:background="@android:color/holo_red_dark"
+            android:background="#01324a"
             android:fontFamily="casual"
-            android:text="   Process / Lock Order   "
-            android:textSize="18sp"
+            android:text="Cart"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
