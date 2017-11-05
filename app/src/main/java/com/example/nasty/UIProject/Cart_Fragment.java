@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -123,8 +122,8 @@ public class Cart_Fragment extends Fragment {
             else if(flag == 1)
                 {
                     CartClearButt.setEnabled(false);
-                    CartClearButt.setText("ORDER LOCKED");
-                    Toast.makeText(getContext().getApplicationContext(), "ORDER LOCKED, CANNOT CLEAR!", Toast.LENGTH_LONG).show();
+                    CartClearButt.setBackgroundColor(getResources().getColor(R.color.ButtonColor));
+                    CartClearButt.setText(" --  ORDER LOCKED  -- ");
                 }
 
         }
