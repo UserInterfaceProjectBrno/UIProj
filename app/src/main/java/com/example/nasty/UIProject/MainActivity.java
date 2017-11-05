@@ -72,7 +72,10 @@ public class MainActivity extends AppCompatActivity
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                navEmail.setText(dataSnapshot.child(imei).getValue().toString());
+                if(dataSnapshot.hasChild(imei))
+                {
+                    navEmail.setText(dataSnapshot.child(imei).getValue().toString());
+                }
             }
 
             @Override
