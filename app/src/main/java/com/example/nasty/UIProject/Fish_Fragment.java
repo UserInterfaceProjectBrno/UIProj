@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.List;
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -25,7 +24,6 @@ public class Fish_Fragment extends Fragment {
     View Mview;
     TelephonyManager mngr;
     String imei = "null";
-    List<Object> td;
 
     TextView FirstText;
     TextView SecondText;
@@ -66,12 +64,6 @@ public class Fish_Fragment extends Fragment {
         FirstText = (TextView) Mview.findViewById(R.id.FirstRowText);
         SecondText = (TextView) Mview.findViewById(R.id.SecondRowText);
         ThirdText = (TextView) Mview.findViewById(R.id.ThirdRowText);
-
-
-
-
-
-
 
 
         FirstArrowUp = (ImageButton) Mview.findViewById(R.id.FirstArrowUp);
@@ -183,17 +175,5 @@ public class Fish_Fragment extends Fragment {
 
         return Mview;
     }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        FirstArrowUp.setImageResource(0);
-        FirstArrowDown.setImageResource(0);
-        SecondArrowDown.setImageResource(0);
-        SecondArrowUp.setImageResource(0);
-        ThirdArrowUp.setImageResource(0);
-        ThirdArrowDown.setImageResource(0);
-
-        }
 
 }
