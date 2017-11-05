@@ -20,9 +20,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"> </activity>
 
-        <activity android:name=".login_page"
+        <activity
+            android:name=".login_page"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
