@@ -44,6 +44,7 @@ public class login_page extends AppCompatActivity {
     Button RegisterButt;
     Button RegisterBigButt;
     TextView PassTxtView;
+    TextView UserTxtView;
 
     TelephonyManager mngr;
     String imei = "null";
@@ -81,8 +82,13 @@ public class login_page extends AppCompatActivity {
         RegisterButt = (Button) findViewById(R.id.RegisterButt);
         RegisterBigButt = (Button) findViewById(R.id.RegisterBigButt);
         PassTxtView = (TextView) findViewById(R.id.PassTxt);
+        UserTxtView = (TextView) findViewById(R.id.UserTxt);
 
-        final float[] Startpos = {LoginButt.getTranslationX()};
+        final float[] StartPosLoginButt = {LoginButt.getTranslationX()};
+        final float[] StartPosUserTxt = {UserTxt.getTranslationY()};
+        final float[] StartPosPassTxt = {PassTxt.getTranslationY()};
+        final float[] StartPosUserTxtInput = {UserTxtView.getTranslationY()};
+        final float[] StartPosPassTxtInput = {PassTxtView.getTranslationY()};
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,8 +191,10 @@ public class login_page extends AppCompatActivity {
                 fadeIn(PassTxtView);
                 fadeIn(PassTxt);
                 fadeIn(ForgotButt);
+                UserTxtView.setTranslationY(StartPosUserTxt[0] + 200);
+                UserTxt.setTranslationY(StartPosPassTxtInput[0] + 200);
 
-                LoginButt.setTranslationX(Startpos[0] +200);
+                LoginButt.setTranslationX(StartPosLoginButt[0] + 200);
             }
         });
 
@@ -253,7 +261,7 @@ public class login_page extends AppCompatActivity {
                 fadeIn(ForgotBigButt);
                 fadeIn(RegisterButt);
                 fadeIn(LoginButt);
-                LoginButt.setTranslationX(Startpos[0] -200);
+                LoginButt.setTranslationX(StartPosLoginButt[0] - 200);
 
             }
         });
