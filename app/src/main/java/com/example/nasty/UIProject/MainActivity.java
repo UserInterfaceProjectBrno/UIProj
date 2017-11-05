@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         navEmail = (TextView) headerView.findViewById(R.id.EmailTextNav);
 
-        SoulRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 navEmail.setText(dataSnapshot.child(imei).getValue().toString());
