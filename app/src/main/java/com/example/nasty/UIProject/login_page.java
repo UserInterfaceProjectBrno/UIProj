@@ -160,13 +160,18 @@ public class login_page extends AppCompatActivity {
                  {
                      LoginBigButt.callOnClick();
                  }
-                 else if( actionId == EditorInfo.IME_ACTION_GO && RegisterBigButt.getVisibility()!=View.GONE)
-                 {
-                     RegisterBigButt.callOnClick();
-                 }
-                 return true;
+                 return false;
              }
          });
+        PassTxt2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO && RegisterBigButt.getVisibility() != View.GONE) {
+                    RegisterBigButt.callOnClick();
+                }
+                return true;
+            }
+        });
         UserTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
@@ -230,7 +235,7 @@ public class login_page extends AppCompatActivity {
                     PassTxt.setText("Empty");
                     PassTxt2.setText("Empty");
                 }
-                if (PassTxt2.getText() == PassTxt.getText()) {
+                if (PassTxt2.getText().toString().equals(PassTxt.getText().toString())) {
                     mAuth.createUserWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
