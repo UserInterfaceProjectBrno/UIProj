@@ -21,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class Cart_Fragment extends Fragment {
 
     static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
@@ -29,9 +31,9 @@ public class Cart_Fragment extends Fragment {
     public String data;
     public int children;
     Object X;
-    String [] Xx;
     String[] split;
     View Mview;
+    int flag=0;
     TextView CartText;
     TelephonyManager mngr;
     String imei = "null";
@@ -44,8 +46,7 @@ public class Cart_Fragment extends Fragment {
         Mview = inflater.inflate(R.layout.activity_cart, container, false);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         CartText = (TextView) Mview.findViewById(R.id.CartText);
-        final Cart mCart = new Cart();
-        mCart.setImei(imei);
+
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -73,28 +74,39 @@ public class Cart_Fragment extends Fragment {
 
             }
         });
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        OrderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
+                {
+                    flag = 1;
+                }
+                else
+                {
+                    flag = 0;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         ////////////////////////////////////////////////////////////////////////////////////////////
         CartClearButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                if(flag == 0)
+                {
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
-
-                                boolean M = mCart.CleanCart();
-                                if(M==false)
-                                {
-                                    Toast.makeText(getContext().getApplicationContext(),"CART LOCKED... CANNOT CLEAR!",Toast.LENGTH_LONG).show();
-                                }
-                                else
-                                {
-                                    Toast.makeText(getContext().getApplicationContext(),"CART CLEARED!",Toast.LENGTH_LONG).show();
-                                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Order_Fragment()).commit();
-                                }
+                                OrderRef.child(imei).child("Products").removeValue();
+                                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Cart_Fragment()).commit();
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -108,6 +120,14 @@ public class Cart_Fragment extends Fragment {
                 builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
+            else if(flag == 1)
+                {
+                    CartClearButt.setEnabled(false);
+                    CartClearButt.setText("ORDER LOCKED");
+                    Toast.makeText(getContext().getApplicationContext(), "ORDER LOCKED, CANNOT CLEAR!", Toast.LENGTH_LONG).show();
+                }
+
+        }
         });
         return Mview;
     }

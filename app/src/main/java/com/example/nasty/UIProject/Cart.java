@@ -57,15 +57,6 @@ public class Cart
             OrderRef.child(imei).child("Products").child(Product).removeValue();
     }
 
-    public boolean CleanCart() {
-        if (flag == 0)
-        {
-        OrderRef.child(imei).child("Products").removeValue();
-        return true;
-        }
-        else
-            return false;
-    }
 
 
 }
