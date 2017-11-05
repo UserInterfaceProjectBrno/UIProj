@@ -112,6 +112,7 @@ public class login_page extends AppCompatActivity {
                     fadeOutAndHideImage(LoginButt);
                     fadeIn(PassTxt);
                     fadeIn(PassTxtView);
+
                 }
             });
 
@@ -191,8 +192,10 @@ public class login_page extends AppCompatActivity {
                 fadeIn(PassTxtView);
                 fadeIn(PassTxt);
                 fadeIn(ForgotButt);
-                UserTxtView.setTranslationY(StartPosUserTxt[0] + 200);
-                UserTxt.setTranslationY(StartPosPassTxtInput[0] + 200);
+                UserTxtView.setTranslationY(StartPosUserTxt[0] - 200);
+                UserTxt.setTranslationY(StartPosUserTxtInput[0] - 200);
+                PassTxtView.setTranslationY(StartPosPassTxt[0] - 200);
+                PassTxt.setTranslationY(StartPosPassTxtInput[0] - 200);
 
                 LoginButt.setTranslationX(StartPosLoginButt[0] + 200);
             }
@@ -261,6 +264,8 @@ public class login_page extends AppCompatActivity {
                 fadeIn(ForgotBigButt);
                 fadeIn(RegisterButt);
                 fadeIn(LoginButt);
+
+
                 LoginButt.setTranslationX(StartPosLoginButt[0] - 200);
 
             }
