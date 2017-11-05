@@ -67,6 +67,13 @@ public class Fish_Fragment extends Fragment {
         SecondText = (TextView) Mview.findViewById(R.id.SecondRowText);
         ThirdText = (TextView) Mview.findViewById(R.id.ThirdRowText);
 
+
+
+
+
+
+
+
         FirstArrowUp = (ImageButton) Mview.findViewById(R.id.FirstArrowUp);
         FirstArrowDown = (ImageButton) Mview.findViewById(R.id.FirstArrowDown);
 
@@ -83,6 +90,9 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(FirstText.getText().toString());
                 FirstText.setText(Integer.toString(x + 1));
+                if(parseInt(FirstText.getText().toString()) > 50)
+                    FirstText.setText("50");
+
             }
         });
 
@@ -91,6 +101,8 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(FirstText.getText().toString());
                 FirstText.setText(Integer.toString(x - 1));
+                if(parseInt(FirstText.getText().toString()) < 0)
+                    FirstText.setText("0");
             }
         });
 
@@ -100,6 +112,10 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(SecondText.getText().toString());
                 SecondText.setText(Integer.toString(x + 1));
+                if(parseInt(SecondText.getText().toString()) > 50)
+                    SecondText.setText("50");
+
+
             }
         });
 
@@ -108,6 +124,8 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(SecondText.getText().toString());
                 SecondText.setText(Integer.toString(x - 1));
+                if(parseInt(SecondText.getText().toString()) < 0)
+                    SecondText.setText("0");
             }
         });
 
@@ -117,6 +135,9 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(ThirdText.getText().toString());
                 ThirdText.setText(Integer.toString(x + 1));
+                if(parseInt(ThirdText.getText().toString()) > 50)
+                    ThirdText.setText("50");
+
             }
         });
 
@@ -125,6 +146,8 @@ public class Fish_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(ThirdText.getText().toString());
                 ThirdText.setText(Integer.toString(x - 1));
+                if(parseInt(ThirdText.getText().toString()) < 0)
+                    ThirdText.setText("0");
             }
         });
 
