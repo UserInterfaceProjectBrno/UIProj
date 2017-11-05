@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -45,6 +46,8 @@ public class login_page extends AppCompatActivity {
     Button RegisterBigButt;
     TextView PassTxtView;
     TextView UserTxtView;
+    TextView PassTxtView2;
+    EditText PassTxt2;
 
     TelephonyManager mngr;
     String imei = "null";
@@ -83,6 +86,8 @@ public class login_page extends AppCompatActivity {
         RegisterBigButt = (Button) findViewById(R.id.RegisterBigButt);
         PassTxtView = (TextView) findViewById(R.id.PassTxt);
         UserTxtView = (TextView) findViewById(R.id.UserTxt);
+        PassTxtView2 = (TextView) findViewById(R.id.PassTxt2);
+        PassTxt2 = (EditText) findViewById(R.id.PassTxtInput2);
 
         final float[] StartPosLoginButt = {LoginButt.getTranslationX()};
         final float[] StartPosUserTxt = {UserTxt.getTranslationY()};
@@ -110,6 +115,8 @@ public class login_page extends AppCompatActivity {
                     fadeIn(RegisterButt);
                     fadeIn(ForgotButt);
                     fadeOutAndHideImage(LoginButt);
+                    fadeOutAndHideImage(PassTxt2);
+                    fadeOutAndHideImage(PassTxtView2);
                     fadeIn(PassTxt);
                     fadeIn(PassTxtView);
 
@@ -120,7 +127,8 @@ public class login_page extends AppCompatActivity {
             LoginBigButt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
+                    if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()
+                            ) {
                         UserTxt.setText("Empty");
                         PassTxt.setText("Empty");
                     }
@@ -171,15 +179,24 @@ public class login_page extends AppCompatActivity {
             }
         });
 
+        PassTxt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                PassTxt.getText().clear();
+                return false;
+            }
+        });
 
-           PassTxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
+        PassTxt2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                PassTxt2.getText().clear();
+                return false;
+            }
+        });
 
-                public void onFocusChange(View v, boolean hasFocus) {
 
-                    PassTxt.setText("");
-                }
-            });
+
 /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
         RegisterButt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,6 +209,9 @@ public class login_page extends AppCompatActivity {
                 fadeIn(PassTxtView);
                 fadeIn(PassTxt);
                 fadeIn(ForgotButt);
+                fadeIn(PassTxt2);
+                fadeIn(PassTxtView2);
+
                 UserTxtView.setTranslationY(StartPosUserTxt[0] - 200);
                 UserTxt.setTranslationY(StartPosUserTxtInput[0] - 200);
                 PassTxtView.setTranslationY(StartPosPassTxt[0] - 200);
@@ -205,23 +225,28 @@ public class login_page extends AppCompatActivity {
         RegisterBigButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()) {
+                if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty() || PassTxt2.getText().toString().isEmpty()) {
                     UserTxt.setText("Empty");
                     PassTxt.setText("Empty");
+                    PassTxt2.setText("Empty");
                 }
-                mAuth.createUserWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "REGISTER DONE", Toast.LENGTH_LONG).show();
-                                    sendVerificationEmail();
-                                    startActivity(GoLogin);
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "REGISTER NOT DONE", Toast.LENGTH_LONG).show();
+                if (PassTxt2.getText() == PassTxt.getText()) {
+                    mAuth.createUserWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "REGISTER DONE", Toast.LENGTH_LONG).show();
+                                        sendVerificationEmail();
+                                        startActivity(GoLogin);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "REGISTER NOT DONE", Toast.LENGTH_LONG).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                } else {
+                    Toast.makeText(getApplicationContext(), "PASSWORD IS NOT VALID\nPLEASE ENTER THE SAME", Toast.LENGTH_LONG).show();
+                }
 
             }
         });
@@ -261,6 +286,8 @@ public class login_page extends AppCompatActivity {
                 fadeOutAndHideImage(RegisterBigButt);
                 fadeOutAndHideImage(PassTxt);
                 fadeOutAndHideImage(PassTxtView);
+                fadeOutAndHideImage(PassTxt2);
+                fadeOutAndHideImage(PassTxtView2);
                 fadeIn(ForgotBigButt);
                 fadeIn(RegisterButt);
                 fadeIn(LoginButt);

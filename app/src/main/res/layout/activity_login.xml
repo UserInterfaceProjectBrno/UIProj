@@ -30,6 +30,21 @@
         app:srcCompat="@mipmap/title" />
 
 
+    <EditText
+        android:id="@+id/UserTxtInput"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:imeOptions="actionNext"
+        android:singleLine="true"
+        android:text=""
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
 
     <TextView
         android:id="@+id/PassTxt"
@@ -48,21 +63,6 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <EditText
-        android:id="@+id/UserTxtInput"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:imeOptions="actionNext"
-        android:singleLine="true"
-        android:text=""
-        android:textAlignment="center"
-        android:textStyle="italic"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.46" />
-    <EditText
         android:id="@+id/PassTxtInput"
         android:layout_width="250dp"
         android:layout_height="40dp"
@@ -77,6 +77,38 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
+
+    <EditText
+        android:id="@+id/PassTxtInput2"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:imeOptions="actionGo"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:text=""
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/PassTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password Again"
+        android:textAllCaps="false"
+        android:textColor="@color/TittleColor"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
 
     <Button
         android:id="@+id/LoginBigButt"
