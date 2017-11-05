@@ -11,13 +11,12 @@ import java.util.Objects;
 public class Cart
 {
 
-    String imei="null";
     static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
     final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
-
+    static String data;
+    String imei="null";
     int flag=0;
     int ProductCount;
-    static String data;
 
     public Cart()
     {
@@ -52,6 +51,11 @@ public class Cart
                OrderRef.child(imei).child("Products").child(Product).setValue(Quantity);
           }
       }
+    public void RemoveFromCart(String Product)
+    {
+        if(flag==0)
+            OrderRef.child(imei).child("Products").child(Product).removeValue();
+    }
 
 
 }

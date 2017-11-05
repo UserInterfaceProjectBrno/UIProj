@@ -31,8 +31,12 @@ import java.util.Objects;
 import static java.lang.Integer.parseInt;
 
 public class Table_Fragment extends Fragment {
+    final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
+    final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
+    final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
+    final int[] children = new int[1]; // Tables in Database.
+    final int[] YourTable = {0}; // TABLE HOLDER
     View Mview;
-
     Button TakeAwayButt;
     Button ReserveTableButt;
     Button UnreserveButt;
@@ -45,11 +49,6 @@ public class Table_Fragment extends Fragment {
     ImageButton Logout_butt;
     int number = 1;
     TelephonyManager mngr;
-    final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
-    final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
-    final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
-    final int[] children = new int[1]; // Tables in Database.
-    final int[] YourTable = {0}; // TABLE HOLDER
     int flag=0;
 
 
@@ -225,16 +224,6 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                         .commit();
             }
         });
-        ///////////////////////////////LOGOUT PROGRESS///////////////////////////////////////////////
-       /* Logout_butt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference LogoutRef = soulboundDatabase.getReference().child("Soulbounded").child(imei);
-                LogoutRef.removeValue();
-            }
-        });*/
-        /////////////////////////////////////////////////////////////////////////////////////////////
         return Mview;
     }
 

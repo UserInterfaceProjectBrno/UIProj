@@ -136,6 +136,13 @@ public class Pizza_Fragment extends Fragment {
                 String SecondQuan = SecondText.getText().toString();
                 String ThirdQuan = ThirdText.getText().toString();
 
+                if(Objects.equals(FirstQuan, "0"))
+                    mCart.RemoveFromCart(FirstProd);
+                if(Objects.equals(SecondQuan, "0"))
+                    mCart.RemoveFromCart(SecondProd);
+                if(Objects.equals(ThirdQuan, "0"))
+                    mCart.RemoveFromCart(ThirdProd);
+
                 if (!Objects.equals(FirstQuan, "0"))
                     mCart.addOnCart(FirstProd, FirstQuan);
 
