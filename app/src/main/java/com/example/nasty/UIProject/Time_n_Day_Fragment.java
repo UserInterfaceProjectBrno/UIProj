@@ -184,8 +184,8 @@ public class Time_n_Day_Fragment extends Fragment
             public void onClick(View v) {
                 numberofMin--;
                 MinutesText.setText(numberofMin + " m.");
-                if (numberofMin < 0) {
-                    numberofMin = 0;
+                if (numberofMin < 15) {
+                    numberofMin = 15;
                     MinutesText.setText("0 m.");
                 }
                 if (numberofMin == 60) {
@@ -219,8 +219,8 @@ public class Time_n_Day_Fragment extends Fragment
             public void onClick(View v) {
                 numberofMin -= 5;
                 MinutesText.setText(numberofMin + " m.");
-                if (numberofMin < 0) {
-                    numberofMin = 0;
+                if (numberofMin < 15) {
+                    numberofMin = 15;
                     MinutesText.setText("0 m.");
                 }
                 if (numberofMin == 60) {

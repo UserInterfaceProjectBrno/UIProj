@@ -158,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
-            android:text="0"
+            android:text="15"
             android:textAlignment="center"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -166,6 +166,22 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.39999998" />
+
+        <TextView
+            android:id="@+id/LessTimeTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="*Less Time 15 Minutes                     **Max Time 4 Hours."
+            android:textAlignment="center"
+            android:textColor="#7d7210"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.61" />
 
         <Button
             android:id="@+id/SubmitMin"
