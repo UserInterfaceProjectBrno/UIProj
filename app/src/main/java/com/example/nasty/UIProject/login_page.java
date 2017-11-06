@@ -243,6 +243,7 @@ public class login_page extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "REGISTER DONE", Toast.LENGTH_LONG).show();
                                         sendVerificationEmail();
+                                        DateRef.child(imei).child("Locked").setValue("No");
                                         startActivity(GoLogin);
                                     } else {
                                         Toast.makeText(getApplicationContext(), "REGISTER NOT DONE", Toast.LENGTH_LONG).show();
@@ -370,7 +371,7 @@ public class login_page extends AppCompatActivity {
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
             SoulRef.setValue(s);
-            DateRef.child(imei).child("Locked").setValue("No");
+
         } else
         {
             Intent GoMain = new Intent(login_page.this,MainActivity.class);
