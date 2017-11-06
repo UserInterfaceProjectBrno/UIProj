@@ -80,31 +80,31 @@ public class Time_n_Day_Fragment extends Fragment
                 MinutesText.setText(numberofMin + " m.");
                 if (numberofMin > 240) {
                     numberofMin = 240;
-                    MinutesText.setText("4 H.");
+                    MinutesText.setText("4 h.");
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
 
             }
@@ -116,31 +116,31 @@ public class Time_n_Day_Fragment extends Fragment
                 MinutesText.setText(numberofMin + " m.");
                 if (numberofMin > 240) {
                     numberofMin = 240;
-                    MinutesText.setText("4 H.");
+                    MinutesText.setText("4 h.");
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
             }
         });
@@ -151,31 +151,31 @@ public class Time_n_Day_Fragment extends Fragment
                 MinutesText.setText(numberofMin + " m.");
                 if (numberofMin > 240) {
                     numberofMin = 240;
-                    MinutesText.setText("4 H.");
+                    MinutesText.setText("4 h.");
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
             }
         });
@@ -190,27 +190,27 @@ public class Time_n_Day_Fragment extends Fragment
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
             }
         });
@@ -225,27 +225,27 @@ public class Time_n_Day_Fragment extends Fragment
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
             }
         });
@@ -260,27 +260,27 @@ public class Time_n_Day_Fragment extends Fragment
                 }
                 if (numberofMin == 60) {
                     numberofMin = 60;
-                    MinutesText.setText("1 H.");
+                    MinutesText.setText("1 h.");
                 }
                 if (numberofMin == 90) {
                     numberofMin = 90;
-                    MinutesText.setText("1.5 H.");
+                    MinutesText.setText("1.5 h.");
                 }
                 if (numberofMin == 120) {
                     numberofMin = 120;
-                    MinutesText.setText("2 H.");
+                    MinutesText.setText("2 h.");
                 }
                 if (numberofMin == 150) {
                     numberofMin = 150;
-                    MinutesText.setText("2.5 H.");
+                    MinutesText.setText("2.5 h.");
                 }
                 if (numberofMin == 180) {
                     numberofMin = 180;
-                    MinutesText.setText("3 H.");
+                    MinutesText.setText("3 h.");
                 }
                 if (numberofMin == 210) {
                     numberofMin = 210;
-                    MinutesText.setText("3.5 H.");
+                    MinutesText.setText("3.5 h.");
                 }
             }
         });
