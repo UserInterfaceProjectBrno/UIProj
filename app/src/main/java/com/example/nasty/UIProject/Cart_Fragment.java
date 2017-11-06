@@ -65,8 +65,16 @@ public class Cart_Fragment extends Fragment {
                 {
                     flag = 1;
                     LockButt.setEnabled(false);
-                    LockButt.setVisibility(View.GONE);
-                    CartClearButt.setBackgroundColor(Color.GREEN);
+                    if(!dataSnapshot.child(imei).child("Table").equals("0"))
+                    {
+                        LockButt.setText("TABLE NUMBER: " + dataSnapshot.child(imei).child("Table").getValue().toString());
+                    }
+                    else
+                    {
+                        LockButt.setText("TAKE AWAY");
+                    }
+                    LockButt.setBackgroundColor(Color.DKGRAY);
+                    CartClearButt.setBackgroundColor(Color.LTGRAY);
                     CartClearButt.setText(" --ORDER IS LOCKED-- ");
                     CartClearButt.setEnabled(false);
                 } else
@@ -156,7 +164,7 @@ public class Cart_Fragment extends Fragment {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("This Action Cannot Be Undone!\nLOCK ORDER\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("This Action Cannot Be Undone!\n PAY \nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
         });
