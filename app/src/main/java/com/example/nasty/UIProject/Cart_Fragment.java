@@ -118,7 +118,7 @@ public class Cart_Fragment extends Fragment {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("This Action Cannot Be Undone!\nCLEAR CART\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
             else if(flag == 1)
@@ -153,7 +153,7 @@ public class Cart_Fragment extends Fragment {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                builder.setMessage("This Action Cannot Be Undone!\nLOCK ORDER\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
             }
         });

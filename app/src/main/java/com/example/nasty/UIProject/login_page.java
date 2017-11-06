@@ -388,6 +388,7 @@ public class login_page extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(imei)) {
                     Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
+
                     Intent GoMain = new Intent(login_page.this,MainActivity.class);
                     startActivity(GoMain);
                 }

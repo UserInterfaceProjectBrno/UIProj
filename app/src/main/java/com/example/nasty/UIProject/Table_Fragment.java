@@ -33,6 +33,7 @@ import static java.lang.Integer.parseInt;
 public class Table_Fragment extends Fragment {
     final FirebaseDatabase TableDatabase = FirebaseDatabase.getInstance();
     final DatabaseReference TableRef = TableDatabase.getReference().child("Tables");
+    final DatabaseReference OrderRef = TableDatabase.getReference().child("Orders");
     final String table[][] = new String[1000][5];//MAX: 999 Table and 4 Specifications per table.
     final int[] children = new int[1]; // Tables in Database.
     final int[] YourTable = {0}; // TABLE HOLDER
@@ -50,6 +51,7 @@ public class Table_Fragment extends Fragment {
     int number = 1;
     TelephonyManager mngr;
     int flag=0;
+    String LockStatus;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -65,6 +67,7 @@ public class Table_Fragment extends Fragment {
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
+
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
         TakeAwayButt = (Button) Mview.findViewById(R.id.TakeAwaybtn);
         ReserveTableButt = (Button) Mview.findViewById(R.id.ReserveTablebtn);
@@ -76,8 +79,23 @@ public class Table_Fragment extends Fragment {
         PersonImg = (ImageView) Mview.findViewById(R.id.PersonImg);
         TableNum = (TextView) Mview.findViewById(R.id.TableNum);
         UnreserveButt = (Button) Mview.findViewById(R.id.UnreserveButt);
-/////////////////////////////////////// TABLE Fill START /////////////////////////////////////////////////////
 
+        OrderRef.child(imei).child("Reserve-Time").setValue("0");
+        OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                LockStatus = dataSnapshot.child(imei).child("Locked").getValue().toString();
+                if (Objects.equals(LockStatus, "Yes")) {
+                    Toast.makeText(getContext().getApplicationContext(), "ORDER IS LOCKED!", Toast.LENGTH_LONG).show();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         TableRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,7 +111,8 @@ public class Table_Fragment extends Fragment {
                     {
                         flag = 1;
                         YourTable[0]=i;
-                        TableNum.setText("You Reserved Table Number : " + YourTable[0] +"\n\n...TAP TO ORDER...");
+
+                        TableNum.setText("You Already Reserved Table Number : " + YourTable[0] + "\n\n...TAP TO ORDER...");
 
                         ShowCurrTable();
 
@@ -116,7 +135,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
         TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("Yes").setValue("No");
         TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
         getFragmentManager().beginTransaction().replace(R.id.content_frame
-                , new Table_Fragment(),"Order")
+                , new Table_Fragment())
                 .commit();    //START FROM ORDER PAGE
     }
 });
@@ -154,10 +173,13 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                             YourTable[0] = i;
                             TableRef.child(Integer.toString(i)).child("Reserved").child("Yes").setValue("Yes");
                             TableRef.child(Integer.toString(i)).child("Reserved").child("ID-Phone").setValue(imei);
-                            TableNum.setText("You Reserved Table Number " + YourTable[0] +"\n\n...TAP TO ORDER...");
                             TableRef.getDatabase().getReference("Orders").child(imei).child("TakeAway").setValue("No");
                             TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(YourTable[0]);
-                            ShowCurrTable();
+                            Toast.makeText(getActivity().getApplicationContext(), "You Reserved Table Number " + YourTable[0], Toast.LENGTH_SHORT).show();
+                            getFragmentManager().beginTransaction().replace(R.id.content_frame
+                                    , new Time_n_Day_Fragment())
+                                    .commit();
+
                             flag = 1;
                             break;
                         }
@@ -178,7 +200,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
-                        , new Order_Fragment(),"Order")
+                        , new Order_Fragment())
                         .commit();
             }
         });
@@ -220,7 +242,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                 TableRef.getDatabase().getReference("Orders").child(imei).child("TakeAway").setValue("Yes");
                 TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
-                        , new Time_n_Day_Fragment(),"Time_n_Day")
+                        , new Time_n_Day_Fragment())
                         .commit();
             }
         });
@@ -282,6 +304,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
         fadeOutAndHideImage(NumberOfPeople);
         fadeIn(TableNum);
         fadeIn(UnreserveButt);
+
 
     }
 }

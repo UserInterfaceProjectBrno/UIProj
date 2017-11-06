@@ -41,7 +41,8 @@ public class Order_Fragment extends Fragment {
     TelephonyManager mngr;
     String imei="null";
 
-    String LockedState;
+    String LockedState = "0";
+    String TimeStatus = "0";
 
 
 
@@ -74,12 +75,17 @@ public class Order_Fragment extends Fragment {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-       OrderRef.addValueEventListener(new ValueEventListener() {
+        OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
+                TimeStatus = dataSnapshot.child(imei).child("Reserve-Time").getValue().toString();
                 if(Objects.equals(LockedState, "Yes"))
                 {
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+                }
+                if (Objects.equals(TimeStatus, "0")) {
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Time_n_Day_Fragment()).commit();
                 }
             }
 
