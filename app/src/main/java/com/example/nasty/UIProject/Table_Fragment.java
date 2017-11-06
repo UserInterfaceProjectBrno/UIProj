@@ -220,7 +220,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                 TableRef.getDatabase().getReference("Orders").child(imei).child("TakeAway").setValue("Yes");
                 TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
                 getFragmentManager().beginTransaction().replace(R.id.content_frame
-                        , new Order_Fragment(),"Order")
+                        , new Time_n_Day_Fragment(),"Time_n_Day")
                         .commit();
             }
         });
