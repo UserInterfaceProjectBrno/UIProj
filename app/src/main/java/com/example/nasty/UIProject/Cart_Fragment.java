@@ -53,6 +53,26 @@ public class Cart_Fragment extends Fragment {
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        OrderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes")) {
+                    flag = 1;
+
+                    LockButt.setEnabled(false);
+                    LockButt.setVisibility(View.GONE);
+                } else {
+                    flag = 0;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        ////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -75,26 +95,7 @@ public class Cart_Fragment extends Fragment {
             }
         });
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////
-        OrderRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
-                {
-                    flag = 1;
-                }
-                else
-                {
-                    flag = 0;
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        ////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////
         CartClearButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,12 +121,11 @@ public class Cart_Fragment extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setMessage("This Action Cannot Be Undone!\nCLEAR CART\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
-            }
-            else if(flag == 1)
+            } else
                 {
                     CartClearButt.setEnabled(false);
                     CartClearButt.setBackgroundColor(getResources().getColor(R.color.ButtonColor));
-                    CartClearButt.setText(" --  ORDER LOCKED  -- ");
+                    CartClearButt.setText(" --ORDER IS LOCKED-- ");
                 }
 
         }
@@ -141,6 +141,7 @@ public class Cart_Fragment extends Fragment {
                             case DialogInterface.BUTTON_POSITIVE:
 
                                 OrderRef.child(imei).child("Locked").setValue("Yes");
+
                                 getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
 
                                 break;
