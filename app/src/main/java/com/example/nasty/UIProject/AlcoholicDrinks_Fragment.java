@@ -39,9 +39,9 @@ public class AlcoholicDrinks_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "Drink - Ouzo";
-    String SecondProd = "Drink - Zubrowka";
-    String ThirdProd = "Drink - Raki";
+    String FirstProd = "Drink - Ouzo ";
+    String SecondProd = "Drink - Zubrowka ";
+    String ThirdProd = "Drink - Raki ";
 
     Button Submit;
 
