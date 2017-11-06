@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/logout"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/unlockTemp"
+        android:orderInCategory="100"
+        android:title="!UnlockOrder!"
+        app:showAsAction="never" />
 </menu>

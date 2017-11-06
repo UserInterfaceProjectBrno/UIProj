@@ -65,11 +65,11 @@ public class Cart_Fragment extends Fragment {
                 {
                     flag = 1;
                     LockButt.setEnabled(false);
-                    if(!dataSnapshot.child(imei).child("Table").equals("0"))
+                    if(!Objects.equals(dataSnapshot.child(imei).child("TakeAway").toString(), "Yes"))
                     {
                         LockButt.setText("TABLE NUMBER: " + dataSnapshot.child(imei).child("Table").getValue().toString());
                     }
-                    else
+                     if(Objects.equals(dataSnapshot.child(imei).child("TakeAway").toString(), "Yes"))
                     {
                         LockButt.setText("TAKE AWAY");
                     }

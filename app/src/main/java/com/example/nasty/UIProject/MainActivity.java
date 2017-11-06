@@ -115,6 +115,12 @@ public class MainActivity extends AppCompatActivity
             Intent GoLogin = new Intent(MainActivity.this,login_page.class);
             startActivity(GoLogin);
         }
+        if (id == R.id.unlockTemp)
+        {
+            FirebaseDatabase UnlockDb = FirebaseDatabase.getInstance();
+            final DatabaseReference Unlockref = UnlockDb.getReference();
+            Unlockref.child("Orders").child(imei).child("Locked").setValue("No");
+        }
 
         return super.onOptionsItemSelected(item);
     }
