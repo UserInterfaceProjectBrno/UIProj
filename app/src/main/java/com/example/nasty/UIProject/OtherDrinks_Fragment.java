@@ -39,9 +39,9 @@ public class OtherDrinks_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "First";
-    String SecondProd = "Second";
-    String ThirdProd = "Third";
+    String FirstProd = "Orange Juice";
+    String SecondProd = "Water";
+    String ThirdProd = "Coca Cola";
 
     Button Submit;
 
