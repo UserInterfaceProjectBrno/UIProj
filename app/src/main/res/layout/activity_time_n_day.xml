@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="casual"
-            android:text="Minutes Till Arrival?"
+            android:text="Time Till Arrival?\n"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#e91e63"
@@ -32,16 +32,18 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginRight="8dp"
+
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_red_light"
-
             android:text="-1"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/plus_5"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/Minutes_Text"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text"
             app:layout_constraintVertical_bias="1.0" />
 
@@ -49,18 +51,23 @@
             android:id="@+id/minus_5"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="0dp"
+
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_red_light"
-
             android:onClick="MinutesClick"
             android:text="-5"
             android:textColor="@android:color/white"
             android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/Minutes_Text"
-            app:layout_constraintTop_toBottomOf="@+id/minus_1" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minus_1"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/minus_10"
@@ -68,17 +75,19 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_red_light"
+
             android:onClick="MinutesClick"
             android:text="-10"
-
             android:textColor="@android:color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.198"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/Minutes_Text"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/minus_5"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -87,16 +96,17 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="7dp"
             android:background="@android:color/holo_green_light"
+
             android:onClick="MinutesClick"
             android:text="+1"
-
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            app:layout_constraintHorizontal_bias="0.469"
-            app:layout_constraintLeft_toRightOf="@+id/Minutes_Text"
+            app:layout_constraintHorizontal_bias="0.677"
+            app:layout_constraintLeft_toRightOf="@+id/minus_1"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text" />
 
@@ -104,7 +114,9 @@
             android:id="@+id/plus_5"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_green_light"
@@ -112,10 +124,12 @@
             android:text="+5"
             android:textColor="@android:color/white"
             android:textSize="24sp"
-            app:layout_constraintHorizontal_bias="0.469"
-            app:layout_constraintLeft_toRightOf="@+id/Minutes_Text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.677"
+            app:layout_constraintLeft_toRightOf="@+id/minus_5"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/plus_1" />
+            app:layout_constraintTop_toBottomOf="@+id/plus_1"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/plus_10"
@@ -133,8 +147,8 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintLeft_toRightOf="@+id/Minutes_Text"
+            app:layout_constraintHorizontal_bias="0.71"
+            app:layout_constraintLeft_toRightOf="@+id/minus_10"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/plus_5"
             app:layout_constraintVertical_bias="0.0" />
@@ -143,9 +157,10 @@
             android:id="@+id/Minutes_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
+            android:fontFamily="casual"
             android:text="0"
-            android:textSize="80sp"
+            android:textAlignment="center"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -153,7 +168,7 @@
             app:layout_constraintVertical_bias="0.39999998" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/SubmitMin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

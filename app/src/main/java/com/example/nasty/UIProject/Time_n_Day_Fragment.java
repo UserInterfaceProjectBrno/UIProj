@@ -13,19 +13,18 @@ public class Time_n_Day_Fragment extends Fragment
 {
 
     View Mview;
+
     TextView MinutesText;
+
     Button plus_1;
     Button plus_5;
     Button plus_10;
     Button minus_1;
     Button minus_5;
     Button minus_10;
-    int numberofMin = 0;
+    Button Submit;
 
-    public static int mod(int x, int y) {
-        int result = x % y;
-        return result < 0 ? mod(result + y, y) : result;
-    }
+    int numberofMin = 0;
 
     @Nullable
     @Override
@@ -42,6 +41,7 @@ public class Time_n_Day_Fragment extends Fragment
         minus_1 = (Button) Mview.findViewById(R.id.minus_1);
         minus_5 = (Button) Mview.findViewById(R.id.minus_5);
         minus_10 = (Button) Mview.findViewById(R.id.minus_10);
+        Submit = (Button) Mview.findViewById(R.id.SubmitMin);
 
         plus_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,7 +256,12 @@ public class Time_n_Day_Fragment extends Fragment
         });
 
 
+        Submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
 
 
 
