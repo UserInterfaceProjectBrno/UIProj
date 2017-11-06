@@ -86,8 +86,7 @@ public class Table_Fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockStatus = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 if (Objects.equals(LockStatus, "Yes")) {
-                    Toast.makeText(getContext().getApplicationContext(), "ORDER IS LOCKED!", Toast.LENGTH_LONG).show();
-                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+                   getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
                 }
             }
 

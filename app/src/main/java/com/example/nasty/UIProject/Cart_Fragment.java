@@ -3,6 +3,7 @@ package com.example.nasty.UIProject;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -39,30 +40,37 @@ public class Cart_Fragment extends Fragment {
     Button CartClearButt;
     Button LockButt;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Mview = inflater.inflate(R.layout.activity_cart, container, false);
-        CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
+
+
         CartText = (TextView) Mview.findViewById(R.id.CartText);
         LockButt = (Button) Mview.findViewById(R.id.LockButt);
+        CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
-        ///////////////////////////////////////////////////////////////////////////////////////////////
-        OrderRef.addValueEventListener(new ValueEventListener() {
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        OrderRef.addValueEventListener(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes")) {
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
+                {
                     flag = 1;
-
                     LockButt.setEnabled(false);
                     LockButt.setVisibility(View.GONE);
-                } else {
+                    CartClearButt.setBackgroundColor(Color.GREEN);
+                    CartClearButt.setText(" --ORDER IS LOCKED-- ");
+                    CartClearButt.setEnabled(false);
+                } else
+                    {
                     flag = 0;
                 }
             }
@@ -72,7 +80,6 @@ public class Cart_Fragment extends Fragment {
 
             }
         });
-        ////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -121,12 +128,7 @@ public class Cart_Fragment extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setMessage("This Action Cannot Be Undone!\nCLEAR CART\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener).show();
-            } else
-                {
-                    CartClearButt.setEnabled(false);
-                    CartClearButt.setBackgroundColor(getResources().getColor(R.color.ButtonColor));
-                    CartClearButt.setText(" --ORDER IS LOCKED-- ");
-                }
+            }
 
         }
         });
