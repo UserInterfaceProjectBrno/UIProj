@@ -160,13 +160,13 @@ public class Salad_Fragment extends Fragment {
                     mCart.RemoveFromCart(ThirdProd);
 
                 if (!Objects.equals(FirstQuan, "0"))
-                    mCart.addOnCart(FirstProd, FirstQuan);
+                    mCart.addOnCart(FirstProd, FirstQuan, ThirdPrice);
 
                 if (!Objects.equals(SecondQuan, "0"))
-                    mCart.addOnCart(SecondProd, SecondQuan);
+                    mCart.addOnCart(SecondProd, SecondQuan, ThirdPrice);
 
                 if (!Objects.equals(ThirdQuan, "0"))
-                    mCart.addOnCart(ThirdProd, ThirdQuan);
+                    mCart.addOnCart(ThirdProd, ThirdQuan, ThirdPrice);
 
                 getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
             }

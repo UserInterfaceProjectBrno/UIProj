@@ -16,13 +16,16 @@ public class Cart
     static String data;
     String imei="null";
     int flag=0;
+    int Total;
     int ProductCount;
 
     public Cart()
     {
+
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Total = Integer.parseInt(dataSnapshot.child(imei).child("Products").child("Total").getValue().toString());
                 if(Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
                 {
                     flag = 1;
@@ -44,17 +47,21 @@ public class Cart
         imei=mimei;
        }
 
-    public void addOnCart(String Product, String Quantity)
+    public void addOnCart(String Product, String Quantity, String Price)
      {
           if(flag==0)
           {
                OrderRef.child(imei).child("Products").child(Product).setValue(Quantity);
+               Total=(Total+(Integer.parseInt(Quantity)*Integer.parseInt(Price)));
+               OrderRef.child(imei).child("Products").child("TotalPrice").setValue(Total);
           }
       }
-    public void RemoveFromCart(String Product)
+    public void RemoveFromCart(String Product,String Quantity,String Price)
     {
         if(flag==0)
             OrderRef.child(imei).child("Products").child(Product).removeValue();
+            Total=(Total-(Integer.parseInt(Price)*Integer.parseInt(Quantity)));
+            OrderRef.child(imei).child("Products").child("TotalPrice").setValue(Total);
     }
 
 
