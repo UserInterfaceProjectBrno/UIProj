@@ -12,14 +12,12 @@ import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +48,6 @@ public class login_page extends AppCompatActivity {
     TextView UserTxtView;
     TextView PassTxtView2;
     EditText PassTxt2;
-    ImageView ProgressBarBG;
-    android.widget.ProgressBar ProgressBar;
 
     TelephonyManager mngr;
     String imei = "null";
@@ -92,10 +88,6 @@ public class login_page extends AppCompatActivity {
         UserTxtView = (TextView) findViewById(R.id.UserTxt);
         PassTxtView2 = (TextView) findViewById(R.id.PassTxt2);
         PassTxt2 = (EditText) findViewById(R.id.PassTxtInput2);
-        ProgressBar = (android.widget.ProgressBar) findViewById(R.id.ProgressBar);
-        ProgressBarBG = (ImageView) findViewById(R.id.ProcessBG);
-
-
 
         final float[] StartPosLoginButt = {LoginButt.getTranslationX()};
         final float[] StartPosUserTxt = {UserTxt.getTranslationY()};
@@ -112,8 +104,6 @@ public class login_page extends AppCompatActivity {
 
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         imei = mngr.getDeviceId();
-
-        TouchDisableAndShowProcess(true);
         soulboundVerificationAndLogin();
         ///////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
             LoginButt.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +119,7 @@ public class login_page extends AppCompatActivity {
                     fadeOutAndHideImage(PassTxtView2);
                     fadeIn(PassTxt);
                     fadeIn(PassTxtView);
+                    PassTxt.setImeOptions(EditorInfo.IME_ACTION_GO);
 
                 }
             });
@@ -150,7 +141,7 @@ public class login_page extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
                                         Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                        soulboundDevice(UserTxt.getText().toString()); //RememberCheckBox On TRUE
+                                        soulboundDevice(true, UserTxt.getText().toString()); //RememberCheckBox On TRUE
                                     }
                                     if (!task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
@@ -309,7 +300,7 @@ public class login_page extends AppCompatActivity {
                 fadeIn(LoginButt);
 
 
-                LoginButt.setTranslationX(StartPosLoginButt[0] - 200);
+                LoginButt.setTranslationX(StartPosLoginButt[0] - 300);
 
             }
         });
@@ -376,11 +367,17 @@ public class login_page extends AppCompatActivity {
         Item.startAnimation(fadeIn);
     }
 
-    private void soulboundDevice(String s) {
-
+    private void soulboundDevice(boolean checked, String s) {
+        if (checked) {
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
             SoulRef.setValue(s);
+
+        } else
+        {
+            Intent GoMain = new Intent(login_page.this,MainActivity.class);
+            startActivity(GoMain);
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -391,17 +388,11 @@ public class login_page extends AppCompatActivity {
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.hasChild(imei))
-                {TouchDisableAndShowProcess(false);
+                if (dataSnapshot.hasChild(imei)) {
                     Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
+
                     Intent GoMain = new Intent(login_page.this,MainActivity.class);
                     startActivity(GoMain);
-
-                }
-                else
-                {
-                    TouchDisableAndShowProcess(false);
                 }
             }
 
@@ -411,21 +402,4 @@ public class login_page extends AppCompatActivity {
             }
         });
     }
-
-    private void TouchDisableAndShowProcess(boolean change)
-    {
-        if(change == true)
-        {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-            ProgressBarBG.setVisibility(View.VISIBLE);
-            ProgressBar.setVisibility(View.VISIBLE);
-        }
-        if (change==false)
-        {
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-            ProgressBarBG.setVisibility(View.GONE);
-            ProgressBar.setVisibility(View.GONE);
-        }
-    }
-
 }

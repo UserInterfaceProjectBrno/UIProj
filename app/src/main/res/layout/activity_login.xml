@@ -8,6 +8,7 @@
     tools:context="com.example.nasty.UIProject.login_page">
 
 
+
     <ImageView
 
         android:id="@+id/TittleImgLogin"
@@ -79,8 +80,8 @@
 
     <EditText
         android:id="@+id/PassTxtInput2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
         android:imeOptions="actionGo"
         android:inputType="textPassword"
         android:singleLine="true"
@@ -113,14 +114,17 @@
         android:id="@+id/LoginBigButt"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
         android:background="@color/ButtonColor"
-        android:elevation="0dp"
         android:fontFamily="casual"
         android:text="Login"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -147,6 +151,9 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/holo_red_dark"
         android:elevation="0dp"
         android:fontFamily="casual"
@@ -166,6 +173,9 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="110dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
         android:background="@android:color/holo_orange_light"
         android:elevation="0dp"
         android:fontFamily="casual"
@@ -183,9 +193,14 @@
 
     <Button
         android:id="@+id/LoginButt"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
         android:background="@color/ButtonColor"
+        android:elevation="0dp"
         android:fontFamily="casual"
         android:text="Back to Login"
         android:textSize="18sp"
@@ -201,8 +216,8 @@
     <Button
         android:id="@+id/ForgotBigButt"
         style="@android:style/Widget.Material.Button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@android:color/holo_orange_light"
         android:fontFamily="casual"
         android:text="Forgot"
@@ -219,8 +234,8 @@
     <Button
         android:id="@+id/RegisterBigButt"
         style="@android:style/Widget.Material.Button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:background="@android:color/holo_red_dark"
         android:fontFamily="casual"
         android:text="Register"
@@ -234,31 +249,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />
-
-    <ImageView
-        android:id="@+id/ProcessBG"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha=".6"
-        android:elevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:color/darker_gray" />
-
-    <ProgressBar
-        android:id="@+id/ProgressBar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:alpha="1"
-        android:elevation="10dp"
-        android:indeterminate="false"
-        android:progressTint="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
 
 </android.support.constraint.ConstraintLayout>
