@@ -10,7 +10,7 @@
     <item
         android:id="@+id/About"
         android:orderInCategory="100"
-        android:title="About"
+        android:title="Credits"
         app:showAsAction="never" />
     <item
         android:id="@+id/unlockTemp"

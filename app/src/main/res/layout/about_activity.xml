@@ -9,14 +9,16 @@
         android:id="@+id/textView"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_below="@+id/textView6"
         android:fontFamily="monospace"
         android:text="Programmers:"
         android:textAlignment="textStart"
         android:textColor="#4f0707"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="7dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView6"
@@ -28,36 +30,37 @@
         android:text="Purpose of this Project was to Create an Application for ordering in a restaurant / Caffeteria , on the way , Skipping any existing Queue Lines and Getting Served Faster."
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView"
-        android:layout_below="@+id/textView"
         android:fontFamily="monospace"
         android:text="1. Nikolaos Astyrakakis\n2. Monika Rosa\n3. Ahmet Cetin"
         android:textAlignment="textStart"
         android:textAllCaps="true"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/CreditsTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="19dp"
         android:fontFamily="casual"
         android:text="This Application is part of a project for ( iTUe ) User Interface Programming Course in Brno University of Technology."
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/CreditsTitle"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/CreditsTitle"
@@ -67,7 +70,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
         android:fontFamily="cursive"
-        android:text="Credits:"
+        android:text=" Credits: "
+        android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@android:color/holo_red_light"
         android:textSize="36sp"
         android:textStyle="bold" />
