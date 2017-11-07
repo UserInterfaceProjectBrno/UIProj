@@ -33,7 +33,7 @@ public class Cart_Fragment extends Fragment {
     Object X;
     String[] split;
     View Mview;
-    int flag=0;
+    int flag = 0;
     TextView CartText;
     TelephonyManager mngr;
     String imei = "null";
@@ -58,29 +58,23 @@ public class Cart_Fragment extends Fragment {
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         final String imei = mngr.getDeviceId();
         ///////////////////////////////////////////////////////////////////////////////////////////
-        OrderRef.addValueEventListener(new ValueEventListener()
-        {
+        OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
-                {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes")) {
                     flag = 1;
                     PayButt.setEnabled(false);
-                    if(!Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes"))
-                    {
+                    if (!Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes")) {
                         PayButt.setText("TABLE NUMBER: " + dataSnapshot.child(imei).child("Table").getValue().toString());
                     }
-                    if((Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes"))||(Objects.equals(dataSnapshot.child(imei).child("Table").getValue().toString(), "0")))
-                    {
+                    if ((Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes")) || (Objects.equals(dataSnapshot.child(imei).child("Table").getValue().toString(), "0"))) {
                         PayButt.setText("TAKE AWAY");
                     }
                     PayButt.setBackgroundColor(Color.DKGRAY);
                     CartClearButt.setBackgroundColor(Color.LTGRAY);
                     CartClearButt.setText(" --ORDER IS LOCKED-- ");
                     CartClearButt.setEnabled(false);
-                } else
-                    {
+                } else {
                     flag = 0;
                 }
             }
@@ -93,17 +87,16 @@ public class Cart_Fragment extends Fragment {
         ////////////////////////////////////////////////////////////////////////////////////////////
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
-                X=dataSnapshot.child(imei).child("Products").getValue();
-
-                if(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue()!=null)
-                    CartTotalText.setText("Cart Total Price: " + dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString() + " € ");
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                X = dataSnapshot.child(imei).child("Products").getValue();
+                if (dataSnapshot.child(imei).child("TotalPrice").getValue() == null)
+                    CartTotalText.setText("Cart");
+                if (dataSnapshot.child(imei).child("TotalPrice").getValue() != null)
+                    CartTotalText.setText("Cart Total Price: " + dataSnapshot.child(imei).child("TotalPrice").getValue().toString() + " € ");
 
                 children = (int) dataSnapshot.getChildrenCount();
 
-                if (X != null)
-                {
+                if (X != null) {
                     split = X.toString().substring(1, X.toString().length() - 1).split(",");
                     for (String i : split) {
                         CartText.setText(i + "\n" + CartText.getText().toString());
@@ -122,30 +115,29 @@ public class Cart_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(flag == 0)
-                {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case DialogInterface.BUTTON_POSITIVE:
-                                OrderRef.child(imei).child("Products").removeValue();
-                                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Cart_Fragment()).commit();
-                                break;
+                if (flag == 0) {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    OrderRef.child(imei).child("Products").removeValue();
+                                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+                                    break;
 
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                //No button clicked
-                                break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    break;
+                            }
                         }
-                    }
-                };
+                    };
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setMessage("This Action Cannot Be Undone!\nCLEAR CART\nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
-            }
+                            .setNegativeButton("No", dialogClickListener).show();
+                }
 
-        }
+            }
         });
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         PayButt.setOnClickListener(new View.OnClickListener() {

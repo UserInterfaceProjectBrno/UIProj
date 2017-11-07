@@ -27,39 +27,29 @@ import static java.lang.Integer.parseInt;
 
 @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 public class OtherDrinks_Fragment extends Fragment {
+    static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
+    final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
     View Mview;
     TelephonyManager mngr;
     String imei = "null";
-
-
     TextView FirstText;
     TextView SecondText;
     TextView ThirdText;
-
     ImageButton FirstArrowUp;
     ImageButton FirstArrowDown;
-
     ImageButton SecondArrowUp;
     ImageButton SecondArrowDown;
-
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
-
     String FirstProd = "Orange Juice ";
     String SecondProd = "Water ";
     String ThirdProd = "Coca Cola ";
-
     String oldFirstQuan;
     String oldSecondQuan;
     String oldThirdQuan;
-
-    String FirstPrice  = "3";
+    String FirstPrice = "3";
     String SecondPrice = "1";
-    String ThirdPrice  = "2";
-
-    static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
-    final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
-
+    String ThirdPrice = "2";
     Button Submit;
 
     @Nullable
@@ -81,11 +71,11 @@ public class OtherDrinks_Fragment extends Fragment {
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(imei).child("Products").child(FirstProd).getValue()!=null)
+                if (dataSnapshot.child(imei).child("Products").child(FirstProd).getValue() != null)
                     oldFirstQuan = dataSnapshot.child(imei).child("Products").child(FirstProd).getValue().toString();
-                if(dataSnapshot.child(imei).child("Products").child(SecondProd).getValue()!=null)
+                if (dataSnapshot.child(imei).child("Products").child(SecondProd).getValue() != null)
                     oldSecondQuan = dataSnapshot.child(imei).child("Products").child(SecondProd).getValue().toString();
-                if(dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue()!=null)
+                if (dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue() != null)
                     oldThirdQuan = dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue().toString();
             }
 
@@ -116,7 +106,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(FirstText.getText().toString());
                 FirstText.setText(Integer.toString(x + 1));
-                if(parseInt(FirstText.getText().toString()) > 50)
+                if (parseInt(FirstText.getText().toString()) > 50)
                     FirstText.setText("50");
 
             }
@@ -127,7 +117,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(FirstText.getText().toString());
                 FirstText.setText(Integer.toString(x - 1));
-                if(parseInt(FirstText.getText().toString()) < 0)
+                if (parseInt(FirstText.getText().toString()) < 0)
                     FirstText.setText("0");
             }
         });
@@ -138,7 +128,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(SecondText.getText().toString());
                 SecondText.setText(Integer.toString(x + 1));
-                if(parseInt(SecondText.getText().toString()) > 50)
+                if (parseInt(SecondText.getText().toString()) > 50)
                     SecondText.setText("50");
 
 
@@ -150,7 +140,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(SecondText.getText().toString());
                 SecondText.setText(Integer.toString(x - 1));
-                if(parseInt(SecondText.getText().toString()) < 0)
+                if (parseInt(SecondText.getText().toString()) < 0)
                     SecondText.setText("0");
             }
         });
@@ -161,7 +151,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(ThirdText.getText().toString());
                 ThirdText.setText(Integer.toString(x + 1));
-                if(parseInt(ThirdText.getText().toString()) > 50)
+                if (parseInt(ThirdText.getText().toString()) > 50)
                     ThirdText.setText("50");
 
             }
@@ -172,7 +162,7 @@ public class OtherDrinks_Fragment extends Fragment {
             public void onClick(View v) {
                 int x = parseInt(ThirdText.getText().toString());
                 ThirdText.setText(Integer.toString(x - 1));
-                if(parseInt(ThirdText.getText().toString()) < 0)
+                if (parseInt(ThirdText.getText().toString()) < 0)
                     ThirdText.setText("0");
             }
         });
@@ -186,29 +176,26 @@ public class OtherDrinks_Fragment extends Fragment {
                 String SecondQuan = SecondText.getText().toString();
                 String ThirdQuan = ThirdText.getText().toString();
 
-                if(Objects.equals(FirstQuan, "0"))
-                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
-                if(Objects.equals(SecondQuan, "0"))
-                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,SecondPrice);
-                if(Objects.equals(ThirdQuan, "0"))
-                    mCart.RemoveFromCart(ThirdProd,oldThirdQuan,ThirdPrice);
+                if (Objects.equals(FirstQuan, "0"))
+                    mCart.RemoveFromCart(FirstProd, oldFirstQuan, FirstPrice);
+                if (Objects.equals(SecondQuan, "0"))
+                    mCart.RemoveFromCart(SecondProd, oldSecondQuan, SecondPrice);
+                if (Objects.equals(ThirdQuan, "0"))
+                    mCart.RemoveFromCart(ThirdProd, oldThirdQuan, ThirdPrice);
 
-                if (!Objects.equals(FirstQuan, "0"))
-                {
-                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
+                if (!Objects.equals(FirstQuan, "0")) {
+                    mCart.RemoveFromCart(FirstProd, oldFirstQuan, FirstPrice);
                     mCart.addOnCart(FirstProd, FirstQuan, FirstPrice);
                 }
-                if (!Objects.equals(SecondQuan, "0"))
-                {
-                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,SecondPrice);
+                if (!Objects.equals(SecondQuan, "0")) {
+                    mCart.RemoveFromCart(SecondProd, oldSecondQuan, SecondPrice);
                     mCart.addOnCart(SecondProd, SecondQuan, SecondPrice);
                 }
-                if (!Objects.equals(ThirdQuan, "0"))
-                {
-                    mCart.RemoveFromCart(ThirdProd, oldThirdQuan,ThirdPrice);
+                if (!Objects.equals(ThirdQuan, "0")) {
+                    mCart.RemoveFromCart(ThirdProd, oldThirdQuan, ThirdPrice);
                     mCart.addOnCart(ThirdProd, ThirdQuan, ThirdPrice);
                 }
-                getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, new Order_Fragment()).commit();
             }
         });
 

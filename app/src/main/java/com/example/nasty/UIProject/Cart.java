@@ -8,32 +8,26 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class Cart
-{
+public class Cart {
 
     static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
     final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
     static String data;
-    String imei="null";
-    int flag=0;
+    String imei = "null";
+    int flag = 0;
     int Total;
-    int ProductCount;
 
-    public Cart()
-    {
+    public Cart() {
 
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue()!=null)
-                    Total = Integer.parseInt(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString());
+                if (dataSnapshot.child(imei).child("TotalPrice").getValue() != null)
+                    Total = Integer.parseInt(dataSnapshot.child(imei).child("TotalPrice").getValue().toString());
 
-                if(Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
-                {
+                if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes")) {
                     flag = 1;
-                }
-                else
-                {
+                } else {
                     flag = 0;
                 }
             }
@@ -45,32 +39,28 @@ public class Cart
         });
     }
 
-    public void setImei(String mimei){
-        imei=mimei;
-       }
+    public void setImei(String mimei) {
+        imei = mimei;
+    }
 
-    public void addOnCart(String Product, String Quantity, String Price)
-     {
-          if(flag==0)
-          {
-               OrderRef.child(imei).child("Products").child(Product).setValue(Quantity);
-               Total=(Total+(Integer.parseInt(Quantity)*Integer.parseInt(Price)));
-               OrderRef.child(imei).child("Products").child("TotalPrice").setValue(Total);
-          }
-      }
-    public void RemoveFromCart(String Product,String Quantity,String Price)
-    {
-        if(flag==0)
-        {
+    public void addOnCart(String Product, String Quantity, String Price) {
+        if (flag == 0) {
+            OrderRef.child(imei).child("Products").child(Product).setValue(Quantity);
+            Total = (Total + (Integer.parseInt(Quantity) * Integer.parseInt(Price)));
+            OrderRef.child(imei).child("TotalPrice").setValue(Total);
+        }
+    }
+
+    public void RemoveFromCart(String Product, String Quantity, String Price) {
+        if (flag == 0) {
             OrderRef.child(imei).child("Products").child(Product).removeValue();
 
             if (Price != null && Quantity != null)
                 Total = (Total - (Integer.parseInt(Price) * Integer.parseInt(Quantity)));
 
-            OrderRef.child(imei).child("Products").child("TotalPrice").setValue(Total);
+            OrderRef.child(imei).child("TotalPrice").setValue(Total);
         }
     }
-
 
 
 }

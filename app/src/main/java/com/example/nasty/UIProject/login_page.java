@@ -58,13 +58,12 @@ public class login_page extends AppCompatActivity {
     final DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded");
 
     int Day = Calendar.getInstance().get(Calendar.DATE);
-    int Month = Calendar.getInstance().get(Calendar.MONTH) +1;
+    int Month = Calendar.getInstance().get(Calendar.MONTH) + 1;
     int Year = Calendar.getInstance().get(Calendar.YEAR);
     int Hour = Calendar.getInstance().getTime().getHours();
     int Minute = Calendar.getInstance().getTime().getMinutes();
 
     private FirebaseAuth mAuth;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -73,7 +72,7 @@ public class login_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final Intent GoLogin = new Intent(login_page.this,login_page.class);
+        final Intent GoLogin = new Intent(login_page.this, login_page.class);
         mAuth = FirebaseAuth.getInstance();
 
         LoginBigButt = (Button) findViewById(R.id.LoginBigButt);
@@ -106,64 +105,63 @@ public class login_page extends AppCompatActivity {
         imei = mngr.getDeviceId();
         soulboundVerificationAndLogin();
         ///////////////////////////////////////////////////////LOGIN BUTTON/////////////////////////////////////////////////////////
-            LoginButt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    fadeIn(LoginBigButt);
-                    fadeOutAndHideImage(RegisterBigButt);
-                    fadeOutAndHideImage(ForgotBigButt);
-                    fadeIn(RegisterButt);
-                    fadeIn(ForgotButt);
-                    fadeOutAndHideImage(LoginButt);
-                    fadeOutAndHideImage(PassTxt2);
-                    fadeOutAndHideImage(PassTxtView2);
-                    fadeIn(PassTxt);
-                    fadeIn(PassTxtView);
-                    PassTxt.setImeOptions(EditorInfo.IME_ACTION_GO);
+        LoginButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fadeIn(LoginBigButt);
+                fadeOutAndHideImage(RegisterBigButt);
+                fadeOutAndHideImage(ForgotBigButt);
+                fadeIn(RegisterButt);
+                fadeIn(ForgotButt);
+                fadeOutAndHideImage(LoginButt);
+                fadeOutAndHideImage(PassTxt2);
+                fadeOutAndHideImage(PassTxtView2);
+                fadeIn(PassTxt);
+                fadeIn(PassTxtView);
+                PassTxt.setImeOptions(EditorInfo.IME_ACTION_GO);
 
+            }
+        });
+
+
+        LoginBigButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()
+                        ) {
+                    UserTxt.setText("Empty");
+                    PassTxt.setText("Empty");
                 }
-            });
+                mAuth.signInWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
-
-            LoginBigButt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty()
-                            ) {
-                        UserTxt.setText("Empty");
-                        PassTxt.setText("Empty");
-                    }
-                    mAuth.signInWithEmailAndPassword(UserTxt.getText().toString(), PassTxt.getText().toString())
-                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                                @RequiresApi(api = Build.VERSION_CODES.M)
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
-                                        Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
-                                        soulboundDevice(true, UserTxt.getText().toString()); //RememberCheckBox On TRUE
-                                    }
-                                    if (!task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
-                                    }
-                                    if (task.isSuccessful() && !mAuth.getCurrentUser().isEmailVerified()) {
-                                        Toast.makeText(getApplicationContext(), "PLEASE VERIFY EMAIL...", Toast.LENGTH_SHORT).show();
-                                    }
+                            @RequiresApi(api = Build.VERSION_CODES.M)
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful() && mAuth.getCurrentUser().isEmailVerified()) {
+                                    Toast.makeText(getApplicationContext(), "CONNECTED SUCCESSFULLY...", Toast.LENGTH_SHORT).show();
+                                    soulboundDevice(true, UserTxt.getText().toString()); //RememberCheckBox On TRUE
                                 }
-                            });
-                }
-            });
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "ERROR CONNECTING...", Toast.LENGTH_SHORT).show();
+                                }
+                                if (task.isSuccessful() && !mAuth.getCurrentUser().isEmailVerified()) {
+                                    Toast.makeText(getApplicationContext(), "PLEASE VERIFY EMAIL...", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
         ////////////////////////////////////////////////END LOGIN BUTTON  ////////////////////////////////////////////////////////////////////
-         PassTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-             @Override
-             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-                 if (actionId == EditorInfo.IME_ACTION_GO && LoginBigButt.getVisibility() != View.GONE)
-                 {
-                     LoginBigButt.callOnClick();
-                 }
-                 return false;
-             }
-         });
+        PassTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_GO && LoginBigButt.getVisibility() != View.GONE) {
+                    LoginBigButt.callOnClick();
+                }
+                return false;
+            }
+        });
         PassTxt2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
@@ -176,8 +174,7 @@ public class login_page extends AppCompatActivity {
         UserTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-                if( actionId == EditorInfo.IME_ACTION_NEXT && ForgotBigButt.getVisibility()!=View.GONE)
-                {
+                if (actionId == EditorInfo.IME_ACTION_NEXT && ForgotBigButt.getVisibility() != View.GONE) {
                     ForgotBigButt.callOnClick();
 
                 }
@@ -200,7 +197,6 @@ public class login_page extends AppCompatActivity {
                 return false;
             }
         });
-
 
 
 /////////////////////////////////////// REGISTER BUTTON /////////////////////////////////////////////////////////////////
@@ -228,8 +224,7 @@ public class login_page extends AppCompatActivity {
         });
 
 
-        RegisterBigButt.setOnClickListener(new View.OnClickListener()
-        {
+        RegisterBigButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty() || PassTxt2.getText().toString().isEmpty()) {
@@ -286,8 +281,7 @@ public class login_page extends AppCompatActivity {
 
         ForgotButt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
                 fadeOutAndHideImage(LoginBigButt);
                 fadeOutAndHideImage(ForgotButt);
@@ -374,9 +368,8 @@ public class login_page extends AppCompatActivity {
             DatabaseReference SoulRef = soulboundDatabase.getReference().child("Soulbounded").child(mngr.getDeviceId());
             SoulRef.setValue(s);
 
-        } else
-        {
-            Intent GoMain = new Intent(login_page.this,MainActivity.class);
+        } else {
+            Intent GoMain = new Intent(login_page.this, MainActivity.class);
             startActivity(GoMain);
         }
     }
@@ -392,7 +385,7 @@ public class login_page extends AppCompatActivity {
                 if (dataSnapshot.hasChild(imei)) {
                     Toast.makeText(getApplicationContext(), "Automatic Connected As: " + dataSnapshot.child(imei).getValue(), Toast.LENGTH_LONG).show();
 
-                    Intent GoMain = new Intent(login_page.this,MainActivity.class);
+                    Intent GoMain = new Intent(login_page.this, MainActivity.class);
                     startActivity(GoMain);
                 }
             }

@@ -22,8 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class Time_n_Day_Fragment extends Fragment
-{
+public class Time_n_Day_Fragment extends Fragment {
 
     final FirebaseDatabase OrderDB = FirebaseDatabase.getInstance();
     final DatabaseReference OrderRef = OrderDB.getReference().child("Orders");
@@ -48,8 +47,7 @@ public class Time_n_Day_Fragment extends Fragment
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Mview = inflater.inflate(R.layout.activity_time_n_day, container, false);
 
         /////////////////////////////////IMEI PERMISSION///////////////////////////////////////////////////////
@@ -312,8 +310,6 @@ public class Time_n_Day_Fragment extends Fragment
 
             }
         });
-
-
 
 
         return Mview;

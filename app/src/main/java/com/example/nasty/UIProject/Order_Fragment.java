@@ -39,11 +39,10 @@ public class Order_Fragment extends Fragment {
     TextView LockStatus;
 
     TelephonyManager mngr;
-    String imei="null";
+    String imei = "null";
 
     String LockedState = "0";
     String TimeStatus = "0";
-
 
 
     FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
@@ -60,10 +59,10 @@ public class Order_Fragment extends Fragment {
                 new String[]{"android.permission.READ_PHONE_STATE"},
                 1);
         mngr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-         imei = mngr.getDeviceId();
+        imei = mngr.getDeviceId();
         /////////////////////////////////Initialization of IDs //////////////////////////////////////////////
         MealButton = (ImageButton) Mview.findViewById(R.id.MealButt);
-        FishButton  = (ImageButton)   Mview.findViewById(R.id.FishButt);
+        FishButton = (ImageButton) Mview.findViewById(R.id.FishButt);
         SaladButton = (ImageButton) Mview.findViewById(R.id.SaladButt);
         PizzaButton = (ImageButton) Mview.findViewById(R.id.PizzaButt);
         AlcoholicDrinksButton = (ImageButton) Mview.findViewById(R.id.AlcoholButt);
@@ -71,7 +70,7 @@ public class Order_Fragment extends Fragment {
 
         CartButt = (Button) Mview.findViewById(R.id.CartButt);
 
-        LockStatus  = (TextView) Mview.findViewById(R.id.LockStatus);
+        LockStatus = (TextView) Mview.findViewById(R.id.LockStatus);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,8 +79,7 @@ public class Order_Fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 TimeStatus = dataSnapshot.child(imei).child("Reserve-Time").getValue().toString();
-                if(Objects.equals(LockedState, "Yes"))
-                {
+                if (Objects.equals(LockedState, "Yes")) {
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
                 }
                 if (Objects.equals(TimeStatus, "0")) {
@@ -107,9 +105,9 @@ public class Order_Fragment extends Fragment {
         FishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               getFragmentManager().beginTransaction().replace(R.id.content_frame
-                            ,new Fish_Fragment(),"Fish")
-                            .commit();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Fish_Fragment(), "Fish")
+                        .commit();
 
             }
         });

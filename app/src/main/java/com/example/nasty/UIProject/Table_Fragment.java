@@ -50,15 +50,14 @@ public class Table_Fragment extends Fragment {
     ImageButton Logout_butt;
     int number = 1;
     TelephonyManager mngr;
-    int flag=0;
+    int flag = 0;
     String LockStatus;
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Mview = inflater.inflate(R.layout.table_activity, container, false);
 
         /////////////////////////////////IMEI PERMISSION///////////////////////////////////////////
@@ -86,7 +85,7 @@ public class Table_Fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockStatus = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 if (Objects.equals(LockStatus, "Yes")) {
-                   getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
                 }
             }
 
@@ -106,10 +105,9 @@ public class Table_Fragment extends Fragment {
                     table[i][1] = dataSnapshot.child(Integer.toString(i)).child("Seats").getValue().toString();
                     table[i][2] = dataSnapshot.child(Integer.toString(i)).child("Reserved").child("Yes").getValue().toString();
                     table[i][3] = dataSnapshot.child(Integer.toString(i)).child("Reserved").child("ID-Phone").getValue().toString();
-                    if(Objects.equals(table[i][3], imei))
-                    {
+                    if (Objects.equals(table[i][3], imei)) {
                         flag = 1;
-                        YourTable[0]=i;
+                        YourTable[0] = i;
 
                         TableNum.setText("You Already Reserved Table Number : " + YourTable[0] + "\n\n...TAP TO ORDER...");
 
@@ -127,17 +125,17 @@ public class Table_Fragment extends Fragment {
             }
         });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-UnreserveButt.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("ID-Phone").setValue("00000");
-        TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("Yes").setValue("No");
-        TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
-        getFragmentManager().beginTransaction().replace(R.id.content_frame
-                , new Table_Fragment())
-                .commit();    //START FROM ORDER PAGE
-    }
-});
+        UnreserveButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("ID-Phone").setValue("00000");
+                TableRef.child(Integer.toString(YourTable[0])).child("Reserved").child("Yes").setValue("No");
+                TableRef.getDatabase().getReference("Orders").child(imei).child("Table").setValue(0);
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Table_Fragment())
+                        .commit();    //START FROM ORDER PAGE
+            }
+        });
 
 ///////////////////////////////////////////////////// TABLE Fill END /////////////////////////////////////////////////
         CheckForTableButt.setOnClickListener(new View.OnClickListener() {
@@ -145,17 +143,13 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                for(int i=1; i<=children[0];i++)
-                {
-                    if(!Objects.equals(table[i][3], imei))
-                    {
-                        flag=0;
-                    }
-                    else
-                    {
-                        flag=1;
+                for (int i = 1; i <= children[0]; i++) {
+                    if (!Objects.equals(table[i][3], imei)) {
+                        flag = 0;
+                    } else {
+                        flag = 1;
                         YourTable[0] = i;
-                        TableNum.setText("You Reserved Table Number " + YourTable[0] +"\n\n...TAP TO ORDER...");
+                        TableNum.setText("You Reserved Table Number " + YourTable[0] + "\n\n...TAP TO ORDER...");
 
                         ShowCurrTable();
                         break;
@@ -163,10 +157,8 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                 }
 
 
-                for (int i = 1; i <= children[0]; i++)
-                {
-                    if(flag==0)
-                    {
+                for (int i = 1; i <= children[0]; i++) {
+                    if (flag == 0) {
                         if (parseInt(table[i][1]) >= number && !Objects.equals(table[i][2], "Yes")) //check for empty table and for fitting
                         {
                             YourTable[0] = i;
@@ -182,9 +174,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
                             flag = 1;
                             break;
                         }
-                    }
-                    else
-                    {
+                    } else {
                         break;
                     }
                 }
@@ -288,8 +278,7 @@ UnreserveButt.setOnClickListener(new View.OnClickListener() {
         img.startAnimation(fadeIn);
     }
 
-    public void ShowCurrTable()
-    {
+    public void ShowCurrTable() {
         ReserveTableButt.setEnabled(false);
         TakeAwayButt.setEnabled(false);
 

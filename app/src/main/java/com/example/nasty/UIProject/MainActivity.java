@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity
 
 
         ////////////////////////////////////////////////////////////////////////////////
-       try
-       {
-           ActivityCompat.requestPermissions(MainActivity.this,
-                new String[]{"android.permission.READ_PHONE_STATE"},
-                1);
-       }catch(NullPointerException ignored){}
+        try {
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{"android.permission.READ_PHONE_STATE"},
+                    1);
+        } catch (NullPointerException ignored) {
+        }
         //////////////////////////////////////////////////////////////////////////////////////
         mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         imei = mngr.getDeviceId();
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity
 
         ////////////////////////////////////////////////////////////////////////////////////
         getFragmentManager().beginTransaction().replace(R.id.content_frame
-                , new Table_Fragment(),"Order")
+                , new Table_Fragment(), "Order")
                 .commit();    //START FROM ORDER PAGE
-    ////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -72,8 +72,7 @@ public class MainActivity extends AppCompatActivity
         SoulRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(imei))
-                {
+                if (dataSnapshot.hasChild(imei)) {
                     navEmail.setText(dataSnapshot.child(imei).getValue().toString());
                 }
             }
@@ -112,17 +111,15 @@ public class MainActivity extends AppCompatActivity
             FirebaseDatabase soulboundDatabase = FirebaseDatabase.getInstance();
             final DatabaseReference SoulRef = soulboundDatabase.getReference();
             SoulRef.child("Soulbounded").child(imei).removeValue();
-            Intent GoLogin = new Intent(MainActivity.this,login_page.class);
+            Intent GoLogin = new Intent(MainActivity.this, login_page.class);
             startActivity(GoLogin);
         }
-        if (id == R.id.About)
-        {
+        if (id == R.id.About) {
             getFragmentManager().beginTransaction().replace(R.id.content_frame
                     , new About_Fragment())
                     .commit();
         }
-        if (id == R.id.unlockTemp)
-        {
+        if (id == R.id.unlockTemp) {
             FirebaseDatabase UnlockDb = FirebaseDatabase.getInstance();
             final DatabaseReference Unlockref = UnlockDb.getReference();
             Unlockref.child("Orders").child(imei).child("Locked").setValue("No");
@@ -145,13 +142,11 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.content_frame
                     , new Table_Fragment())
                     .commit();
-        }
-        else if (id == R.id.nav_order) {
+        } else if (id == R.id.nav_order) {
             fragmentManager.beginTransaction().replace(R.id.content_frame
                     , new Order_Fragment())
                     .commit();
-        }
-        else if (id == R.id.nav_cart) {
+        } else if (id == R.id.nav_cart) {
             fragmentManager.beginTransaction().replace(R.id.content_frame
                     , new Cart_Fragment())
                     .commit();
