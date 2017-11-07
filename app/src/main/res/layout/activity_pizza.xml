@@ -14,7 +14,7 @@
             android:id="@+id/PizzaTextTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pizzas"
+            android:text="Pizzas (35cm.)"
             android:textAllCaps="false"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -95,15 +95,15 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Margarita"
+                    android:text="Margarita - 5€"
                     android:textColor="@android:color/white"
-                    android:textSize="36sp"
+                    android:textSize="29sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
@@ -243,15 +243,15 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Barbeque"
+                    android:text="Barbeque - 5€"
                     android:textColor="@android:color/white"
-                    android:textSize="36sp"
+                    android:textSize="29sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
@@ -356,15 +356,15 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Special"
+                    android:text="Special - 5€"
                     android:textColor="@android:color/white"
-                    android:textSize="36sp"
+                    android:textSize="29sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
