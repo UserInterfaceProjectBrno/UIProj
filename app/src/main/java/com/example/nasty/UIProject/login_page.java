@@ -156,7 +156,7 @@ public class login_page extends AppCompatActivity {
          PassTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
              @Override
              public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-                 if (actionId == EditorInfo.IME_ACTION_GO && LoginBigButt.getVisibility()!=View.GONE)
+                 if (actionId == EditorInfo.IME_ACTION_GO && LoginBigButt.getVisibility() != View.GONE)
                  {
                      LoginBigButt.callOnClick();
                  }
@@ -169,7 +169,7 @@ public class login_page extends AppCompatActivity {
                 if (actionId == EditorInfo.IME_ACTION_GO && RegisterBigButt.getVisibility() != View.GONE) {
                     RegisterBigButt.callOnClick();
                 }
-                return true;
+                return false;
             }
         });
         UserTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -216,7 +216,7 @@ public class login_page extends AppCompatActivity {
                 fadeIn(ForgotButt);
                 fadeIn(PassTxt2);
                 fadeIn(PassTxtView2);
-
+                PassTxt.setImeOptions(EditorInfo.IME_ACTION_NEXT);
                 UserTxtView.setTranslationY(StartPosUserTxt[0] - 200);
                 UserTxt.setTranslationY(StartPosUserTxtInput[0] - 200);
                 PassTxtView.setTranslationY(StartPosPassTxt[0] - 200);
