@@ -188,7 +188,7 @@ public class Fish_Fragment extends Fragment {
                 if(Objects.equals(FirstQuan, "0"))
                     mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
                 if(Objects.equals(SecondQuan, "0"))
-                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,ThirdPrice);
+                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,SecondPrice);
                 if(Objects.equals(ThirdQuan, "0"))
                     mCart.RemoveFromCart(ThirdProd,oldThirdQuan,ThirdPrice);
 
