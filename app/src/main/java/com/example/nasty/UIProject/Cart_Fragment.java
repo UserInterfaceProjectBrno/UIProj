@@ -122,6 +122,7 @@ public class Cart_Fragment extends Fragment {
                             switch (which) {
                                 case DialogInterface.BUTTON_POSITIVE:
                                     OrderRef.child(imei).child("Products").removeValue();
+                                    OrderRef.child(imei).child("TotalPrice").removeValue();
                                     getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
                                     break;
 
