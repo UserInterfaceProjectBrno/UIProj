@@ -39,6 +39,7 @@ public class Cart_Fragment extends Fragment {
     String imei = "null";
     Button CartClearButt;
     Button PayButt;
+    TextView CartTotalText;
 
     @Nullable
     @Override
@@ -49,6 +50,7 @@ public class Cart_Fragment extends Fragment {
         CartText = (TextView) Mview.findViewById(R.id.CartText);
         PayButt = (Button) Mview.findViewById(R.id.LockButt);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
+        CartTotalText = (TextView) Mview.findViewById(R.id.CartTotalTxt);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -94,7 +96,12 @@ public class Cart_Fragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 X=dataSnapshot.child(imei).child("Products").getValue();
+
+                if(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue()!=null)
+                    CartTotalText.setText("Cart Total:" + dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString());
+
                 children = (int) dataSnapshot.getChildrenCount();
+
                 if (X != null)
                 {
                     split = X.toString().substring(1, X.toString().length() - 1).split(",");
