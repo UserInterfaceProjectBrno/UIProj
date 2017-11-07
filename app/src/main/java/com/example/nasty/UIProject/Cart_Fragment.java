@@ -38,7 +38,7 @@ public class Cart_Fragment extends Fragment {
     TelephonyManager mngr;
     String imei = "null";
     Button CartClearButt;
-    Button LockButt;
+    Button PayButt;
 
     @Nullable
     @Override
@@ -47,7 +47,7 @@ public class Cart_Fragment extends Fragment {
 
 
         CartText = (TextView) Mview.findViewById(R.id.CartText);
-        LockButt = (Button) Mview.findViewById(R.id.LockButt);
+        PayButt = (Button) Mview.findViewById(R.id.LockButt);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
@@ -64,16 +64,16 @@ public class Cart_Fragment extends Fragment {
                 if (Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
                 {
                     flag = 1;
-                    LockButt.setEnabled(false);
+                    PayButt.setEnabled(false);
                     if(!Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes"))
                     {
-                        LockButt.setText("TABLE NUMBER: " + dataSnapshot.child(imei).child("Table").getValue().toString());
+                        PayButt.setText("TABLE NUMBER: " + dataSnapshot.child(imei).child("Table").getValue().toString());
                     }
                     if((Objects.equals(dataSnapshot.child(imei).child("TakeAway").getValue().toString(), "Yes"))||(Objects.equals(dataSnapshot.child(imei).child("Table").getValue().toString(), "0")))
                     {
-                        LockButt.setText("TAKE AWAY");
+                        PayButt.setText("TAKE AWAY");
                     }
-                    LockButt.setBackgroundColor(Color.DKGRAY);
+                    PayButt.setBackgroundColor(Color.DKGRAY);
                     CartClearButt.setBackgroundColor(Color.LTGRAY);
                     CartClearButt.setText(" --ORDER IS LOCKED-- ");
                     CartClearButt.setEnabled(false);
@@ -141,7 +141,7 @@ public class Cart_Fragment extends Fragment {
         }
         });
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        LockButt.setOnClickListener(new View.OnClickListener() {
+        PayButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {

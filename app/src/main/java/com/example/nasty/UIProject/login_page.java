@@ -228,7 +228,8 @@ public class login_page extends AppCompatActivity {
         });
 
 
-        RegisterBigButt.setOnClickListener(new View.OnClickListener() {
+        RegisterBigButt.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 if (UserTxt.getText().toString().isEmpty() || PassTxt.getText().toString().isEmpty() || PassTxt2.getText().toString().isEmpty()) {
