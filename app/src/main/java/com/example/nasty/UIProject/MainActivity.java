@@ -126,6 +126,9 @@ public class MainActivity extends AppCompatActivity
             FirebaseDatabase UnlockDb = FirebaseDatabase.getInstance();
             final DatabaseReference Unlockref = UnlockDb.getReference();
             Unlockref.child("Orders").child(imei).child("Locked").setValue("No");
+            getFragmentManager().beginTransaction().replace(R.id.content_frame
+                    , new Cart_Fragment())
+                    .commit();
         }
 
         return super.onOptionsItemSelected(item);
