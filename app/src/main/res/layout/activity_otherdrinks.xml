@@ -113,14 +113,14 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Orange Juice"
+                    android:text="Orange Juice - 3€"
                     android:textColor="@android:color/white"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
@@ -224,7 +224,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Water"
+                    android:text="Water - 1€"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
@@ -354,14 +354,14 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Coca Cola"
+                    android:text="Coca Cola - 2€"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView

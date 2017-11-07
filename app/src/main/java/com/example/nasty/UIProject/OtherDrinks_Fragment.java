@@ -15,6 +15,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -39,9 +45,20 @@ public class OtherDrinks_Fragment extends Fragment {
     ImageButton ThirdArrowUp;
     ImageButton ThirdArrowDown;
 
-    String FirstProd = "Drink - Orange Juice ";
-    String SecondProd = "Drink - Water ";
-    String ThirdProd = "Drink - Coca Cola ";
+    String FirstProd = "Orange Juice ";
+    String SecondProd = "Water ";
+    String ThirdProd = "Coca Cola ";
+
+    String oldFirstQuan;
+    String oldSecondQuan;
+    String oldThirdQuan;
+
+    String FirstPrice  = "3";
+    String SecondPrice = "1";
+    String ThirdPrice  = "2";
+
+    static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
+    final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
 
     Button Submit;
 
@@ -60,6 +77,22 @@ public class OtherDrinks_Fragment extends Fragment {
 
         final Cart mCart = new Cart();
         mCart.setImei(imei);
+
+        OrderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                oldFirstQuan = dataSnapshot.child(imei).child("Products").child(FirstProd).getValue().toString();
+
+                oldSecondQuan = dataSnapshot.child(imei).child("Products").child(SecondProd).getValue().toString();
+
+                oldThirdQuan = dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         FirstText = (TextView) Mview.findViewById(R.id.FirstRowText);
@@ -153,21 +186,27 @@ public class OtherDrinks_Fragment extends Fragment {
                 String ThirdQuan = ThirdText.getText().toString();
 
                 if(Objects.equals(FirstQuan, "0"))
-                    mCart.RemoveFromCart(FirstProd);
+                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
                 if(Objects.equals(SecondQuan, "0"))
-                    mCart.RemoveFromCart(SecondProd);
+                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,ThirdPrice);
                 if(Objects.equals(ThirdQuan, "0"))
-                    mCart.RemoveFromCart(ThirdProd);
+                    mCart.RemoveFromCart(ThirdProd,oldThirdQuan,ThirdPrice);
 
                 if (!Objects.equals(FirstQuan, "0"))
-                    mCart.addOnCart(FirstProd, FirstQuan, ThirdPrice);
-
+                {
+                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
+                    mCart.addOnCart(FirstProd, FirstQuan, FirstPrice);
+                }
                 if (!Objects.equals(SecondQuan, "0"))
-                    mCart.addOnCart(SecondProd, SecondQuan, ThirdPrice);
-
+                {
+                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,SecondPrice);
+                    mCart.addOnCart(SecondProd, SecondQuan, SecondPrice);
+                }
                 if (!Objects.equals(ThirdQuan, "0"))
+                {
+                    mCart.RemoveFromCart(ThirdProd, oldThirdQuan,ThirdPrice);
                     mCart.addOnCart(ThirdProd, ThirdQuan, ThirdPrice);
-
+                }
                 getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
             }
         });
