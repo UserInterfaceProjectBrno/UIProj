@@ -81,11 +81,12 @@ public class Salad_Fragment extends Fragment {
         OrderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                oldFirstQuan = dataSnapshot.child(imei).child("Products").child(FirstProd).getValue().toString();
-
-                oldSecondQuan = dataSnapshot.child(imei).child("Products").child(SecondProd).getValue().toString();
-
-                oldThirdQuan = dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue().toString();
+                if(dataSnapshot.child(imei).child("Products").child(FirstProd).getValue()!=null)
+                    oldFirstQuan = dataSnapshot.child(imei).child("Products").child(FirstProd).getValue().toString();
+                if(dataSnapshot.child(imei).child("Products").child(SecondProd).getValue()!=null)
+                    oldSecondQuan = dataSnapshot.child(imei).child("Products").child(SecondProd).getValue().toString();
+                if(dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue()!=null)
+                    oldThirdQuan = dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue().toString();
             }
 
             @Override
