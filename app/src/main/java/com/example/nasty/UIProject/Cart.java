@@ -22,7 +22,7 @@ public class Cart
     public Cart()
     {
 
-        OrderRef.addValueEventListener(new ValueEventListener() {
+        OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Total = Integer.parseInt(dataSnapshot.child(imei).child("Products").child("Total").getValue().toString());
@@ -59,7 +59,7 @@ public class Cart
     public void RemoveFromCart(String Product,String Quantity,String Price)
     {
         if(flag==0)
-            OrderRef.child(imei).child("Products").child(Product).removeValue();
+            OrderRef.child(imei).child("Products").child(Product).setValue("0");
             Total=(Total-(Integer.parseInt(Price)*Integer.parseInt(Quantity)));
             OrderRef.child(imei).child("Products").child("TotalPrice").setValue(Total);
     }
