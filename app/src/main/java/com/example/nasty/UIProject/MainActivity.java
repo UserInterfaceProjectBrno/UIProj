@@ -115,6 +115,12 @@ public class MainActivity extends AppCompatActivity
             Intent GoLogin = new Intent(MainActivity.this,login_page.class);
             startActivity(GoLogin);
         }
+        if (id == R.id.About)
+        {
+            getFragmentManager().beginTransaction().replace(R.id.content_frame
+                    , new About_Fragment())
+                    .commit();
+        }
         if (id == R.id.unlockTemp)
         {
             FirebaseDatabase UnlockDb = FirebaseDatabase.getInstance();

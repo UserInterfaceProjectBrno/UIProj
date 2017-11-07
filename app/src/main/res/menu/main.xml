@@ -8,6 +8,11 @@
         android:title="@string/logout"
         app:showAsAction="never" />
     <item
+        android:id="@+id/About"
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/unlockTemp"
         android:orderInCategory="100"
         android:title="!UnlockOrder!"
