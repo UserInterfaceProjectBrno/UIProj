@@ -55,9 +55,9 @@ public class Cart {
         if (flag == 0) {
             OrderRef.child(imei).child("Products").child(Product).removeValue();
 
-            if (Price != null && Quantity != null)
+            if (Price != null && Quantity != null) {
                 Total = (Total - (Integer.parseInt(Price) * Integer.parseInt(Quantity)));
-
+            }
             OrderRef.child(imei).child("TotalPrice").setValue(Total);
         }
     }
