@@ -98,7 +98,7 @@ public class Cart_Fragment extends Fragment {
                 X=dataSnapshot.child(imei).child("Products").getValue();
 
                 if(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue()!=null)
-                    CartTotalText.setText("Cart Total:" + dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString());
+                    CartTotalText.setText("Cart Total Price: " + dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString() + " € ");
 
                 children = (int) dataSnapshot.getChildrenCount();
 
