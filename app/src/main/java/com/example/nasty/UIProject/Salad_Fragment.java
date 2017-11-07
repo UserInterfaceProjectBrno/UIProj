@@ -15,6 +15,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -40,8 +46,19 @@ public class Salad_Fragment extends Fragment {
     ImageButton ThirdArrowDown;
 
     String FirstProd = "Greek Salad ";
-    String SecondProd = "Ceasar Salad ";
+    String SecondProd = "Caesar Salad ";
     String ThirdProd = "Chef Salad ";
+
+    String oldFirstQuan;
+    String oldSecondQuan;
+    String oldThirdQuan;
+
+    String FirstPrice  = "4";
+    String SecondPrice = "5";
+    String ThirdPrice  = "4";
+
+    static FirebaseDatabase OrderDatabase = FirebaseDatabase.getInstance();
+    final static DatabaseReference OrderRef = OrderDatabase.getReference().child("Orders");
 
     Button Submit;
 
@@ -60,6 +77,22 @@ public class Salad_Fragment extends Fragment {
 
         final Cart mCart = new Cart();
         mCart.setImei(imei);
+
+        OrderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                oldFirstQuan = dataSnapshot.child(imei).child("Products").child(FirstProd).getValue().toString();
+
+                oldSecondQuan = dataSnapshot.child(imei).child("Products").child(SecondProd).getValue().toString();
+
+                oldThirdQuan = dataSnapshot.child(imei).child("Products").child(ThirdProd).getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         FirstText = (TextView) Mview.findViewById(R.id.FirstRowText);
@@ -153,21 +186,27 @@ public class Salad_Fragment extends Fragment {
                 String ThirdQuan = ThirdText.getText().toString();
 
                 if(Objects.equals(FirstQuan, "0"))
-                    mCart.RemoveFromCart(FirstProd);
+                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
                 if(Objects.equals(SecondQuan, "0"))
-                    mCart.RemoveFromCart(SecondProd);
+                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,ThirdPrice);
                 if(Objects.equals(ThirdQuan, "0"))
-                    mCart.RemoveFromCart(ThirdProd);
+                    mCart.RemoveFromCart(ThirdProd,oldThirdQuan,ThirdPrice);
 
                 if (!Objects.equals(FirstQuan, "0"))
-                    mCart.addOnCart(FirstProd, FirstQuan, ThirdPrice);
-
+                {
+                    mCart.RemoveFromCart(FirstProd,oldFirstQuan,FirstPrice);
+                    mCart.addOnCart(FirstProd, FirstQuan, FirstPrice);
+                }
                 if (!Objects.equals(SecondQuan, "0"))
-                    mCart.addOnCart(SecondProd, SecondQuan, ThirdPrice);
-
+                {
+                    mCart.RemoveFromCart(SecondProd,oldSecondQuan,SecondPrice);
+                    mCart.addOnCart(SecondProd, SecondQuan, SecondPrice);
+                }
                 if (!Objects.equals(ThirdQuan, "0"))
+                {
+                    mCart.RemoveFromCart(ThirdProd, oldThirdQuan,ThirdPrice);
                     mCart.addOnCart(ThirdProd, ThirdQuan, ThirdPrice);
-
+                }
                 getFragmentManager().beginTransaction().replace(R.id.content_frame,new Order_Fragment()).commit();
             }
         });

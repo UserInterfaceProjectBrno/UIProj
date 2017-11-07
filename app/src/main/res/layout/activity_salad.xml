@@ -95,15 +95,15 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Greek Salad"
+                    android:text="Greek Salad - 4€"
                     android:textColor="@android:color/white"
-                    android:textSize="36sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+                    
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
@@ -243,15 +243,15 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Caesar Salad"
+                    android:text="Caesar Salad - 5€"
                     android:textColor="@android:color/white"
-                    android:textSize="34sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
+                    
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
@@ -374,15 +374,14 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="casual"
-                    android:text="Chef Salad"
+                    android:text="Chef Salad - 4€"
                     android:textColor="@android:color/white"
-                    android:textSize="36sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintLeft_toLeftOf="@+id/ProductBackGroundImg"
                     app:layout_constraintRight_toRightOf="@+id/ProductBackGroundImg"
-                    app:layout_constraintTop_toBottomOf="@+id/ProcessBG"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageButton
