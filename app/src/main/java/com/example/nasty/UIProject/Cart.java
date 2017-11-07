@@ -25,7 +25,7 @@ public class Cart
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Total = Integer.parseInt(dataSnapshot.child(imei).child("Products").child("Total").getValue().toString());
+                Total = Integer.parseInt(dataSnapshot.child(imei).child("Products").child("TotalPrice").getValue().toString());
                 if(Objects.equals(dataSnapshot.child(imei).child("Locked").getValue(), "Yes"))
                 {
                     flag = 1;
