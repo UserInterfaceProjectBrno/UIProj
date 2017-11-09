@@ -79,7 +79,7 @@ public class Table_Fragment extends Fragment {
         TableNum = (TextView) Mview.findViewById(R.id.TableNum);
         UnreserveButt = (Button) Mview.findViewById(R.id.UnreserveButt);
 
-        OrderRef.child(imei).child("Reserve-Time").setValue("0");
+        OrderRef.child(imei).child("ReserveTime").setValue("0");
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

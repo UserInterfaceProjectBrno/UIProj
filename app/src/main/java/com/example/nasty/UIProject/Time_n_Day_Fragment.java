@@ -303,7 +303,7 @@ public class Time_n_Day_Fragment extends Fragment {
             public void onClick(View v) {
 
                 if (!Objects.equals(LockStatus, "Yes")) {
-                    OrderRef.child(imei).child("Reserve-Time").setValue("In " + numberofMin + " Minutes From " + Hour + ":" + Minute + " .");
+                    OrderRef.child(imei).child("ReserveTime").setValue("In " + numberofMin + " Minutes From " + Hour + ":" + Minute + " .");
                     Toast.makeText(getContext().getApplicationContext(), "In " + numberofMin + " Minutes From " + Hour + ":" + Minute + " .", Toast.LENGTH_LONG).show();
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, new Order_Fragment()).commit();
                 }

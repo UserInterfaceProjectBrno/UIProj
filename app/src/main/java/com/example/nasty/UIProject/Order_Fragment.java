@@ -78,7 +78,7 @@ public class Order_Fragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
-                TimeStatus = dataSnapshot.child(imei).child("Reserve-Time").getValue().toString();
+                TimeStatus = dataSnapshot.child(imei).child("ReserveTime").getValue().toString();
                 if (Objects.equals(LockedState, "Yes")) {
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
                 }
