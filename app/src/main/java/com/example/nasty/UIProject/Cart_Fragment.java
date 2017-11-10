@@ -48,9 +48,9 @@ public class Cart_Fragment extends Fragment {
 
 
         CartText = (TextView) Mview.findViewById(R.id.CartText);
-        PayButt = (Button) Mview.findViewById(R.id.LockButt);
+        PayButt = (Button) Mview.findViewById(R.id.PayAndLockButt);
         CartClearButt = (Button) Mview.findViewById(R.id.ClearButt);
-        CartTotalText = (TextView) Mview.findViewById(R.id.CartTotalTxt);
+        CartTotalText = (TextView) Mview.findViewById(R.id.PaymentTxt);
         //////////////////////////////////////////////////////////////////////////////////////////
         ActivityCompat.requestPermissions(getActivity(),
                 new String[]{"android.permission.READ_PHONE_STATE"},
@@ -144,28 +144,9 @@ public class Cart_Fragment extends Fragment {
         PayButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case DialogInterface.BUTTON_POSITIVE:
-
-                                OrderRef.child(imei).child("Locked").setValue("Yes");
-
-                                getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();
-
-                                break;
-
-                            case DialogInterface.BUTTON_NEGATIVE:
-                                //No button clicked
-                                break;
-                        }
-                    }
-                };
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setMessage("This Action Cannot Be Undone!\n PAY \nAre You Sure? ").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame
+                        , new Payment_Fragment())
+                        .commit();
             }
         });
 

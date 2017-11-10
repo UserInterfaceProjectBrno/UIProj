@@ -25,7 +25,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ClearButt"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CartTotalTxt">
+            app:layout_constraintTop_toBottomOf="@+id/PaymentTxt">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             app:layout_constraintVertical_bias="0.9" />
 
         <Button
-            android:id="@+id/LockButt"
+            android:id="@+id/PayAndLockButt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -92,7 +92,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
-            android:id="@+id/CartTotalTxt"
+            android:id="@+id/PaymentTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

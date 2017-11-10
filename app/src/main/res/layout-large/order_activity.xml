@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/LockButt"
+            android:id="@+id/PayAndLockButt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_column="1"
