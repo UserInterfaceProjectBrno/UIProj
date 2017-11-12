@@ -83,7 +83,9 @@ public class Table_Fragment extends Fragment {
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(imei).child("Locked").getValue().toString() != null)
+                if( dataSnapshot.child(imei).child("Locked").getValue() == null)
+                    OrderRef.child(imei).child("Locked").setValue("No");
+                if( dataSnapshot.child(imei).child("Locked").getValue() != null)
                     LockStatus = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 if (Objects.equals(LockStatus, "Yes")) {
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, new Cart_Fragment()).commit();

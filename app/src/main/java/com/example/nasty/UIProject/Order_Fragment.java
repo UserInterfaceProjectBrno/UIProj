@@ -77,7 +77,9 @@ public class Order_Fragment extends Fragment {
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(imei).child("Locked").getValue().toString() != null)
+                if( dataSnapshot.child(imei).child("Locked").getValue() == null)
+                    OrderRef.child(imei).child("Locked").setValue("No");
+                if( dataSnapshot.child(imei).child("Locked").getValue() != null)
                     LockedState = dataSnapshot.child(imei).child("Locked").getValue().toString();
                 if(dataSnapshot.child(imei).child("ReserveTime").getValue().toString() != null)
                     TimeStatus = dataSnapshot.child(imei).child("ReserveTime").getValue().toString();

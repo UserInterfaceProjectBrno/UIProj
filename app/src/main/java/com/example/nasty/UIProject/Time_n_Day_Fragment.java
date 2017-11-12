@@ -285,7 +285,9 @@ public class Time_n_Day_Fragment extends Fragment {
         OrderRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(imei).child("Locked").getValue().toString() != null)
+                if( dataSnapshot.child(imei).child("Locked").getValue() == null)
+                    OrderRef.child(imei).child("Locked").setValue("No");
+                if( dataSnapshot.child(imei).child("Locked").getValue() != null)
                     LockStatus = dataSnapshot.child(imei).child("Locked").getValue().toString();
 
                 if (Objects.equals(LockStatus, "Yes")) {
